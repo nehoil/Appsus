@@ -3,7 +3,7 @@ export default {
     props: ['mail'],
     template: `
         <section class="mail-preview">
-        <li @click="isShowExpndMail=!isShowExpndMail" :class="isRead">
+        <li @click="isShowExpndMail=!isShowExpndMail" :class="{ bold: !mail.isRead }">
             <div class="mail-prv-star"><i class="far fa-star"></i></div>
             <div class="mail-prv-sender">{{ mail.senderName }}</div>
             <div class="mail-prv-subject">{{ mail.subject }}</div>
