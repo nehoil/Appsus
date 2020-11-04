@@ -2,17 +2,22 @@
     /* background-color: red; */
 /* }  */
 
+/* mail main content  */
+
+.mail-app-main-content-container {
+    display: flex;
+}
+
 /* mail list cmp  */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
     font-family: 'Roboto', sans-serif;
+    list-style: none;
 }
 
 .mail-list ul {
   display: flex;
   flex-direction: column;
-  list-style: none;
   padding: 0;
   margin: 0;
 }
@@ -23,14 +28,85 @@
 
 
 /* mail prev cmp */
+.mail-list {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mail-preview li {
+    display: flex;
+    justify-content: space-between;
+}
 
 .mail-preview li {
     font-size: 1rem;
     display: flex;
     padding: 10px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.363);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.295);
+    cursor: pointer;
+}
+.mail-preview li:hover {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 }
 
 .mail-preview div {
     padding: 10px;
+    transition: .5s;
+}
+
+/* exp mail prv  */
+
+.open-actions-mail-exp i {
+    padding-left: 10px;
+}
+.open-actions-mail-exp i:hover {
+    color: #DB4437;
+}
+
+.exp-mail-prv {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.295);
+}
+
+.exp-mail-header {
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+}
+
+.exp-mail-sub-header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mail-expd-sender-name {
+    font-weight: 800;
+}
+.mail-expd-sender-email {
+    color: grey;
+}
+
+/* mail side menu cmp   */
+
+.mail-side-content ul {
+    padding: 20px;
+}
+.mail-side-content li {
+    padding: 10px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.mail-side-content li:hover {
+    background-color: rgba(128, 128, 128, 0.151);
+    border-radius: 20px;
 }
