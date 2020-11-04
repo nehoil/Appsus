@@ -1,0 +1,19 @@
+.note-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 320px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.note-img img {
+    max-width: 320px;
+}
+
+.note-img h1 {
+    margin: 5px;
+}
