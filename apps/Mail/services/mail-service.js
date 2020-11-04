@@ -8,9 +8,37 @@ var gMails = [
     {senderEmail: 'neho326@gmail.com', id: '6436gddfd', senderName: 'Neho', subject: 'How are you buddy?', body: 'Pick up!', isRead: false, sentAt : 1551133930594}
 ]
 export const mailService = {
-    getMails
+    getMails,
+    getById,
+    getByIdx,
+    removeMail
   }
 
   function getMails(){
      return Promise.resolve(gMails)
+  }
+
+
+  function getById(id) {
+    const mail = gMails.find(currMail => currMail.id === id)
+    return Promise.resolve(mail)
+  }
+
+  function getByIdx(idx) {
+    return Promise.resolve(gMails[idx])
+  }
+
+  function removeMail(mailId, bookId) {
+    return getById(bookId)
+    .then(mail => { 
+      var mailIdx = '';
+      mail.find((mail, idx) => {
+        if (mail.id === mailId) {
+            mailIdx = idx;
+        }
+      })
+      mail.splice(mailIdx, 1)
+      utilService.storeToStorage(MAILS_STORAGE_KEY, gMails)
+      return book;
+    })
   }
