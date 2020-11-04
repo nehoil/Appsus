@@ -1,34 +1,44 @@
+import { mailService } from '../services/mail-service.js';
+import mailSideMenu from '../cmps/mail-side-menu.cmp.js';
+import mailActionMenu from '../cmps/mail-action-menu.cmp.js';
+
 
 export default {
+    name: 'mailDetails',
     template: `
         <section class="mail-details">
             <div class="mail-app-main-content-container">
                 <div class="mail-side-menu">
-                    <mail-side-menu :mails="mails" />
+                    <mail-side-menu :mails="mail" />
                 </div>
                 <div class="mail-details-content">
-            <div class="exp-mail-prv">
-                <div class="exp-mail-header">
-                    <div class="mail-expd-subject">{{ mail.subject }}</div>
-                    <div class="open-actions-mail-exp">
-                    <i class="fas fa-ellipsis-h"></i><i class="fas fa-expand-alt"></i>
+                <div class="mail-details-header">
+                    <div class="mail-expd-subject"><span>{{ mail.subject }}</span></div>
+                        <div class="open-actions-mail-exp" @click="isShowMenu = !isShowMenu"><i class="fas fa-ellipsis-v"></i></div>
+                        <mail-action-menu v-show="isShowMenu"></mail-action-menu>
                     </div>
-                    </div>
-                        <div class="exp-mail-sub-header">
+                    <div class="exp-mail-sub-header">
                         <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
                         <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
                     </div>
+                    <div class="mail-sub-to">
+                       to me
+                    </div>
                     <div class="mail-expd-body">{{ mail.body }}</div>
-                </div>
+                    <div class="back-btn">
+                <router-link to="/mail">
+                <i class="fas fa-arrow-left"></i>
+                </router-link>
             </div>
-        </section>
                 </div>
+                
             </div>
         </section>
     `,
     data() {
         return {
-            mails: '',
+            mail: '',
+            isShowMenu: false
         }
     },
     computed: {
@@ -37,12 +47,11 @@ export default {
     },
     created() {
         const id = this.$route.params.mailId;
-        bookService.getbyId(id)
-            .then(book => this.book = book)
-        bookService.getIdxById(id)
-            .then(idx => this.bookIdx = idx)
+        mailService.getById(id)
+            .then(mail => this.mail = mail)
     },
     components: {
-
+        mailSideMenu,
+        mailActionMenu
     }
 }
