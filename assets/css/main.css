@@ -1,6 +1,6 @@
 @import "/assets/css/apps/Books/books-main.css";
-@import "/assets/css/apps/Books/keep-main.css";
-@import "/assets/css/apps/Books/mail-main.css";
+@import "/assets/css/apps/Mail/mail-main.css";
+@import "/assets/css/apps/Keep/keep-main.css";
 @import "home-page.css";
 @import "main-nav-bar.css";
 @import "user-msg.css";

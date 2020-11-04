@@ -1,4 +1,4 @@
-import appHeader from './js/app-header.cmp.js'
+import appHeader from '../cmps/app-header.cmp.js'
 import { myRouter } from './routes.js'
 
 
@@ -12,6 +12,7 @@ const options = {
                 <router-view />
             </main>
         </section>
+        <!-- <user-msg></user-msg> -->
     `,
     components: {
         appHeader
