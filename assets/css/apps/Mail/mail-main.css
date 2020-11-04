@@ -1,8 +1,36 @@
-.mail-app {
+/* .mail-app {
+    /* background-color: red; */
+/* }  */
+
+/* mail list cmp  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
 }
 
-.mail-preview ul {
- list-style: none;
- padding: 0;
- margin: 0;
+.mail-list ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mail-list {
+    margin: 20px;
+}
+
+
+/* mail prev cmp */
+
+.mail-preview li {
+    font-size: 1rem;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.363);
+}
+
+.mail-preview div {
+    padding: 10px;
 }

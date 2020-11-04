@@ -6,7 +6,9 @@ export default {
     template: `
         <section class="mail-list">
             <section v-for="mail in mails">
-                <mail-preview :mail="mail" />
+                <ul>
+                <mail-preview :mail="mail" :key="mail.id" />
+                </ul>
             </section>
         </section>
     `,
