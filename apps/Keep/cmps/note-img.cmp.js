@@ -2,11 +2,10 @@ export default {
     name: 'note-img',
     props: ['info'],
     template: `
-      <section>
-        <p>{{info.type}}</p>
-        <h1>This is Image Note!</h1>
+      <section class="note-img">
         <img :src=info.url alt="">
-        <input type="text" v-model="val" @change="reportVal">
+        <div></div>
+        <p>{{info.title}}</p>
          </section>
     `,
     data() {

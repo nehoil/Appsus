@@ -1,4 +1,21 @@
 @import './note-txt.css';
+@import './note-img.css';
+@import './note-todo.css';
+@import './note-video.css';
+* {
+    font-family: 'roboto', sans-serif;
+}
+
 .notes-container {
-    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* background-color: rgb(241, 241, 241); */
+}
+
+.add-note-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
