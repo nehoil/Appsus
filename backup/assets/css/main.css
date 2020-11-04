@@ -1,0 +1,48 @@
+
+
+/* general  */
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* layout */
+
+/* header  */
+
+header {
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.nav-logo  {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links ul {
+    padding: 20px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+.nav-links ul li {
+    padding: 20px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
