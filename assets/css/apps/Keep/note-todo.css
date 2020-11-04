@@ -1,7 +1,60 @@
+ul {
+    padding: 5px;
+}
+
 .note-todo {
+    position: relative;
     max-width: 320px;
     margin: 10px;
     border: 1px solid lightgray;
     border-radius: 10px;
     padding: 10px 10px 20px 10px;
+}
+
+.note-todo p {
+    margin: 8px;
+}
+
+.todos-list-title {
+    font-size: 18px;
+}
+
+.todos-list {
+    padding: 5px;
+}
+
+.todos-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.todos-input {
+    width: 260px;
+}
+
+.todos-list li button {
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.todos-list li button:hover {
+    border-radius: 50%;
+    background-color: rgb(243, 242, 242);
+    cursor: pointer;
+}
+
+.todos-list li:hover {
+    border-bottom: 1px solid lightgrey;
+}
+
+.note-todo .opts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

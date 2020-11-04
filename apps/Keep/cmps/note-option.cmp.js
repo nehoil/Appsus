@@ -1,13 +1,16 @@
+import { keepService } from '../services/keep-service.js'
+
+
 export default {
     name: 'note-options',
     props: ['id'],
     template: `
-      <section class="note-options-container">
+      <div class="note-options-container">
           <button @click="deleteNote"><i class="far fa-trash-alt"></i></button>
           <button><i class="far fa-edit"></i></button>
           <button><i class="fas fa-palette"></i></button>
           <button>X</button>
-    </section>
+</div>
     `,
     data() {
         return {
@@ -23,9 +26,8 @@ export default {
             this.isShowOpts = false
         },
         deleteNote() {
-            console.log(this.id);
-
-
+            const noteIdx = keepService.getNoteById(this.id);
+            keepService.deleteNote(noteIdx);
         }
     },
 }
