@@ -1,11 +1,19 @@
 import { mailService } from '../services/mail-service.js';
 import mailList from './mail-list.cmp.js';
+import mailSideMenu from './mail-side-menu.cmp.js';
 
 
 export default {
     template: `
         <section class="mail-app">
-            <mail-list :mails="mails" />
+            <div class="mail-app-main-content-container">
+                <div class="mail-side-menu">
+                    <mail-side-menu :mails="mails" />
+                </div>
+                <div class="mail-list-container">
+                    <mail-list :mails="mails" />
+                </div>
+            </div>
         </section>
     `,
     data() {
@@ -22,6 +30,7 @@ export default {
         .then(mails => this.mails = mails)
     },
     components: {
-        mailList
+        mailList,
+        mailSideMenu
     }
 }
