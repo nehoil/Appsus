@@ -6,16 +6,16 @@ export const keepService = {
 }
 
 var notes = [{
-        type: "NoteText",
+        type: "noteText",
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },
     {
-        type: "NoteImg",
+        type: "noteImg",
         info: {
-            url: "http://some-img/me",
+            url: "./apps/Keep/assets/img/car.png",
             title: "Me playing Mi"
         },
         style: {
@@ -23,7 +23,7 @@ var notes = [{
         }
     },
     {
-        type: "NoteTodos",
+        type: "noteTodos",
         info: {
             label: "How was it:",
             todos: [

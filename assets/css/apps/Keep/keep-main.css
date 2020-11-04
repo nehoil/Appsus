@@ -1,0 +1,4 @@
+@import './note-txt.css';
+.notes-container {
+    background-color: bisque;
+}

@@ -7,7 +7,6 @@ export default {
     <section class="mail-app">
         <miss-keep></miss-keep>
     </section>
-    <!-- <h></h> -->
     `,
     methods: {
 
