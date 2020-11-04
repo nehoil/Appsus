@@ -7,6 +7,7 @@ export const keepService = {
 }
 
 var notes = [{
+        id: 101,
         type: "noteText",
         isPinned: true,
         info: {
@@ -14,6 +15,7 @@ var notes = [{
         }
     },
     {
+        id: 102,
         type: "noteImg",
         info: {
             url: "./apps/Keep/assets/img/car.png",
@@ -24,6 +26,7 @@ var notes = [{
         }
     },
     {
+        id: 103,
         type: "noteTodos",
         info: {
             label: "How was it:",
@@ -82,10 +85,41 @@ function addImgNote(val) {
     var note = {
         type: "noteImg",
         info: {
-            url: "./apps/Keep/assets/img/car.png",
-            title: val
+            url: val,
+            title: null
         },
 
     }
     notes.push(note);
+}
+
+function addTodosNote(val) {
+    var note = {
+        type: "noteTodos",
+        info: {
+            label: val,
+            todos: [
+                { txt: "Do that", doneAt: null },
+                { txt: "Do this", doneAt: 187111111 }
+            ]
+        }
+    }
+    notes.push(note);
+
+}
+
+function addVidNote(val) {
+    var embbedVal = val.replace('watch?v=', 'embed/');
+    var idx = embbedVal.indexOf('&')
+    var newVal = embbedVal.substring(0, idx)
+
+    var note = {
+        type: "noteVideo",
+        info: {
+            url: newVal,
+            title: "Write note..."
+        },
+    }
+    notes.push(note);
+
 }
