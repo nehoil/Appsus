@@ -1,4 +1,3 @@
-
 export default {
     name: 'MailApp',
     template: `
@@ -7,6 +6,8 @@ export default {
     </section>
     `,
     methods: {
-        
+
     },
 }
+
+// PULL IS WORKING!//
