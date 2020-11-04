@@ -15,7 +15,7 @@ export default {
                 <div class="mail-details-header">
                     <div class="mail-expd-subject"><span>{{ mail.subject }}</span></div>
                         <div class="open-actions-mail-exp" @click="isShowMenu = !isShowMenu"><i class="fas fa-ellipsis-v"></i></div>
-                        <mail-action-menu v-show="isShowMenu"></mail-action-menu>
+                        <mail-action-menu v-show="isShowMenu" :mail="mail" @menuClicked="isShowMenu = !isShowMenu" />
                     </div>
                     <div class="exp-mail-sub-header">
                         <div class="mail-expd-sender-name">{{ mail.senderName }}</div>

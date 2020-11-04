@@ -5,13 +5,12 @@ export default {
     template: `
         <section class="mail-side-content">
                 <ul>
-                    <li>Inbox</li>
-                    <li>Starred</li>
-                    <li>Sent</li>
-                    <li>Drafts</li>
-                    <li>Notes</li>
+                    <li><i class="filter-icon fas fa-inbox" aria-hidden="true"></i> Inbox</li>
+                    <li><i class="filter-icon fas fa-star" aria-hidden="true"></i> Starred</li>
+                    <li><i class="filter-icon fas fa-share-square" aria-hidden="true"></i> Sent</li>
+                    <li><i class="far fa-envelope"></i> Drafts</li>
+                    <li><i class="filter-icon far fa-pen" aria-hidden="true"></i> Notes</li>
                 </ul>
-            </section>
         </section>
     `,
     data() {
