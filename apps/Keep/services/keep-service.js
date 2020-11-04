@@ -117,7 +117,6 @@ function addVidNote(val) {
         type: "noteVideo",
         info: {
             url: newVal,
-            title: "Write note..."
         },
     }
     notes.push(note);

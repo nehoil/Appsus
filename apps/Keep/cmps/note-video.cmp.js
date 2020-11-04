@@ -3,7 +3,7 @@ export default {
     props: ['info'],
     template: `
       <section class="note-video">
-      <iframe width="320" height="215" :src=info.url></iframe>
+      <iframe width="320" height="215" :src="info.url"></iframe>
     </section>
     `,
     data() {

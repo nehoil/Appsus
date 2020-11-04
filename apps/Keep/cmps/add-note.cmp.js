@@ -11,10 +11,10 @@ export default {
           <form @submit.prevent="addNote(val)">
                <input type="text" v-model="val">
             </form>
-            <button @click="setTypeTxt">Text</button>
-            <button @click="setTypeImg">Image</button>
-            <button @click="setTypeTodos">Todo-list</button>
-            <button @click="setTypeVid">Todo-video</button>
+            <button @click="setType('noteText')">Text</button>
+            <button @click="setType('noteImg')">Image</button>
+            <button @click="setType('noteTodos')">Todo-list</button>
+            <button @click="setType('noteVideo')">video</button>
 
     </section>
     `,
@@ -29,20 +29,10 @@ export default {
             keepService.addNote(val, this.type);
             this.val = '';
         },
-        setTypeTxt() {
-            this.type = 'noteText';
-        },
-        setTypeImg() {
-            this.type = 'noteImg'
-            console.log(this.type);
-
-        },
-        setTypeTodos() {
-            this.type = 'noteTodos'
-        },
-        setTypeVid() {
-            this.type = 'noteVideo'
+        setType(type) {
+            this.type = type;
         }
+
     },
 
 }
