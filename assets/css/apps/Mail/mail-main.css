@@ -80,6 +80,7 @@ a {
 }
 
 .exp-mail-prv {
+    position: relative;
     display: flex;
     flex-direction: column;
     font-size: 1rem;
@@ -89,10 +90,12 @@ a {
 }
 
 .exp-mail-header {
-    font-size: 1.2rem;
-    font-weight: 800;
     display: flex;
     justify-content: space-between;
+}
+.mail-expd-subject {
+    font-size: 1.2rem;
+    font-weight: 800;
 }
 
 .exp-mail-sub-header {
@@ -174,7 +177,10 @@ a {
     padding: 0;
     /* align-items: center; */
 }
-.mail-action-menu li {
+.mail-action-menu ul li {
+    font-weight: 0;
+    display: flex;
+    justify-content: start;
     font-size: 1rem;
     background-color: #fff;
     padding: 10px 20px;
@@ -182,7 +188,8 @@ a {
 }
 
 .mail-action-menu li:hover {
-    background-color: rgba(155, 155, 155, 0.185);
+    border-radius: unset;
+    background-color: rgb(236, 236, 236);
 }
 
 
