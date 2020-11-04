@@ -15,6 +15,11 @@
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .mail-list ul {
   display: flex;
   flex-direction: column;
@@ -28,6 +33,13 @@
 
 
 /* mail prev cmp */
+.mail-prv-date {
+    font-size: 0.9rem;
+}
+.bold {
+    font-weight: bold;
+}
+
 .mail-list {
     width: 90%;
     display: flex;
@@ -109,4 +121,83 @@
 .mail-side-content li:hover {
     background-color: rgba(128, 128, 128, 0.151);
     border-radius: 20px;
+}
+
+/* mail details cmps  */
+
+.back-btn {
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 10px;
+}
+.back-btn :hover {
+    color: #DB4437;
+}
+.mail-sub-to {
+    padding-bottom: 30px;
+    color: grey;
+}
+.exp-mail-sub-header div {
+    padding-inline-end: 10px;
+}
+
+.mail-details-content {
+    position: relative;
+    width: 100%;
+    padding-bottom: 10px;
+    padding: 0 20px;
+}
+
+
+.mail-details-header {
+    position: relative;
+    font-size: 1.37rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+/* mail action menu cmp */
+.mail-action-menu  {
+    top: 60px;
+    right: 0;
+    position: absolute;
+}
+
+.mail-action-menu ul {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    padding: 0;
+    /* align-items: center; */
+}
+.mail-action-menu li {
+    font-size: 1rem;
+    background-color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.mail-action-menu li:hover {
+    background-color: rgba(155, 155, 155, 0.185);
+}
+
+
+/* .mail-action-menu ul {
+    position: absolute;
+    top: 0;
+    right: 70px;
+} */
+
+/* helpers  */
+
+/* box shadow helpers  */
+
+.box-shadow {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 }
