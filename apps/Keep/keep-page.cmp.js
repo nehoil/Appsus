@@ -1,4 +1,4 @@
-import missKeep from '../apps/Keep/cmps/miss-keep.cmp.js'
+import missKeep from '../Keep/cmps/miss-keep.cmp.js'
 
 
 export default {
