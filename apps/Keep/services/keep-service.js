@@ -1,5 +1,9 @@
 import { utilService } from '../../../services/util-service.js'
 
+export const keepService = {
+    getNotes,
+
+}
 
 var notes = [{
         type: "NoteText",
@@ -29,3 +33,7 @@ var notes = [{
         }
     }
 ];
+
+function getNotes() {
+    return Promise.resolve(notes);
+}
