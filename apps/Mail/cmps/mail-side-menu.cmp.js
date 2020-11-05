@@ -6,9 +6,9 @@ export default {
         <section class="mail-side-content">
             <button @click="emitCompose">Compose</button>
                 <ul>
-                    <li @click="emitFilter(null)"><i class="filter-icon fas fa-inbox" aria-hidden="true"></i> Inbox {{ unReadMail }}</li>
+                    <li @click="emitFilter('all')"><i class="filter-icon fas fa-inbox" aria-hidden="true"></i> Inbox {{ unReadMail }}</li>
                     <li @click="emitFilter('isStar')"    ><i class="filter-icon fas fa-star" aria-hidden="true"></i> Starred {{ starredMail }}</li>
-                    <li @click="emitFilter('sent')"><i class="filter-icon fas fa-share-square" aria-hidden="true"></i> Sent </li>
+                    <li @click="emitFilter('isSent')"><i class="filter-icon fas fa-share-square" aria-hidden="true"></i> Sent </li>
                     <li @click="emitFilter('isDraft')" ><i class="far fa-envelope"></i> Drafts {{ draftMail }}</li>
                     <li @click="emitFilter('isNote')" ><i class="filter-icon far fa-pen" aria-hidden="true"></i> Notes {{ notesMail }}</li>
                 </ul>
@@ -21,7 +21,7 @@ export default {
             draftMails: 0,
             starredMails: 0,
             notesMails: 0,
-            FilterBy: null,
+            FilterBy: 'all',
         }
     },
     computed: {

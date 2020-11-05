@@ -10,7 +10,12 @@ export default {
             <div class="compose-container compose-container-w" v-if="isShowCompose">
                 <form @submit.prevent="addMail">
                 <div class="compose-title">
-                    New Message
+                <div class="title-txt">
+                        New Message
+                    </div>
+                <div class="compose-remove-header">
+                <i @click="closeCompose" class="fas fa-times"></i>
+                    </div>
                 </div>
                 <div class="compose-recipients">
                     <input v-model="newMail.sentEmail" type="text" placeholder="To"  ref="toInput" required>
@@ -31,8 +36,8 @@ export default {
                     <div class="compose-send">
                         <button>Send</button>
                     </div>
-                    <div class="compose-remove">
-                        <i class="fas fa-trash" aria-hidden="true"></i>
+                    <div class="compose-remove-footer">
+                        <i @click="closeCompose" class="fas fa-trash" aria-hidden="true"></i>
                     </div>
                 </div>
                 </form>
@@ -50,16 +55,20 @@ export default {
     data() {
         return {
             mails: '',
-            isShowCompose: true,
-            filterBy: null,
-            newMail: { sentEmail: null, isNote: false, isDraft: false, isStar: false, senderEmail: 'myname@gmail.com', senderName: 'me', subject: '', body: '', isRead: false, sentAt: null }
+            isShowCompose: false,
+            filterBy: 'all',
+            newMail: mailService.getEmptyMail()
         }
     },
     computed: {
         mailsToShow() {
-            if (!this.filterBy) return this.mails;
+            if (this.filterBy === 'all') return this.mails;
             return this.mails.filter(mail => mail[this.filterBy])
         }
+        // mailsToShow() {
+        //     if (this.filterBy === 'all')  return this.mails.filter(mail => !mail.isSent);
+        //     return this.mails.filter(mail => mail[this.filterBy])
+        // }
     },
     methods: {
         setFilter(filter) {
@@ -75,6 +84,9 @@ export default {
         showCompose() {
             this.isShowCompose = true;
             setTimeout(() => this.$refs.toInput.focus(), 100)
+        },
+        closeCompose(){
+            this.isShowCompose = false;
         }
     },
     created() {
