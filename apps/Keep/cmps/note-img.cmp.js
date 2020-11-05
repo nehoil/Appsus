@@ -8,12 +8,9 @@ export default {
     props: ['info'],
     template: `
       <section class="note-img" @mouseover="showOpts" @mouseleave="hideOpts">
-        <p v-show="!isEditable"  class="note-img-title">{{info.title}}</p>
-        <form @submit.prevent="updateTitle(info.id)">
-        <input type="text" v-model="val" v-show="isEditable"  ref="imgTitleInput" class="note-img-input">
-        </form>
+        <p contentEditable="true" class="note-img-title" @keydown.enter="saveTitle(info.id,$event)" @blur="saveTitle(info.id,$event)" ref="imgTitleInput">{{info.title}}</p>
         <img :src=info.url alt="">
-        <note-options v-show="isShowOpts" :id="info.id" @editNote="edit($event)"></note-options>
+        <note-options v-show="isShowOpts" :id="info.id" @editNote="edit"></note-options>
              </section>
     `,
     data() {
@@ -33,14 +30,20 @@ export default {
             this.isShowOpts = false;
         },
         edit(val) {
-            this.isEditable = true;
             this.val = val;
+            this.val += ' ';
             this.$nextTick(() => this.$refs.imgTitleInput.focus());
         },
         updateTitle(noteID) {
             keepService.updateTitle(noteID, this.val);
             this.isEditable = false
-        }
+        },
+        saveTitle(noteId, ev) {
+            this.$refs.imgTitleInput.blur();
+            var val = ev.target.innerText
+            keepService.saveTitle(noteId, val)
+
+        },
     },
     components: {
         noteOptions,
