@@ -9,9 +9,7 @@
 
 .notes-container {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    height: 95vh;
 }
 
 .notes-container section:hover {
