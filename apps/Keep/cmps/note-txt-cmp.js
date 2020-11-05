@@ -18,7 +18,6 @@ export default {
     },
     methods: {
         showOpts() {
-            console.log('yes');
             this.isShowOpts = true;
 
         },

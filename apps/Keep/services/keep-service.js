@@ -2,22 +2,24 @@ import { utilService } from '../../../services/util-service.js'
 
 export const keepService = {
     getNotes,
-    addNote
+    addNote,
+    getNoteById,
+    deleteNote
 
 }
 
 var notes = [{
-        id: 101,
         type: "noteText",
         isPinned: true,
         info: {
+            id: 101,
             txt: "Fullstack Me Baby!"
         }
     },
     {
-        id: 102,
         type: "noteImg",
         info: {
+            id: 102,
             url: "./apps/Keep/assets/img/car.png",
             title: "Me playing Mi"
         },
@@ -26,19 +28,20 @@ var notes = [{
         }
     },
     {
-        id: 103,
         type: "noteTodos",
         info: {
+            id: 103,
             label: "How was it:",
             todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+                { id: 201, txt: "Do that", doneAt: null },
+                { id: 202, txt: "Do this", doneAt: 187111111 }
             ]
         }
     },
     {
         type: "noteVideo",
         info: {
+            id: 104,
             url: "https://www.youtube.com/embed/tgbNymZ7vqY",
             title: "Nice video"
         },
@@ -48,6 +51,18 @@ var notes = [{
 function getNotes() {
     return Promise.resolve(notes);
 }
+
+function getNoteById(id) {
+    console.log(id);
+    console.log(notes.findIndex(note => note.info.id === id));
+
+    return notes.findIndex(note => note.info.id === id);
+}
+
+function deleteNote(idx) {
+    notes.splice(idx, 1);
+}
+
 
 function addNote(val, type) {
     switch (type) {
@@ -73,6 +88,7 @@ function addTxtNote(val) {
         type: "noteText",
         isPinned: true,
         info: {
+            id: utilService.makeId(9),
             txt: val
         }
     }
@@ -85,6 +101,7 @@ function addImgNote(val) {
     var note = {
         type: "noteImg",
         info: {
+            id: utilService.makeId(9),
             url: val,
             title: null
         },
@@ -97,10 +114,11 @@ function addTodosNote(val) {
     var note = {
         type: "noteTodos",
         info: {
+            id: utilService.makeId(9),
             label: val,
             todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+                // { id: utilService.makeId(10), txt: "Do that", doneAt: null },
+                // { id: utilService.makeId(10), txt: "Do this", doneAt: 187111111 }
             ]
         }
     }

@@ -5,8 +5,12 @@
 
 .note-txt {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     max-width: 320px;
-    padding: 10px 10px 0px 10px;
+    padding: 10px 10px 40px 10px;
     margin: 10px;
     border: 1px solid lightgray;
     border-radius: 10px;
