@@ -47,14 +47,14 @@ export default {
                     <mail-side-menu :mails="mails" @doFilter="setFilter" @doCompose="showCompose"/>
                 </div>
                 <div class="mail-list-container">
-                    <mail-list :mails="mailsToShow" />
+                    <mail-list v-if="mails" :mails="mailsToShow" />
                 </div>
             </div>
         </section>
     `,
     data() {
         return {
-            mails: '',
+            mails: null,
             isShowCompose: false,
             filterBy: 'all',
             newMail: mailService.getEmptyMail()
@@ -62,13 +62,9 @@ export default {
     },
     computed: {
         mailsToShow() {
-            if (this.filterBy === 'all') return this.mails;
+            if (this.filterBy === 'all')  return this.mails.filter(mail => !mail.isSent);
             return this.mails.filter(mail => mail[this.filterBy])
         }
-        // mailsToShow() {
-        //     if (this.filterBy === 'all')  return this.mails.filter(mail => !mail.isSent);
-        //     return this.mails.filter(mail => mail[this.filterBy])
-        // }
     },
     methods: {
         setFilter(filter) {
