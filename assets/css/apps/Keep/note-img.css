@@ -11,6 +11,19 @@
     border-radius: 10px;
 }
 
+.note-img-title {
+    margin: 0 0 10px
+}
+
+.note-img-input {
+    width: 230px;
+    margin: 0 0 10px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    text-align: center;
+}
+
 .note-img img {
     max-width: 320px;
 }

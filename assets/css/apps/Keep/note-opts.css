@@ -19,3 +19,14 @@
     background-color: rgb(243, 242, 242);
     cursor: pointer;
 }
+
+.color-palette-container {
+    position: absolute;
+    bottom: 10px;
+}
+
+.colors {
+    background-color: lightgrey;
+    width: 80px;
+    height: 80px;
+}

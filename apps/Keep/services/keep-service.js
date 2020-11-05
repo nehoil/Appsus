@@ -4,8 +4,13 @@ export const keepService = {
     getNotes,
     addNote,
     getNoteById,
-    deleteNote
-
+    deleteNote,
+    deleteTodo,
+    addTodo,
+    editNote,
+    updateTitle,
+    saveTodo,
+    saveVidTitle,
 }
 
 var notes = [{
@@ -13,7 +18,7 @@ var notes = [{
         isPinned: true,
         info: {
             id: 101,
-            txt: "Fullstack Me Baby!"
+            title: "It's Valentine's Day, do not forget to buy flowers"
         }
     },
     {
@@ -21,7 +26,7 @@ var notes = [{
         info: {
             id: 102,
             url: "./apps/Keep/assets/img/car.png",
-            title: "Me playing Mi"
+            title: "11.11.20 - We are going to travel!"
         },
         style: {
             backgroundColor: "#00d"
@@ -31,10 +36,10 @@ var notes = [{
         type: "noteTodos",
         info: {
             id: 103,
-            label: "How was it:",
+            title: "My Todo list:",
             todos: [
-                { id: 201, txt: "Do that", doneAt: null },
-                { id: 202, txt: "Do this", doneAt: 187111111 }
+                { id: 201, txt: "Buy bananas", doneAt: null },
+                { id: 202, txt: "Go for a walk", doneAt: 187111111 }
             ]
         }
     },
@@ -53,9 +58,6 @@ function getNotes() {
 }
 
 function getNoteById(id) {
-    console.log(id);
-    console.log(notes.findIndex(note => note.info.id === id));
-
     return notes.findIndex(note => note.info.id === id);
 }
 
@@ -89,7 +91,7 @@ function addTxtNote(val) {
         isPinned: true,
         info: {
             id: utilService.makeId(9),
-            txt: val
+            title: val
         }
     }
     notes.push(note);
@@ -115,10 +117,9 @@ function addTodosNote(val) {
         type: "noteTodos",
         info: {
             id: utilService.makeId(9),
-            label: val,
+            title: val,
             todos: [
-                // { id: utilService.makeId(10), txt: "Do that", doneAt: null },
-                // { id: utilService.makeId(10), txt: "Do this", doneAt: 187111111 }
+
             ]
         }
     }
@@ -130,7 +131,6 @@ function addVidNote(val) {
     var embbedVal = val.replace('watch?v=', 'embed/');
     var idx = embbedVal.indexOf('&')
     var newVal = embbedVal.substring(0, idx)
-
     var note = {
         type: "noteVideo",
         info: {
@@ -138,5 +138,42 @@ function addVidNote(val) {
         },
     }
     notes.push(note);
+}
 
+
+function deleteTodo(noteId, todoId) {
+    var noteIdx = getNoteById(noteId)
+    var todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId)
+    notes[noteIdx].info.todos.splice(todoIdx, 1)
+}
+
+function addTodo(noteId, todoTxt) {
+    var todo = {
+        id: utilService.makeId(10),
+        txt: todoTxt,
+        doneAt: null
+    }
+    var noteIdx = getNoteById(noteId)
+    notes[noteIdx].info.todos.push(todo)
+}
+
+function saveTodo(noteId, todoId, val) {
+    var noteIdx = getNoteById(noteId);
+    var todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId);
+    notes[noteIdx].info.todos[todoIdx].txt = val;
+}
+
+function editNote(noteId) {
+    var noteIdx = getNoteById(noteId);
+    return notes[noteIdx].info.title
+}
+
+function updateTitle(noteId, val) {
+    var noteIdx = getNoteById(noteId);
+    notes[noteIdx].info.title = val;
+}
+
+function saveVidTitle(noteId, val) {
+    var noteIdx = getNoteById(noteId);
+    notes[noteIdx].info.title = val;
 }
