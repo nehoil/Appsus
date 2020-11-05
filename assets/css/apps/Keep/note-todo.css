@@ -5,7 +5,7 @@ ul {
 .note-todo {
     position: relative;
     max-width: 320px;
-    margin: 10px;
+    /* margin: 10px; */
     border: 1px solid lightgray;
     border-radius: 10px;
     padding: 10px 10px 20px 10px;
