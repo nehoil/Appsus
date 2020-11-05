@@ -1,4 +1,5 @@
 import { mailService } from '../services/mail-service.js';
+import {eventBus} from '../../../services/event-bus-service.js';
 
 
 export default {
@@ -24,22 +25,27 @@ export default {
     methods: {
         removeMail(){
             mailService.removeMail(this.mail)
-            this.$router.push('/mail')
+            this.$router.push('/mail');
+            console.log('removed');
+            eventBus.$emit('show-msg', `Mail removed successfully`)
         },
         unMarkMail(){
             this.$emit('menuClicked')
             this.$emit('unMarked')
             mailService.markMail(this.mail)
+            eventBus.$emit('show-msg', `Mail unmarked successfully`)
         },
         starMail(){
             mailService.starMail(this.mail)
             this.$emit('menuClicked')
+            eventBus.$emit('show-msg', `Mail starred successfully`)
         },
         reply(){
             this.$emit('menuClicked')
         },
         sendToNotes(){
             this.$emit('menuClicked')
+            eventBus.$emit('show-msg', `Mail saved as note successfully`)
         },
     },
 }

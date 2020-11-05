@@ -1,6 +1,7 @@
 import mailPreview from './mail-preview.cmp.js';
 
 
+
 export default {
     props: ['mails'],
     template: `
