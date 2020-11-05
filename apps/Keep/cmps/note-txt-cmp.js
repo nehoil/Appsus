@@ -9,7 +9,7 @@ export default {
       <section  class="note-txt" :style="{ backgroundColor : bgColor }" @mouseover="showOpts" @mouseleave="hideOpts" >
           <h1 v-if="!info.title">Empty Note!</h1>
         <form>
-        <textarea rows="10" cols="30"   ref="noteTxtInput" class="note-txt-input" @keydown.enter="updateTitle(info.id,
+        <textarea rows="5" cols="30"   ref="noteTxtInput" class="note-txt-input" @keydown.enter="updateTitle(info.id,
             $event)" :style="{ backgroundColor : bgColor }">{{info.title}}</textarea>
         </form>
         <note-options  v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>

@@ -6,7 +6,7 @@ export default {
             }
         }
     },
-    template: `<section class="search-note-container">
+    template: `<section class="search-note-container container">
         <form @submit.prevent="emitFilter" class="notes-search-bar">
 
         <div>

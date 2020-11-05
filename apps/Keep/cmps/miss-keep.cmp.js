@@ -12,9 +12,9 @@ export default {
     template: `
     <div>
     <add-note></add-note>
-    <search-note @doFilter="setFilter"></search-note>
+    <search-note @doFilter="setFilter" ></search-note>
 
-     <section v-if="notes" class="notes-container">
+     <section v-if="notes" class="notes-container container">
         <component v-for="note in notesToShow" :is="note.type"  :key="note.id" :info="note.info"></component>
      </section>
      </div>

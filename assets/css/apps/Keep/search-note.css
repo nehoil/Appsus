@@ -1,0 +1,15 @@
+.search-note-container {
+    margin: 0 auto;
+}
+
+.search-note-container input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.search-note-container button {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgray;
+}

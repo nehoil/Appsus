@@ -3,13 +3,26 @@
 @import './note-todo.css';
 @import './note-video.css';
 @import './note-opts.css';
+@import './search-note.css';
 * {
     font-family: 'roboto', sans-serif;
 }
 
+.container {
+    max-width: 1200px;
+}
+
 .notes-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-gap: 20px;
+    margin: 0 auto;
+    /* margin: 0 auto 2em;
+    column-gap: .25em;
+    column-count: 4;
+    vertical-align: baseline;
+    width: 95vw; */
+    /* padding-left: 1em; */
 }
 
 .notes-container section:hover {
@@ -21,20 +34,4 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-}
-
-.search-note-container {
-    margin-left: 15px;
-}
-
-.search-note-container input {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid lightgray;
-}
-
-.search-note-container button {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid lightgray;
 }
