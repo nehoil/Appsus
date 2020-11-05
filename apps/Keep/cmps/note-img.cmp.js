@@ -8,6 +8,7 @@ export default {
     props: ['info'],
     template: `
       <section class="note-img" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
+    
         <p contentEditable="true" class="note-img-title" @keydown.enter="saveTitle(info.id,$event)" @blur="saveTitle(info.id,$event)" ref="imgTitleInput">{{info.title}}</p>
         <img :src=info.url alt="">
         <note-options v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>

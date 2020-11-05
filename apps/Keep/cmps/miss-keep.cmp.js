@@ -28,6 +28,7 @@ export default {
     created() {
         keepService.getNotes()
             .then(notes => this.notes = notes)
+            .then(notes => console.log(notes))
     },
     methods: {
         setFilter(filter) {
@@ -36,8 +37,12 @@ export default {
     },
     computed: {
         notesToShow() {
+            var pinedNotes = this.notes.filter(note => note.isPinned === true);
+            var unPinedNotes = this.notes.filter(note => note.isPinned === false);
+            var orderedNotes = pinedNotes.concat(unPinedNotes);
+            if (!this.filterBy) return orderedNotes;
+
             const txt = this.filterBy.byTitle;
-            if (!this.filterBy) return this.notes
             return this.notes.filter(note => note.info.title.toLowerCase().includes(txt.toLowerCase()))
         }
     },

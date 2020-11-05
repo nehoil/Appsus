@@ -9,6 +9,7 @@ export default {
           <button @click="deleteNote"><i class="far fa-trash-alt"></i></button>
           <button @click="editNote"><i class="far fa-edit"></i></button>
           <button  @click="toggleColorPalette" ><i class="fas fa-palette"></i></button>
+          <button  @click="pinNote" ><i class="fas fa-thumbtack"></i></i></button>
           <div class="color-palette-container" v-if="isShowColorPalette">
               <div class="colors">
               <div class="white" @click="setBgColor('white')"></div>
@@ -55,6 +56,10 @@ export default {
         },
         setBgColor(color) {
             this.$emit('changeBgColor', color)
+        },
+        pinNote() {
+            const noteIdx = keepService.getNoteById(this.id);
+            keepService.pinNote(noteIdx);
         }
     },
     created() {
