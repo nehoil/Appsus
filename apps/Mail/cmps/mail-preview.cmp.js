@@ -6,7 +6,7 @@ export default {
     props: ['mail'],
     template: `
         <section class="mail-preview">
-        <li @click="mailClicked" :class="{ bold: !mail.isRead }">
+        <li @click="mailClicked" :class="isRead">
             <div class="mail-prv-star" @click.stop="starMail"><i :class="starClass"></i></div>
             <div class="mail-prv-sender">{{ mail.senderName }}</div>
             <div class="mail-prv-subject">{{ mail.subject }}</div>
@@ -46,7 +46,8 @@ export default {
             return 'far fa-star'
         },
         isRead(){
-            if (!this.mail.isRead) return 'bold';
+            if (!this.mail.isRead) return 'unread';
+            return 'read'
         },
         getDate() {
             var nowTime = new Date().getTime()

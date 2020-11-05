@@ -1,6 +1,12 @@
 
+.mail-app {
+    margin: 0;
+}
+
 .mail-app-main-content-container {
     display: flex;
+    justify-content: center;
+    margin: 0;
 }
 
 /* mail list cmp  */
@@ -8,11 +14,17 @@
 * {
     font-family: 'Roboto', sans-serif;
     list-style: none;
+    color: #202124;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+}
+
+.mail-list-container {
+    width: 100%;
+    margin: 0;
 }
 
 .mail-list ul {
@@ -22,13 +34,12 @@ a {
   margin: 0;
 }
 
-.mail-list {
-    margin: 20px;
-}
-
 
 /* mail prev cmp */
 
+.mail-preview div {
+
+}
 .starred {
     color: #F5B041;
 }
@@ -36,12 +47,40 @@ a {
 .mail-prv-date {
     font-size: 0.9rem;
 }
+
+.unread {
+    font-weight: bold;
+}
 .bold {
     font-weight: bold;
 }
 
+.read {
+    background: rgba(242,245,245,0.8);
+}
+
+.mail-prv-star {
+    min-width: 20px;
+}
+
+.mail-prv-sender {
+    min-width: 100px;
+}
+
+.mail-prv-subject {
+    min-width: 200px;
+}
+
+.mail-prv-body {
+    min-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mail-prv-date {
+    min-width: 100px;
+}
 .mail-list {
-    width: 90%;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

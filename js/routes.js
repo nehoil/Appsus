@@ -4,7 +4,7 @@
 // import bookApp from './pages/books-page.cmp.js';
 // import { aboutPage, aboutServicesPage, aboutTeamPage } from './pages/about-us.cmp.js';
 import keepApp from '../apps/Keep/keep-page.cmp.js';
-import mailApp from '../apps/Mail/mail-page.cmp.js';
+import mailApp from '../apps/Mail/cmps/mail-app.cmp.js';
 import mailDetails from '../apps/Mail/pages/mail-details.cmp.js';
 import homePage from '../pages/home-page.cmp.js';
 
