@@ -28,6 +28,7 @@ export default {
         },
         unMarkMail(){
             this.$emit('menuClicked')
+            this.$emit('unMarked')
             mailService.markMail(this.mail)
         },
         starMail(){
