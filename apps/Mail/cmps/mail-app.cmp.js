@@ -50,7 +50,7 @@ export default {
     data() {
         return {
             mails: '',
-            isShowCompose: true,
+            isShowCompose: false,
             filterBy: null,
             newMail: { sentEmail: null, isNote: false, isDraft: false, isStar: false, senderEmail: 'myname@gmail.com', senderName: 'me', subject: '', body: '', isRead: false, sentAt: null }
         }
