@@ -1,6 +1,5 @@
-import { keepService } from '../services/keep-service.js'
-
-
+import { keepService } from '../services/keep-service.js';
+// import searchNote from '../cmps/search-note.cmp.js'
 
 export default {
     name: 'add-note',
@@ -15,7 +14,7 @@ export default {
             <button @click="setType('noteImg')">Image</button>
             <button @click="setType('noteTodos')">Todo-list</button>
             <button @click="setType('noteVideo')">video</button>
-
+            <!-- <search-note @filtered="setFilter"></search-note> -->
     </section>
     `,
     data() {
@@ -34,5 +33,9 @@ export default {
         }
 
     },
+    components: {
+        // searchNote,
+
+    }
 
 }

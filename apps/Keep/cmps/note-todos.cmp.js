@@ -5,7 +5,7 @@ export default {
     name: 'note-todos',
     props: ['info'],
     template: `
-      <section class="note-todo" @mouseover="showOpts" @mouseleave="hideOpts">
+      <section class="note-todo" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
         <p class="todos-list-title" v-show="!isEditable">{{info.title}}</p>
         <form @submit.prevent="updateTitle(info.id)">
         <input type="text" v-model="val" v-show="isEditable"  ref="todoTitleInput" class="note-todos-input">
@@ -29,9 +29,8 @@ export default {
             </li>
             </form>
         </ul>
-        <!-- v-show="isShowOpts" -->
         <div class="opts-container">
-        <note-options  :id="info.id"  @editNote="editTitle($event)"></note-options>
+        <note-options v-if="isShowOpts" :id="info.id"  @editNote="editTitle($event)" @changeBgColor="changeBgColor"></note-options>
         </div>
     </section>
     `,
@@ -42,6 +41,8 @@ export default {
             todoTxt: null,
             isEditable: false,
             currTodoTxt: '',
+            bgColor: 'white',
+
         }
     },
     methods: {
@@ -61,10 +62,6 @@ export default {
             this.todoTxt = null
 
         },
-        // focus() {
-        //     console.log('dddd');
-        //     this.$refs.todoTitleInput.focus()
-        // },
         editTitle(val) {
             this.isEditable = true;
             this.val = val;
@@ -83,6 +80,9 @@ export default {
             var val = ev.target.innerText
             keepService.saveTodo(noteId, todoId, val)
 
+        },
+        changeBgColor(color) {
+            this.bgColor = color;
         }
     },
 

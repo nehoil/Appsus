@@ -6,17 +6,19 @@ export default {
     name: 'note-video',
     props: ['info'],
     template: `
-      <section class="note-video" @mouseover="showOpts" @mouseleave="hideOpts">
+      <section class="note-video" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
       <p class="note-vid-title" contentEditable="true" @keydown.enter="saveTitle(info.id,$event)"  @blur="saveTitle(info.id,$event)" ref="vidTitleInput" placeholder="text">{{info.title}}</p>
       <iframe width="320" height="215" :src="info.url"></iframe>
-      <note-options v-show="isShowOpts" :id="info.id" @editNote="edit($event)"></note-options>
+      <note-options v-if="isShowOpts" :id="info.id" @editNote="edit($event)" @changeBgColor="changeBgColor"></note-options >
     </section>
     `,
     data() {
         return {
             val: null,
             isShowOpts: false,
-            isEditable: false
+            isEditable: false,
+            bgColor: 'white',
+
         }
     },
     methods: {
@@ -43,6 +45,9 @@ export default {
         updateTitle(noteID) {
             keepService.updateTitle(noteID, this.val);
             this.isEditable = false
+        },
+        changeBgColor(color) {
+            this.bgColor = color;
         }
     },
     components: {

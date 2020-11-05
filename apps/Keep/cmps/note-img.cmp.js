@@ -7,17 +7,19 @@ export default {
     name: 'note-img',
     props: ['info'],
     template: `
-      <section class="note-img" @mouseover="showOpts" @mouseleave="hideOpts">
+      <section class="note-img" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
         <p contentEditable="true" class="note-img-title" @keydown.enter="saveTitle(info.id,$event)" @blur="saveTitle(info.id,$event)" ref="imgTitleInput">{{info.title}}</p>
         <img :src=info.url alt="">
-        <note-options v-show="isShowOpts" :id="info.id" @editNote="edit"></note-options>
+        <note-options v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>
              </section>
     `,
     data() {
         return {
             val: null,
             isShowOpts: false,
-            isEditable: false
+            isEditable: false,
+            bgColor: 'white',
+
 
         }
     },
@@ -42,8 +44,10 @@ export default {
             this.$refs.imgTitleInput.blur();
             var val = ev.target.innerText
             keepService.saveTitle(noteId, val)
-
         },
+        changeBgColor(color) {
+            this.bgColor = color;
+        }
     },
     components: {
         noteOptions,

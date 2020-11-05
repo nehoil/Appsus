@@ -6,20 +6,21 @@ export default {
     name: 'note-text',
     props: ['info'],
     template: `
-      <section class="note-txt" @mouseover="showOpts" @mouseleave="hideOpts" >
+      <section  class="note-txt" :style="{ backgroundColor : bgColor }" @mouseover="showOpts" @mouseleave="hideOpts" >
           <h1 v-if="!info.title">Empty Note!</h1>
         <form>
         <textarea rows="10" cols="30"   ref="noteTxtInput" class="note-txt-input" @keydown.enter="updateTitle(info.id,
-            $event)">{{info.title}}</textarea>
+            $event)" :style="{ backgroundColor : bgColor }">{{info.title}}</textarea>
         </form>
-        <note-options  v-show="isShowOpts" :id="info.id" @editNote="edit"></note-options>
+        <note-options  v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>
     </section>
     `,
     data() {
         return {
             val: '',
             isShowOpts: false,
-            isEditable: false
+            isEditable: false,
+            bgColor: 'white',
         }
     },
     methods: {
@@ -39,6 +40,9 @@ export default {
         updateTitle(noteID, ev) {
             keepService.updateTitle(noteID, ev.target.value);
             this.$nextTick(() => this.$refs.noteTxtInput.blur());
+        },
+        changeBgColor(color) {
+            this.bgColor = color
         }
     },
     components: {
