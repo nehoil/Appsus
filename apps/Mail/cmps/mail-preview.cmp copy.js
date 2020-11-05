@@ -9,10 +9,8 @@ export default {
         <li @click="mailClicked" :class="isRead">
             <div class="mail-prv-star" @click.stop="starMail"><i :class="starClass"></i></div>
             <div class="mail-prv-sender">{{ mail.senderName }}</div>
-            <div class="mail-prv-main-content">
-                <span class="mail-prv-subject">{{ mail.subject }}</span> -
-                <span class="mail-prv-body">{{ mail.body }}</span>
-            </div>
+            <div class="mail-prv-subject">{{ mail.subject }}</div>
+            <div class="mail-prv-body">{{ mail.body }}</div>
             <div class="mail-prv-date">{{ getDate }}</div>
         </li>
         <div v-if="isShowExpndMail">
