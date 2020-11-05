@@ -11,6 +11,7 @@ export const keepService = {
     updateTitle,
     saveTodo,
     saveTitle,
+    pinNote
 }
 
 var notes = [{
@@ -23,6 +24,7 @@ var notes = [{
     },
     {
         type: "noteImg",
+        isPinned: false,
         info: {
             id: 102,
             url: "./apps/Keep/assets/img/car.png",
@@ -34,6 +36,7 @@ var notes = [{
     },
     {
         type: "noteTodos",
+        isPinned: false,
         info: {
             id: 103,
             title: "My Todo list:",
@@ -45,13 +48,75 @@ var notes = [{
     },
     {
         type: "noteVideo",
+        isPinned: false,
         info: {
             id: 104,
             url: "https://www.youtube.com/embed/tgbNymZ7vqY",
             title: "Nice video"
         },
     },
+    {
+        type: "noteImg",
+        isPinned: false,
+        info: {
+            id: 105,
+            url: "https://images.news18.com/ibnlive/uploads/2016/04/boxing-gloves-generic.jpg",
+            title: "Murderous training with Mark!!"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {
+        type: "noteTodos",
+        isPinned: false,
+        info: {
+            id: 106,
+            title: "Remind Nimrod:",
+            todos: [
+                { id: 203, txt: "Feed the fish once a day", doneAt: null },
+                { id: 204, txt: "Water the plants", doneAt: null },
+                { id: 205, txt: "Take out Lulu three times a day", doneAt: null }
+            ]
+        }
+    },
+    {
+        type: "noteVideo",
+        isPinned: false,
+        info: {
+            id: 107,
+            url: "https://www.youtube.com/embed/-RkQDlUV4Fc",
+            title: "music for running"
+        },
+    },
+    {
+        type: "noteText",
+        isPinned: false,
+        info: {
+            id: 108,
+            title: "The plates will still shift, and the clouds will still spew, the sun will slowly rise and the moon will follow too. - 'Amy O Connor'"
+        }
+    },
+    {
+        type: "noteTodos",
+        isPinned: false,
+        info: {
+            id: 109,
+            title: "Friends meeting on Saturday",
+            todos: [
+                { id: 206, txt: "Tahini and crackers", doneAt: null },
+                { id: 207, txt: "Chopped vegetables, olives", doneAt: null },
+                { id: 208, txt: "Pasta salad", doneAt: null },
+                { id: 209, txt: "snacks", doneAt: null },
+                { id: 210, txt: "Beers", doneAt: null }
+            ]
+        }
+    }
 ];
+
+
+
+
 
 function getNotes() {
     return Promise.resolve(notes);
@@ -88,7 +153,7 @@ function addNote(val, type) {
 function addTxtNote(val) {
     var note = {
         type: "noteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             id: utilService.makeId(9),
             title: val
@@ -102,6 +167,7 @@ function addImgNote(val) {
 
     var note = {
         type: "noteImg",
+        isPinned: false,
         info: {
             id: utilService.makeId(9),
             url: val,
@@ -115,6 +181,7 @@ function addImgNote(val) {
 function addTodosNote(val) {
     var note = {
         type: "noteTodos",
+        isPinned: false,
         info: {
             id: utilService.makeId(9),
             title: val,
@@ -137,6 +204,7 @@ function addVidNote(val) {
     }
     var note = {
         type: "noteVideo",
+        isPinned: false,
         info: {
             url: newVal,
             title: ' ',
@@ -182,6 +250,8 @@ function updateTitle(noteId, val) {
 function saveTitle(noteId, val) {
     var noteIdx = getNoteById(noteId);
     notes[noteIdx].info.title = val;
-    console.log(notes);
+}
 
+function pinNote(noteIdx) {
+    notes[noteIdx].isPinned = !notes[noteIdx].isPinned
 }
