@@ -12,7 +12,7 @@ export default {
         <textarea rows="10" cols="30"   ref="noteTxtInput" class="note-txt-input" @keydown.enter="updateTitle(info.id,
             $event)">{{info.title}}</textarea>
         </form>
-        <note-options v-show="isShowOpts" :id="info.id" @editNote="edit"></note-options>
+        <note-options  v-show="isShowOpts" :id="info.id" @editNote="edit"></note-options>
     </section>
     `,
     data() {

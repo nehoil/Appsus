@@ -10,7 +10,7 @@ export const keepService = {
     editNote,
     updateTitle,
     saveTodo,
-    saveVidTitle,
+    saveTitle,
 }
 
 var notes = [{
@@ -105,7 +105,7 @@ function addImgNote(val) {
         info: {
             id: utilService.makeId(9),
             url: val,
-            title: null
+            title: ' ',
         },
 
     }
@@ -130,11 +130,16 @@ function addTodosNote(val) {
 function addVidNote(val) {
     var embbedVal = val.replace('watch?v=', 'embed/');
     var idx = embbedVal.indexOf('&')
-    var newVal = embbedVal.substring(0, idx)
+    if (idx === -1) {
+        var newVal = embbedVal.substring(0, embbedVal.length)
+    } else {
+        var newVal = embbedVal.substring(0, idx)
+    }
     var note = {
         type: "noteVideo",
         info: {
             url: newVal,
+            title: ' ',
         },
     }
     notes.push(note);
@@ -165,6 +170,7 @@ function saveTodo(noteId, todoId, val) {
 
 function editNote(noteId) {
     var noteIdx = getNoteById(noteId);
+    if (!noteIdx.length) return 'sdf ';
     return notes[noteIdx].info.title
 }
 
@@ -173,7 +179,9 @@ function updateTitle(noteId, val) {
     notes[noteIdx].info.title = val;
 }
 
-function saveVidTitle(noteId, val) {
+function saveTitle(noteId, val) {
     var noteIdx = getNoteById(noteId);
     notes[noteIdx].info.title = val;
+    console.log(notes);
+
 }

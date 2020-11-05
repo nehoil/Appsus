@@ -22,11 +22,128 @@
 
 .color-palette-container {
     position: absolute;
-    bottom: 10px;
+    right: -78px;
+    bottom: 40px;
 }
 
 .colors {
-    background-color: lightgrey;
-    width: 80px;
-    height: 80px;
+    /* background-color: lightgrey; */
+    width: 290px;
+    height: 37px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.colors div {
+    border: solid 1px rgb(202, 202, 202);
+}
+
+.colors .white {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    border: solid 1px rgb(202, 202, 202);
+    background-color: rgb(255, 255, 255);
+}
+
+.colors .red {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: rgb(255, 87, 87);
+}
+
+.colors .yellow {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: rgb(252, 255, 87);
+}
+
+.colors .orange {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: rgb(255, 182, 87);
+}
+
+.colors .green {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: rgb(87, 255, 95);
+}
+
+.colors .light-blue {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: rgb(87, 202, 255);
+}
+
+.colors .purple {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: rgb(179, 87, 255);
+}
+
+.colors .pink {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: rgb(255, 87, 255);
+}
+
+.colors .light-gray {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: rgb(211, 211, 211);
 }

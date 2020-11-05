@@ -11,7 +11,7 @@ export default {
         <input type="text" v-model="val" v-show="isEditable"  ref="todoTitleInput" class="note-todos-input">
         </form>
         <ul class="todos-list" v-if="info.todos.length">
-            <li  v-for="todo in info.todos" :key="todo.txt">
+            <li  v-for="todo in info.todos" :key="todo.id">
                 <p contentEditable="true"  @blur="saveTodo(info.id,todo.id,$event)">{{todo.txt}}</p>
                 <button @click="deleteTodo(info.id, todo.id)">X</button>
             </li>
@@ -29,9 +29,9 @@ export default {
             </li>
             </form>
         </ul>
-
+        <!-- v-show="isShowOpts" -->
         <div class="opts-container">
-        <note-options v-show="isShowOpts" :id="info.id"  @editNote="editTitle($event)"></note-options>
+        <note-options  :id="info.id"  @editNote="editTitle($event)"></note-options>
         </div>
     </section>
     `,

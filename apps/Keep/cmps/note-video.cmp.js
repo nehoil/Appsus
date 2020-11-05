@@ -7,19 +7,16 @@ export default {
     props: ['info'],
     template: `
       <section class="note-video" @mouseover="showOpts" @mouseleave="hideOpts">
-      <p  class="note-vid-title" contentEditable="true" @keydown.enter="saveTitle(info.id,$event)"  @blur="saveTitle(info.id,$event)" ref="vidTitleInput">{{info.title}}</p>
-
+      <p class="note-vid-title" contentEditable="true" @keydown.enter="saveTitle(info.id,$event)"  @blur="saveTitle(info.id,$event)" ref="vidTitleInput" placeholder="text">{{info.title}}</p>
       <iframe width="320" height="215" :src="info.url"></iframe>
       <note-options v-show="isShowOpts" :id="info.id" @editNote="edit($event)"></note-options>
     </section>
     `,
     data() {
         return {
-            val: '',
+            val: null,
             isShowOpts: false,
             isEditable: false
-
-
         }
     },
     methods: {
@@ -35,12 +32,11 @@ export default {
             this.$refs.vidTitleInput.blur();
             var val = ev.target.innerText
             console.log(noteId, val);
-            keepService.saveVidTitle(noteId, val)
+            keepService.saveTitle(noteId, val)
         },
         edit(val) {
             console.log(val);
-
-            this.isEditable = true;
+            this.isEditable = true
             this.val = val;
             this.$nextTick(() => this.$refs.vidTitleInput.focus());
         },

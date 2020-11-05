@@ -18,7 +18,7 @@
 .note-img-input {
     width: 230px;
     margin: 0 0 10px;
-    border: none;
+    /* border: none; */
     outline: none;
     font-size: 1em;
     text-align: center;
