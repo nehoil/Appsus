@@ -25,6 +25,7 @@ export default {
                     </div>
                     </div>
                         <div class="exp-mail-sub-header">
+                        <div class="mail-expd-sender-icon">A</div>
                         <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
                         <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
                     </div>

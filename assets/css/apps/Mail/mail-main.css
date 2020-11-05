@@ -37,9 +37,7 @@ a {
 
 /* mail prev cmp */
 
-.mail-preview div {
 
-}
 .starred {
     color: #F5B041;
 }
@@ -69,12 +67,11 @@ a {
 
 .mail-prv-subject {
     min-width: 200px;
+    /* max-height: 10px; */
 }
 
 .mail-prv-body {
     min-width: 400px;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .mail-prv-date {
     min-width: 100px;
@@ -266,11 +263,33 @@ a {
     box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
 }
 
+.title-txt {
+    color: #ffffff;
+}
+
+.compose-remove-header i {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.compose-remove-header i:hover {
+    color: #DB4437;
+}
+.compose-remove-footer {
+    cursor: pointer;
+}
+
+.compose-remove-footer i:hover {
+    color: #DB4437;
+}
+
 .compose-title {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
     color: white;
     font-weight: 700;
-    background-color: #db4537a4;
+    background-color: #202124;
     width: 420px;
     border-radius: 8px 8px 0 0;
 }
