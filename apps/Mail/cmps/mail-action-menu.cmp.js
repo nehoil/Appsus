@@ -45,7 +45,7 @@ export default {
         },
         sendToNotes(){
             this.$emit('menuClicked')
-            eventBus.$emit('show-msg', `Mail saved as note successfully`)
+            eventBus.$emit('show-msg', `Mail saved as successfully`)
         },
     },
 }
