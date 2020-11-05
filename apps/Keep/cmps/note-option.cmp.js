@@ -5,24 +5,24 @@ export default {
     name: 'note-options',
     props: ['id'],
     template: `
-      <div class="note-options-container" >
+      <div class="note-options-container">
           <button @click="deleteNote"><i class="far fa-trash-alt"></i></button>
           <button @click="editNote"><i class="far fa-edit"></i></button>
           <button  @click="toggleColorPalette" ><i class="fas fa-palette"></i></button>
-          <div class="color-palette-container" v-show="isShowColorPalette">
+          <div class="color-palette-container" v-if="isShowColorPalette">
               <div class="colors">
-              <div class="white"></div>
-              <div class="red"></div>
-              <div class="yellow"></div>
-              <div class="orange"></div>
-              <div class="green"></div>
-              <div class="light-blue"></div>
-              <div class="purple"></div>
-              <div class="pink"></div>
-              <div class="light-gray"></div>
+              <div class="white" @click="setBgColor('white')"></div>
+              <div class="red" @click="setBgColor('red')"></div>
+              <div class="yellow" @click="setBgColor('yellow')"></div>
+              <div class="orange" @click="setBgColor('orange')"></div>
+              <div class="green" @click="setBgColor('green')"></div>
+              <div class="blue" @click="setBgColor('blue')"></div>
+              <div class="purple" @click="setBgColor('purple')"></div>
+              <div class="pink" @click="setBgColor('pink')"></div>
+              <div class="gray" @click="setBgColor('gray')"></div>
               </div>
           </div>
-          <button>X</button>
+          <button><i class="fas fa-envelope" aria-hidden="true"></i></button>
 </div>
     `,
     data() {
@@ -52,6 +52,12 @@ export default {
         },
         closeColorPalette() {
             this.isShowColorPalette = false;
+        },
+        setBgColor(color) {
+            this.$emit('changeBgColor', color)
         }
+    },
+    created() {
+        this.isShowColorPalette = false
     },
 }

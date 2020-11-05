@@ -49,7 +49,7 @@
     margin: .1em;
     cursor: pointer;
     border: solid 1px rgb(202, 202, 202);
-    background-color: rgb(255, 255, 255);
+    background-color: white;
 }
 
 .colors .red {
@@ -61,7 +61,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: rgb(255, 87, 87);
+    background-color: red;
 }
 
 .colors .yellow {
@@ -73,7 +73,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: rgb(252, 255, 87);
+    background-color: yellow;
 }
 
 .colors .orange {
@@ -85,7 +85,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: rgb(255, 182, 87);
+    background-color: orange;
 }
 
 .colors .green {
@@ -97,10 +97,10 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: rgb(87, 255, 95);
+    background-color: green;
 }
 
-.colors .light-blue {
+.colors .blue {
     border-radius: 50%;
     width: 1.5em;
     height: 1.5em;
@@ -109,7 +109,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: rgb(87, 202, 255);
+    background-color: blue;
 }
 
 .colors .purple {
@@ -121,7 +121,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: rgb(179, 87, 255);
+    background-color: purple;
 }
 
 .colors .pink {
@@ -133,10 +133,10 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: rgb(255, 87, 255);
+    background-color: pink;
 }
 
-.colors .light-gray {
+.colors .gray {
     border-radius: 50%;
     width: 1.5em;
     height: 1.5em;
@@ -145,5 +145,5 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: rgb(211, 211, 211);
+    background-color: lightgray;
 }

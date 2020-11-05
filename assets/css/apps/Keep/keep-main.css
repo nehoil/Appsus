@@ -22,3 +22,19 @@
     align-items: center;
     margin: 0 auto;
 }
+
+.search-note-container {
+    margin-left: 10px;
+}
+
+.search-note-container input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.search-note-container button {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgray;
+}
