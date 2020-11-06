@@ -1,5 +1,8 @@
 import { utilService } from '../../../services/util-service.js'
 
+const NOTES_STORAGE_KEY = 'notes_db';
+
+
 export const keepService = {
     getNotes,
     addNote,
@@ -11,112 +14,124 @@ export const keepService = {
     updateTitle,
     saveTodo,
     saveTitle,
-    pinNote
+    pinNote,
+    addMailToNotes,
+    getNoteByIdToMail
 }
 
-var notes = [{
-        type: "noteText",
-        isPinned: false,
-        info: {
-            id: 101,
-            title: "It's Valentine's Day, do not forget to buy flowers"
-        }
-    },
-    {
-        type: "noteImg",
-        isPinned: false,
-        info: {
-            id: 102,
-            url: "./apps/Keep/assets/img/car.png",
-            title: "11.11.20 - We are going to travel!"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        type: "noteTodos",
-        isPinned: false,
-        info: {
-            id: 103,
-            title: "My Todo list:",
-            todos: [
-                { id: 201, txt: "Buy bananas", doneAt: null },
-                { id: 202, txt: "Go for a walk", doneAt: 187111111 }
-            ]
-        }
-    },
-    {
-        type: "noteVideo",
-        isPinned: false,
-        info: {
-            id: 104,
-            url: "https://www.youtube.com/embed/tgbNymZ7vqY",
-            title: "Nice video"
-        },
-    },
-    {
-        type: "noteImg",
-        isPinned: false,
-        info: {
-            id: 105,
-            url: "https://images.news18.com/ibnlive/uploads/2016/04/boxing-gloves-generic.jpg",
-            title: "Murderous training with Mark!!"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        type: "noteTodos",
-        isPinned: false,
-        info: {
-            id: 106,
-            title: "Remind Nimrod:",
-            todos: [
-                { id: 203, txt: "Feed the fish once a day", doneAt: null },
-                { id: 204, txt: "Water the plants", doneAt: null },
-                { id: 205, txt: "Take out Lulu three times a day", doneAt: null }
-            ]
-        }
-    },
-    {
-        type: "noteVideo",
-        isPinned: false,
-        info: {
-            id: 107,
-            url: "https://www.youtube.com/embed/-RkQDlUV4Fc",
-            title: "music for running"
-        },
-    },
-    {
-        type: "noteText",
-        isPinned: false,
-        info: {
-            id: 108,
-            title: "The plates will still shift, and the clouds will still spew, the sun will slowly rise and the moon will follow too. - 'Amy O Connor'"
-        }
-    },
-    {
-        type: "noteTodos",
-        isPinned: false,
-        info: {
-            id: 109,
-            title: "Friends meeting on Saturday",
-            todos: [
-                { id: 206, txt: "Tahini and crackers", doneAt: null },
-                { id: 207, txt: "Chopped vegetables, olives", doneAt: null },
-                { id: 208, txt: "Pasta salad", doneAt: null },
-                { id: 209, txt: "snacks", doneAt: null },
-                { id: 210, txt: "Beers", doneAt: null }
-            ]
-        }
+
+var gDefaultNotes = [{
+    type: "noteText",
+    isPinned: false,
+    info: {
+        id: 101,
+        title: "It's Valentine's Day, do not forget to buy flowers"
     }
+},
+{
+    type: "noteImg",
+    isPinned: false,
+    info: {
+        id: 102,
+        url: "./apps/Keep/assets/img/car.png",
+        title: "11.11.20 - We are going to travel!"
+    },
+    style: {
+        backgroundColor: "#00d"
+    }
+},
+{
+    type: "noteTodos",
+    isPinned: false,
+    info: {
+        id: 103,
+        title: "My Todo list:",
+        todos: [
+            { id: 201, txt: "Buy bananas", doneAt: null },
+            { id: 202, txt: "Go for a walk", doneAt: 187111111 }
+        ]
+    }
+},
+{
+    type: "noteVideo",
+    isPinned: false,
+    info: {
+        id: 104,
+        url: "https://www.youtube.com/embed/tgbNymZ7vqY",
+        title: "Nice video"
+    },
+},
+{
+    type: "noteImg",
+    isPinned: false,
+    info: {
+        id: 105,
+        url: "https://images.news18.com/ibnlive/uploads/2016/04/boxing-gloves-generic.jpg",
+        title: "Murderous training with Mark!!"
+    },
+    style: {
+        backgroundColor: "#00d"
+    }
+},
+{
+    type: "noteTodos",
+    isPinned: false,
+    info: {
+        id: 106,
+        title: "Remind Nimrod:",
+        todos: [
+            { id: 203, txt: "Feed the fish once a day", doneAt: null },
+            { id: 204, txt: "Water the plants", doneAt: null },
+            { id: 205, txt: "Take out Lulu three times a day", doneAt: null }
+        ]
+    }
+},
+{
+    type: "noteVideo",
+    isPinned: false,
+    info: {
+        id: 107,
+        url: "https://www.youtube.com/embed/-RkQDlUV4Fc",
+        title: "music for running"
+    },
+},
+{
+    type: "noteText",
+    isPinned: false,
+    info: {
+        id: 108,
+        title: "The plates will still shift, and the clouds will still spew, the sun will slowly rise and the moon will follow too. - 'Amy O Connor'"
+    }
+},
+{
+    type: "noteTodos",
+    isPinned: false,
+    info: {
+        id: 109,
+        title: "Friends meeting on Saturday",
+        todos: [
+            { id: 206, txt: "Tahini and crackers", doneAt: null },
+            { id: 207, txt: "Chopped vegetables, olives", doneAt: null },
+            { id: 208, txt: "Pasta salad", doneAt: null },
+            { id: 209, txt: "snacks", doneAt: null },
+            { id: 210, txt: "Beers", doneAt: null }
+        ]
+    }
+}
 ];
 
+var notes = utilService.loadFromStorage(NOTES_STORAGE_KEY) || gDefaultNotes;
 
 
+function addMailToNotes(mail) {
+    const newNote = {
+        type: 'noteText',
+        title: mail.subject + mail.body,
+    }
 
+    addNote(newNote.title, newNote.type);
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
+}
 
 function getNotes() {
     return Promise.resolve(notes);
@@ -126,8 +141,13 @@ function getNoteById(id) {
     return notes.findIndex(note => note.info.id === id);
 }
 
+function getNoteByIdToMail(id) {
+    return notes.find(note => note.info.id === id);
+}
+
 function deleteNote(idx) {
     notes.splice(idx, 1);
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 
@@ -160,6 +180,7 @@ function addTxtNote(val) {
         }
     }
     notes.unshift(note);
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function addImgNote(val) {
@@ -176,6 +197,7 @@ function addImgNote(val) {
 
     }
     notes.unshift(note);
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function addTodosNote(val) {
@@ -191,7 +213,7 @@ function addTodosNote(val) {
         }
     }
     notes.unshift(note);
-
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function addVidNote(val) {
@@ -211,6 +233,7 @@ function addVidNote(val) {
         },
     }
     notes.unshift(note);
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 
@@ -218,6 +241,7 @@ function deleteTodo(noteId, todoId) {
     var noteIdx = getNoteById(noteId)
     var todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId)
     notes[noteIdx].info.todos.splice(todoIdx, 1)
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function addTodo(noteId, todoTxt) {
@@ -228,30 +252,36 @@ function addTodo(noteId, todoTxt) {
     }
     var noteIdx = getNoteById(noteId)
     notes[noteIdx].info.todos.push(todo)
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function saveTodo(noteId, todoId, val) {
     var noteIdx = getNoteById(noteId);
     var todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId);
     notes[noteIdx].info.todos[todoIdx].txt = val;
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function editNote(noteId) {
     var noteIdx = getNoteById(noteId);
     if (!noteIdx.length) return 'sdf ';
     return notes[noteIdx].info.title
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function updateTitle(noteId, val) {
     var noteIdx = getNoteById(noteId);
     notes[noteIdx].info.title = val;
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function saveTitle(noteId, val) {
     var noteIdx = getNoteById(noteId);
     notes[noteIdx].info.title = val;
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
 function pinNote(noteIdx) {
     notes[noteIdx].isPinned = !notes[noteIdx].isPinned
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }

@@ -1,4 +1,5 @@
 import { mailService } from '../services/mail-service.js';
+import { keepService } from '../../Keep/services/keep-service.js'
 import {eventBus} from '../../../services/event-bus-service.js';
 
 
@@ -43,8 +44,9 @@ export default {
             this.$emit('menuClicked')
         },
         sendToNotes(){
+            keepService.addMailToNotes(this.mail)
             this.$emit('menuClicked')
-            eventBus.$emit('show-msg', `Mail saved as successfully`)
+            eventBus.$emit('mail-saved-to-notes', 'true')
         },
     },
 }

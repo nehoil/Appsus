@@ -40,7 +40,32 @@ export const mailService = {
   getDraftMails,
   getNotesMails,
   addMail,
-  getEmptyMail
+  getEmptyMail,
+  addNoteToMails
+}
+
+
+function addNoteToMails(note) {
+  const newEmail = {
+    id: utilService.makeId(10),
+    isSent: false,
+    sentEmail: null,
+    isNote: true,
+    isDraft: false,
+    isStar: false,
+    senderEmail: 'myname@gmail.com',
+    senderName: 'me',
+    subject: 'Your Saved Note' + note.info.title,
+    body: note.info.title,
+    isRead: false,
+    sentAt: new Date().getTime()
+  };
+
+
+  addMail(newEmail);
+
+  utilService.storeToStorage(MAILS_STORAGE_KEY, gMails);
+
 }
 
 function getMails() {
@@ -60,8 +85,8 @@ function getByIdx(idx) {
   return Promise.resolve(gMails[idx]);
 }
 
-function getRandomTime(){
-  return new Date ().getTime() - 1000000 * gRandHour++ * 2.6
+function getRandomTime() {
+  return new Date().getTime() - 1000000 * gRandHour++ * 2.6
   // gRandHour++
 }
 
