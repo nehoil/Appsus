@@ -8,11 +8,11 @@ export default {
     template: `
         <section class="mail-action-menu box-shadow" v-if="isShowMenu">
                 <ul>
-                    <li @click="reply"><div class="action-icon"><i class="menu-icon fas fa-reply"></div></i><div class="action-txt"> Reply</div></li>
-                    <li @click="unMarkMail"><div class="action-icon"><i class="menu-icon fas fa-envelope"></div></i><div class="action-txt"> Mark as unread</div></li>
-                    <li @click="sendToNotes"><div class="action-icon"><i class="menu-icon far fa-pen"></div></i><div class="action-txt"> Send to notes</div></li>
-                    <li @click="removeMail"><div class="action-icon"><i class="menu-icon fas fa-trash"></div></i><div class="action-txt"> Removed</div></li>
-                    <li @click="starMail"><div class="action-icon"><i class="menu-icon fas fa-star"></div></i><div class="action-txt"> Starred</div></li>
+                    <li @click="reply"><div class="action-icon"><i class="menu-icon fas fa-reply"></i></div><div class="action-txt"> Reply</div></li>
+                    <li @click="unMarkMail"><div class="action-icon"><i class="menu-icon fas fa-envelope"></i></div><div class="action-txt"> Mark as unread</div></li>
+                    <li @click="sendToNotes"><div class="action-icon"><i class="menu-icon far fa-pen"></i></div><div class="action-txt"> Send to notes</div></li>
+                    <li @click="removeMail"><div class="action-icon"><i class="menu-icon fas fa-trash"></i></div><div class="action-txt"> Removed</div></li>
+                    <li @click="starMail"><div class="action-icon"><i class="menu-icon fas fa-star"></i></div><div class="action-txt"> Starred</div></li>
                 </ul>
             </section>
         </section>

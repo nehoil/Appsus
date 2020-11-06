@@ -1,5 +1,6 @@
 import { mailService } from '../services/mail-service.js';
 import mailActionMenu from '../cmps/mail-action-menu.cmp.js';
+import mailAvatar from '../cmps/mail-avatar.cmp.js';
 
 
 export default {
@@ -10,7 +11,7 @@ export default {
             <div class="mail-prv-star prv-padding" @click.stop="starMail"><i :class="starClass" class="prv-padding"></i></div>
             <div class="mail-prv-sender prv-padding">{{ mail.senderName }}</div>
             <div class="mail-prv-main-content prv-padding">
-                <span class="mail-prv-subject">{{ mail.subject }}</span> -
+                <span class="mail-prv-subject">{{ mail.subject }}</span> - 
                 <span class="mail-prv-body">{{ mail.body }}</span>
             </div>
             <div class="mail-prv-date prv-padding">{{ getDate }}</div>
@@ -27,7 +28,7 @@ export default {
                     </div>
                     </div>
                         <div class="exp-mail-sub-header prv-padding">
-                        <div class="mail-expd-sender-icon">A</div>
+                            <mail-avatar :mail="mail" />
                         <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
                         <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
                     </div>
@@ -44,6 +45,13 @@ export default {
         }
     },
     computed: {
+        avatarTxt(){
+            return this.mail.senderName.charAt(0).toUpperCase()
+        },
+        avatarStyle(){
+            var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+            return 'background-color: ' + randomColor;
+        },
         starClass(){
             if (this.mail.isStar) return 'filter-icon fas fa-star starred'
             return 'far fa-star'
@@ -81,6 +89,7 @@ export default {
     created() {
     },
     components: {
-        mailActionMenu
+        mailActionMenu,
+        mailAvatar
     }
 }
