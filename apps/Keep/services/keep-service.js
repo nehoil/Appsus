@@ -16,7 +16,7 @@ export const keepService = {
 
 var notes = [{
         type: "noteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             id: 101,
             title: "It's Valentine's Day, do not forget to buy flowers"
@@ -159,7 +159,7 @@ function addTxtNote(val) {
             title: val
         }
     }
-    notes.push(note);
+    notes.unshift(note);
 }
 
 function addImgNote(val) {
@@ -175,7 +175,7 @@ function addImgNote(val) {
         },
 
     }
-    notes.push(note);
+    notes.unshift(note);
 }
 
 function addTodosNote(val) {
@@ -190,7 +190,7 @@ function addTodosNote(val) {
             ]
         }
     }
-    notes.push(note);
+    notes.unshift(note);
 
 }
 
@@ -210,7 +210,7 @@ function addVidNote(val) {
             title: ' ',
         },
     }
-    notes.push(note);
+    notes.unshift(note);
 }
 
 

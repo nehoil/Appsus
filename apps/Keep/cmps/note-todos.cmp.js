@@ -5,7 +5,7 @@ export default {
     name: 'note-todos',
     props: ['info'],
     template: `
-      <section class="note-todo" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
+      <section class="note-todo note-card" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
         <p class="todos-list-title" v-show="!isEditable">{{info.title}}</p>
         <form @submit.prevent="updateTitle(info.id)">
         <input type="text" v-model="val" v-show="isEditable"  ref="todoTitleInput" class="note-todos-input">
@@ -29,10 +29,12 @@ export default {
             </li>
             </form>
         </ul>
+        
         <div class="opts-container">
-        <note-options v-if="isShowOpts" :id="info.id"  @editNote="editTitle($event)" @changeBgColor="changeBgColor"></note-options>
+        <note-options  v-if="isShowOpts" :id="info.id"  @editNote="editTitle($event)" @changeBgColor="changeBgColor"></note-options>
         </div>
     </section>
+
     `,
     data() {
         return {

@@ -6,14 +6,15 @@ export default {
     props: [''],
     template: `
       <section class="add-note-container">
-          <h1>Add note: &nbsp;</h1>
           <form @submit.prevent="addNote(val)">
-               <input type="text" v-model="val">
+               <input type="text" v-model="val" :placeholder="callForAction">
             </form>
-            <button @click="setType('noteText')">Text</button>
-            <button @click="setType('noteImg')">Image</button>
-            <button @click="setType('noteTodos')">Todo-list</button>
-            <button @click="setType('noteVideo')">video</button>
+            <div class="btns-container">
+            <button @click="setType('noteText')"><i class="far fa-sticky-note"></i></button>
+            <button @click="setType('noteImg')"><i class="far fa-image"></i></button>
+            <button @click="setType('noteTodos')"><i class="fas fa-list-ul"></i></button>
+            <button @click="setType('noteVideo')"><i class="fab fa-youtube"></i></button>
+            </div>
             <!-- <search-note @filtered="setFilter"></search-note> -->
     </section>
     `,
@@ -21,6 +22,8 @@ export default {
         return {
             val: '',
             type: 'noteText',
+            callForAction: 'Write a note...'
+
         }
     },
     methods: {
@@ -30,7 +33,26 @@ export default {
         },
         setType(type) {
             this.type = type;
+            switch (type) {
+                case 'noteText':
+                    this.callForAction = 'Write a note...'
+                    break;
+                case 'noteImg':
+                    this.callForAction = 'Enter a link to the image'
+                    break;
+                case 'noteTodos':
+                    this.callForAction = 'Write a title for the list'
+                    break;
+                case 'noteVideo':
+                    this.callForAction = 'Enter a link to a YouTube video'
+                    break;
+                default:
+                    break;
+            }
         }
+
+    },
+    computed: {
 
     },
     components: {

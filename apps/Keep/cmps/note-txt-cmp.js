@@ -6,7 +6,7 @@ export default {
     name: 'note-text',
     props: ['info'],
     template: `
-      <section  class="note-txt" :style="{ backgroundColor : bgColor }" @mouseover="showOpts" @mouseleave="hideOpts" >
+      <section  class="note-txt note-card" :style="{ backgroundColor : bgColor }" @mouseover="showOpts" @mouseleave="hideOpts" >
           <h1 v-if="!info.title">Empty Note!</h1>
         <form>
         <textarea rows="5" cols="30"   ref="noteTxtInput" class="note-txt-input" @keydown.enter="updateTitle(info.id,

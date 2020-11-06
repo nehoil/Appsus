@@ -7,7 +7,7 @@ export default {
     name: 'note-img',
     props: ['info'],
     template: `
-      <section class="note-img" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
+      <section class="note-img note-card" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
     
         <p contentEditable="true" class="note-img-title" @keydown.enter="saveTitle(info.id,$event)" @blur="saveTitle(info.id,$event)" ref="imgTitleInput">{{info.title}}</p>
         <img :src=info.url alt="">

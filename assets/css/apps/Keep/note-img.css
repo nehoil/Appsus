@@ -1,14 +1,9 @@
 .note-img {
-    display: flex;
     position: relative;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    max-width: 320px;
-    padding: 10px 10px 40px 10px;
-    /* margin: 10px; */
-    border: 1px solid lightgray;
-    border-radius: 10px;
 }
 
 .note-img-title {
@@ -19,7 +14,6 @@
     position: relative;
     max-width: 230px;
     margin: 0 0 10px;
-    /* border: none; */
     outline: none;
     font-size: 1em;
     text-align: center;
@@ -27,6 +21,7 @@
 
 .note-img img {
     max-width: 100%;
+    object-fit: cover;
 }
 
 .note-img h1 {
