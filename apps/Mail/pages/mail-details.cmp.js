@@ -2,6 +2,7 @@ import { mailService } from '../services/mail-service.js';
 import mailSideMenu from '../cmps/mail-side-menu.cmp.js';
 import mailActionMenu from '../cmps/mail-action-menu.cmp.js';
 import mailAvatar from '../cmps/mail-avatar.cmp.js';
+import mailCompose from '../cmps/mail-compose.cmp.js';
 
 
 export default {
@@ -35,6 +36,8 @@ export default {
                 </div>
                 
             </div>
+            <mail-compose />
+
         </section>
     `,
     data() {
@@ -55,6 +58,7 @@ export default {
     components: {
         mailSideMenu,
         mailActionMenu,
-        mailAvatar
+        mailAvatar,
+        mailCompose
     }
 }
