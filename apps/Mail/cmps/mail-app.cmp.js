@@ -43,7 +43,7 @@ export default {
                 </form>
             </div>
                     <mail-side-menu :mails="mails" @doFilter="setFilter" @doCompose="showCompose"/>
-                    <mail-list v-if="mails" :mails="mailsToShow" />
+                    <mail-list v-if="mails" @doSearch="setSearchTerm" :mails="mailsToShow" />
             </div>
         </section>
     `,
@@ -51,19 +51,30 @@ export default {
         return {
             mails: null,
             isShowCompose: false,
-            filterBy: 'all',
+            filterBy: {
+                type: 'all',
+                term: null
+            },
             newMail: mailService.getEmptyMail()
         }
     },
     computed: {
         mailsToShow() {
-            if (this.filterBy === 'all')  return this.mails.filter(mail => !mail.isSent);
-            return this.mails.filter(mail => mail[this.filterBy])
+            var filteredMails = [];
+            if (this.filterBy.type === 'all' && !this.filterBy.term)  return this.mails.filter(mail => !mail.isSent);
+            if (this.filterBy.type === 'all' && this.filterBy.term)  filteredMails = this.mails.filter(mail => !mail.isSent);
+            if (this.filterBy.type !== 'all') filteredMails = this.mails.filter(mail => mail[this.filterBy.type])
+            if (!this.filterBy.term) return filteredMails;
+            var txt = this.filterBy.term.toUpperCase()
+           return filteredMails.filter(mail => mail.subject.toUpperCase().includes(txt))
         }
     },
     methods: {
         setFilter(filter) {
-            this.filterBy = filter;
+            this.filterBy.type = filter;
+        },
+        setSearchTerm(searchTerm) {
+            this.filterBy.term = searchTerm;
         },
         addMail() {
             this.isShowCompose = false;

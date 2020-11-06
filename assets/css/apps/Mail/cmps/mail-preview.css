@@ -11,18 +11,16 @@
 }
 
 .unread {
-    font-weight: bold;
+    font-weight: 800;
 }
-.bold {
-    font-weight: bold;
-}
+
 
 .read {
     background: rgba(242,245,245,0.8);
 }
 
  .mail-prv-body {
-    color: #202124;
+    color: #a1a3a8;
 }
 
 
@@ -57,6 +55,9 @@
 } */
 
 .prv-padding {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
     padding: 10px;
 }
 
