@@ -1,4 +1,5 @@
 import { keepService } from '../services/keep-service.js'
+import { mailService } from '../../Mail/services/mail-service.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 
 
@@ -25,7 +26,7 @@ export default {
               <div class="gray" @click="setBgColor('#f4f4f2')"></div>
               </div>
           </div>
-          <button><i class="fas fa-envelope" aria-hidden="true"></i></button>
+          <button @click="sendToMail"><i class="fas fa-envelope" aria-hidden="true"></i></button>
 </div>
     `,
     data() {
@@ -35,6 +36,11 @@ export default {
         }
     },
     methods: {
+        sendToMail() {
+            var note = keepService.getNoteByIdToMail(this.id);
+            mailService.addNoteToMails(note);
+            eventBus.$emit('show-msg', `Note saved as email sucessfuly! Link is here`)
+        },
         showOpts() {
             this.isShowOpts = true
 
@@ -63,7 +69,6 @@ export default {
             const noteIdx = keepService.getNoteById(this.id);
             keepService.pinNote(noteIdx);
             eventBus.$emit('show-msg', `Note pinned sucessfuly!`)
-
         }
     },
     created() {
