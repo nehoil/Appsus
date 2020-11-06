@@ -55,9 +55,6 @@ export default {
     },
     created() {
         this.bgColor = this.info.bgColor;
-        console.log(this.info);
-
-
     },
     components: {
         noteOptions,

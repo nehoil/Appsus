@@ -6,7 +6,34 @@ export default {
     props: ['info'],
     template: `
       <section class="note-todo note-card" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
-        <p class="todos-list-title" v-show="!isEditable">{{info.title}}</p>
+         <p class="todos-list-title" contentEditable="true"  @blur="updateTitle(info.id, $event)">{{info.title}}</p>
+
+         <ul class="todos-list" v-if="info.todos.length">
+            <li  v-for="todo in info.todos" :key="todo.id">
+                <p contentEditable="true"  @blur="saveTodo(info.id,todo.id,$event)">{{todo.txt}}</p>
+                <button @click="deleteTodo(info.id, todo.id)">X</button>
+            </li>
+            <form  @keydown.enter="addTodo(info.id,todoTxt)">
+            <li @show="focus()">
+                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What more?" :style="{ backgroundColor : bgColor }" @blur="addTodo(info.id,todoTxt)">
+            </li>
+            </form>
+
+            </ul>
+
+            <ul v-else>
+        <form @keydown.enter="addTodo(info.id,todoTxt)">
+            <li @show="focus()">
+                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?" :style="{ backgroundColor : bgColor }" @blur="addTodo(info.id,todoTxt)">
+            </li>
+            </form>
+        </ul>
+
+
+
+
+
+        <!-- <p class="todos-list-title" v-show="!isEditable">{{info.title}}</p>
         <form @submit.prevent="updateTitle(info.id)">
         <input type="text" v-model="val" v-show="isEditable"  ref="todoTitleInput" class="note-todos-input" :style="{ backgroundColor : bgColor }">
         </form>
@@ -29,10 +56,10 @@ export default {
             </li>
             </form>
         </ul>
-        
+-->   
         <div class="opts-container">
         <note-options  v-if="isShowOpts" :id="info.id"  @editNote="editTitle($event)" @changeBgColor="changeBgColor"></note-options>
-        </div>
+        </div> 
     </section>
 
     `,
@@ -68,8 +95,11 @@ export default {
             this.val = val;
             this.$nextTick(() => this.$refs.todoTitleInput.focus());
         },
-        updateTitle(noteID) {
-            keepService.updateTitle(noteID, this.val);
+        updateTitle(noteID, ev) {
+            var val = ev.target.innerText
+            console.log(val);
+
+            keepService.updateTitle(noteID, val);
             this.isEditable = false
         },
         getTodo(noteId, todoId, ev) {
@@ -84,7 +114,12 @@ export default {
         },
         changeBgColor(color) {
             this.bgColor = color;
+            keepService.saveBgColor(this.info.id, color)
+
         }
+    },
+    created() {
+        this.bgColor = this.info.bgColor;
     },
 
     components: {

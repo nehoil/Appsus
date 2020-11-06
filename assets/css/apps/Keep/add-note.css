@@ -18,7 +18,10 @@
 }
 
 .active {
-    background-color: chartreuse;
+    width: 50px !important;
+    height: 50px !important;
+    background-color: rgb(240, 240, 240) !important;
+    border-radius: 50%;
 }
 
 .add-note-container button:hover {

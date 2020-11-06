@@ -10,7 +10,8 @@ export default {
           <h1 v-if="!info.title">Empty Note!</h1>
         <form>
         <textarea rows="5" cols="30"   ref="noteTxtInput" class="note-txt-input" @keydown.enter="updateTitle(info.id,
-            $event)" :style="{ backgroundColor : bgColor }">{{info.title}}</textarea>
+            $event)" :style="{ backgroundColor : bgColor }" @blur="updateTitle(info.id,
+            $event)">{{info.title}}</textarea>
         </form>
         <note-options  v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>
     </section>
@@ -42,8 +43,12 @@ export default {
             this.$nextTick(() => this.$refs.noteTxtInput.blur());
         },
         changeBgColor(color) {
-            this.bgColor = color
+            this.bgColor = color;
+            keepService.saveBgColor(this.info.id, color);
         }
+    },
+    created() {
+        this.bgColor = this.info.bgColor;
     },
     components: {
         noteOptions,

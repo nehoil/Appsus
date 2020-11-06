@@ -302,8 +302,8 @@ function pinNote(noteIdx) {
 
 function saveBgColor(noteId, color) {
     var noteIdx = getNoteById(noteId)
-    notes[noteIdx].bgColor = `${color}`
-    console.log(notes[noteIdx].bgColor);
+    notes[noteIdx].info.bgColor = `${color}`
+    console.log(notes[noteIdx].info.bgColor);
 
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }

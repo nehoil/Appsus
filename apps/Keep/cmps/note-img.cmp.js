@@ -48,7 +48,11 @@ export default {
         },
         changeBgColor(color) {
             this.bgColor = color;
+            keepService.saveBgColor(this.info.id, color)
         }
+    },
+    created() {
+        this.bgColor = this.info.bgColor;
     },
     components: {
         noteOptions,

@@ -23,7 +23,7 @@ export default {
               <div class="blue" @click="setBgColor('#cbf0f8')"></div>
               <div class="purple" @click="setBgColor('#d7aefb')"></div>
               <div class="pink" @click="setBgColor('#f4abc4')"></div>
-              <div class="gray" @click="setBgColor('#f4f4f2')"></div>
+              <div class="gray" @click="setBgColor('#8080804b')"></div>
               <div class="brown" @click="setBgColor('#e6c9a8')"></div>
               <div class="dark-blue" @click="setBgColor('#f4f4f2')"></div>
               <div class="turquaz" @click="setBgColor('#a7ffeb')"></div>
