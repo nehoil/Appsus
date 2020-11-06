@@ -55,7 +55,7 @@ function addNoteToMails(note) {
     isStar: false,
     senderEmail: 'myname@gmail.com',
     senderName: 'me',
-    subject: 'Your Saved Note' + note.info.title,
+    subject: 'Your Saved Note: '+ utilService.makeId(5),
     body: note.info.title,
     isRead: false,
     sentAt: new Date().getTime()
@@ -145,28 +145,3 @@ function getNotesMails() {
   return Promise.resolve(notesMails)
 }
 
-
-
-// function getMailsByKey(key){
-//   var newMails = gMails.filter(mail => mail[key]);
-//   return Promise.resolve(newMails);
-// }
-
-// function getUnreadMails() {
-//   var unReadMails = gMails.filter(mail => !mail.isRead);
-//   return Promise.resolve(unReadMails);
-// }
-
-// function getStarredMails() {
-//   var starredMails = gMails.filter(mail => mail.isStar);
-//   return Promise.resolve(starredMails);
-// }
-// function getDraftMails() {
-//   var draftMails = gMails.filter(mail => mail.isDraft);
-//   return Promise.resolve(draftMails);
-// }
-
-// function getNotesMails() {
-//   var notesMails = gMails.filter(mail => mail.isNote)
-//   return Promise.resolve(notesMails);
-// }

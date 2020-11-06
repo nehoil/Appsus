@@ -1,11 +1,12 @@
 
+
 export default {
     template: `
         <header>
                 <nav>
                     <div class="nav-logo container"> 
                     <router-link to="/" exact>
-                    Logo
+                    <img src="../assets/img/logo.png" alt="">
                     </router-link>
                     </div>
                     <div class="nav-links"> 
