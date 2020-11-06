@@ -1,41 +1,28 @@
 import { utilService } from '../../../services/util-service.js'
 
+var gRandHour = 1;
+
 const MAILS_STORAGE_KEY = 'mails_db'
 
 var gDefaultMails = [
-  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idogte2@gmail.com', id: '35254r1d1', senderName: 'Ido', subject: 'Wassap?', body: 'Hi, I would be happy to get started...', isRead: false, sentAt: 1604496265865 },
-  { isSent: false, isNote: true, isDraft: false, isStar: false, senderEmail: 'roeeg54e@gmail.com', id: '643fhdh64', senderName: 'Roee', subject: 'Some Nice Offer!', body: 'This seems like a great video clip...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: true, isDraft: false, isStar: false, senderEmail: 'roeeg54e@gmail.com', id: '643fhdh64', senderName: 'Roee', subject: 'Some Nice Offer!', body: 'This seems like a great video clip...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: '646fhdh64', senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: false, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: '754dsdsd@gmail.com', id: '647fhdh64', senderName: 'PayPal', subject: 'Your monthly Invoice', body: 'Your monthly invoice is attached...', isRead: true, sentAt: 1551133930594 },
-  { isSent: true, isNote: false, isDraft: false, isStar: false, senderEmail: '754dsdsd@gmail.com', id: '647fhdh64', senderName: 'Me', subject: 'Re: Our yearly trip to Australia', body: 'Your monthly invoice is attached...', isRead: true, sentAt: 1551133930594 },
-  { isSent: true, isNote: false, isDraft: false, isStar: false, senderEmail: '754dsdsd@gmail.com', id: '647fhdh64', senderName: 'Me', subject: 'Re: Our yearly trip to Australia', body: 'Your monthly invoice is attached...', isRead: true, sentAt: 1551133930594 },
-  { isSent: true, isNote: false, isDraft: false, isStar: false, senderEmail: '754dsdsd@gmail.com', id: '647fhdh64', senderName: 'Me', subject: 'Re: Our yearly trip to Australia', body: 'Your monthly invoice is attached...', isRead: true, sentAt: 1551133930594 },
-  { isSent: true, isNote: false, isDraft: false, isStar: false, senderEmail: '754dsdsd@gmail.com', id: '647fhdh64', senderName: 'Me', subject: 'Re: Our yearly trip to Australia', body: 'Your monthly invoice is attached...', isRead: true, sentAt: 1551133930594 },
-  { isSent: true, isNote: false, isDraft: false, isStar: false, senderEmail: '754dsdsd@gmail.com', id: '647fhdh64', senderName: 'Me', subject: 'Re: Our yearly trip to Australia', body: 'Your monthly invoice is attached...', isRead: true, sentAt: 1551133930594 },
-  { isSent: true, isNote: false, isDraft: false, isStar: false, senderEmail: '754dsdsd@gmail.com', id: '647fhdh64', senderName: 'Me', subject: 'Re: Our yearly trip to Australia', body: 'Your monthly invoice is attached...', isRead: true, sentAt: 1551133930594 },
-  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'neho326@gmail.com', id: '6436gddfd', senderName: 'Neho', subject: 'How are you buddy?', body: 'Pick up!', isRead: false, sentAt: 1551133930594 }
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idogte2@gmail.com', id: utilService.makeId(10), senderName: 'Ido', subject: 'Wassap?', body: 'Hi, I would be happy to get started...', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'PayPal', subject: 'You got Paid!', body: 'Total payment of $353.46 have received to your PayPal balance, to see more.', isRead: false, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'ClickSend', subject: 'Your Monthly Invoice is Ready', body: 'Dear client, we have attached your lastest ClickSend Invoice', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: true, isDraft: false, isStar: false, senderEmail: 'roeeg54e@gmail.com', id: utilService.makeId(10), senderName: 'Roee', subject: 'Some Nice Offer!', body: 'This seems like a great video clip...', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'neho326@gmail.com', id: utilService.makeId(10), senderName: 'Neho', subject: 'How are you buddy?', body: 'Pick up!', isRead: false, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'Idan', subject: 'Pics from our last holiday', body: 'Look I sent you a few pics...', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'Tami4', subject: 'Get Clean Water Now! (Ad)', body: 'Special Winter Offer available for  the next 24  hours.', isRead: false, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'neho326@gmail.com', id: utilService.makeId(10), senderName: 'Neho', subject: 'How are you buddy?', body: 'Pick up!', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'ClickSend', subject: 'Your Monthly Invoice is Ready', body: 'Dear client, we have attached your lastest ClickSend Invoice', isRead: false, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'neho326@gmail.com', id: utilService.makeId(10), senderName: 'Neho', subject: 'How are you buddy?', body: 'Pick up!', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'PayPal', subject: 'You got Paid!', body: 'Total payment of $353.46 have received to your PayPal balance, to see more.', isRead: false, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'ClickSend', subject: 'Your Monthly Invoice is Ready', body: 'Dear client, we have attached your lastest ClickSend Invoice', isRead: false, sentAt: getRandomTime() },
+  { isSent: false, isNote: true, isDraft: false, isStar: false, senderEmail: 'roeeg54e@gmail.com', id: utilService.makeId(10), senderName: 'Roee', subject: 'Some Nice Offer!', body: 'This seems like a great video clip...', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idogte2@gmail.com', id: utilService.makeId(10), senderName: 'Ido', subject: 'Wassap?', body: 'Hi, I would be happy to get started...', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'ClickSend', subject: 'Your Monthly Invoice is Ready', body: 'Dear client, we have attached your lastest ClickSend Invoice', isRead: true, sentAt: getRandomTime() },
+  { isSent: true, isNote: false, isDraft: false, isStar: false, senderEmail: '754dsdsd@gmail.com', id: utilService.makeId(10), senderName: 'Me', subject: 'Re: Our yearly trip to Australia', body: 'Your monthly invoice is attached...', isRead: true, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: true, senderEmail: 'idany75@gmail.com', id: utilService.makeId(10), senderName: 'ClickSend', subject: 'Your Monthly Invoice is Ready', body: 'Dear client, we have attached your lastest ClickSend Invoice', isRead: false, sentAt: getRandomTime() },
+  { isSent: false, isNote: false, isDraft: false, isStar: false, senderEmail: 'neho326@gmail.com', id: utilService.makeId(10), senderName: 'Neho', subject: 'How are you buddy?', body: 'Pick up!', isRead: false, sentAt: getRandomTime() }
 ]
 
 var gMails = utilService.loadFromStorage(MAILS_STORAGE_KEY) || gDefaultMails;
@@ -73,7 +60,10 @@ function getByIdx(idx) {
   return Promise.resolve(gMails[idx]);
 }
 
-
+function getRandomTime(){
+  return new Date ().getTime() - 1000000 * gRandHour++ * 2.6
+  // gRandHour++
+}
 
 /**  Mail Actions Funcs   **/
 

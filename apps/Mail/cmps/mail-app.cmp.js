@@ -42,13 +42,8 @@ export default {
                 </div>
                 </form>
             </div>
-            <div class="mail-app-main-content-container">
-                <div class="mail-side-menu">
                     <mail-side-menu :mails="mails" @doFilter="setFilter" @doCompose="showCompose"/>
-                </div>
-                <div class="mail-list-container">
                     <mail-list v-if="mails" :mails="mailsToShow" />
-                </div>
             </div>
         </section>
     `,

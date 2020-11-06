@@ -1,0 +1,31 @@
+/* mail list cmp  */
+
+* {
+    font-family: "Roboto", sans-serif;
+    list-style: none;
+    color: #202124;
+  }
+  
+  .mail-list {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 6;
+}
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .mail-list-container {
+    margin: 0;
+  }
+  
+  .mail-list ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  
