@@ -43,6 +43,10 @@
     border: solid 1px rgb(202, 202, 202);
 }
 
+.colors div:hover {
+    border: 1px solid rgb(25, 25, 27);
+}
+
 .colors .white {
     border-radius: 50%;
     width: 1.5em;
@@ -64,7 +68,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: red;
+    background-color: #ea2c62;
 }
 
 .colors .yellow {
@@ -76,7 +80,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: yellow;
+    background-color: #ffdd93;
 }
 
 .colors .orange {
@@ -88,7 +92,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: orange;
+    background-color: #ff9a8c;
 }
 
 .colors .green {
@@ -100,7 +104,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: green;
+    background-color: #9ad3bc;
 }
 
 .colors .blue {
@@ -112,7 +116,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: blue;
+    background-color: #51adcf;
 }
 
 .colors .purple {
@@ -124,7 +128,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: purple;
+    background-color: #bc6ff1;
 }
 
 .colors .pink {
@@ -136,7 +140,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: pink;
+    background-color: #f4abc4;
 }
 
 .colors .gray {
@@ -148,5 +152,5 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: lightgray;
+    background-color: #f4f4f2;
 }

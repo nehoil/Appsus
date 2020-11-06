@@ -6,6 +6,7 @@
 @import './search-note.css';
 * {
     font-family: 'roboto', sans-serif;
+    color: #202131;
 }
 
 .notes-container {
@@ -44,6 +45,10 @@
     font-size: 1.5em;
     cursor: pointer;
     margin: 0 10px;
+}
+
+.active {
+    background-color: chartreuse;
 }
 
 .add-note-container button:hover {

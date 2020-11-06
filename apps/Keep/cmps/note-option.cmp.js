@@ -15,14 +15,14 @@ export default {
           <div class="color-palette-container" v-if="isShowColorPalette">
               <div class="colors">
               <div class="white" @click="setBgColor('white')"></div>
-              <div class="red" @click="setBgColor('red')"></div>
-              <div class="yellow" @click="setBgColor('yellow')"></div>
-              <div class="orange" @click="setBgColor('orange')"></div>
-              <div class="green" @click="setBgColor('green')"></div>
-              <div class="blue" @click="setBgColor('blue')"></div>
-              <div class="purple" @click="setBgColor('purple')"></div>
-              <div class="pink" @click="setBgColor('pink')"></div>
-              <div class="gray" @click="setBgColor('gray')"></div>
+              <div class="red" @click="setBgColor(' #ea2c62')"></div>
+              <div class="yellow" @click="setBgColor('#ffdd93')"></div>
+              <div class="orange" @click="setBgColor('#ff9a8c')"></div>
+              <div class="green" @click="setBgColor('#9ad3bc')"></div>
+              <div class="blue" @click="setBgColor('#51adcf')"></div>
+              <div class="purple" @click="setBgColor('#bc6ff1')"></div>
+              <div class="pink" @click="setBgColor('#f4abc4')"></div>
+              <div class="gray" @click="setBgColor('#f4f4f2')"></div>
               </div>
           </div>
           <button><i class="fas fa-envelope" aria-hidden="true"></i></button>
