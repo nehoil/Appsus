@@ -20,10 +20,13 @@ export default {
               <div class="yellow" @click="setBgColor('#ffdd93')"></div>
               <div class="orange" @click="setBgColor('#ff9a8c')"></div>
               <div class="green" @click="setBgColor('#9ad3bc')"></div>
-              <div class="blue" @click="setBgColor('#51adcf')"></div>
-              <div class="purple" @click="setBgColor('#bc6ff1')"></div>
+              <div class="blue" @click="setBgColor('#cbf0f8')"></div>
+              <div class="purple" @click="setBgColor('#d7aefb')"></div>
               <div class="pink" @click="setBgColor('#f4abc4')"></div>
               <div class="gray" @click="setBgColor('#f4f4f2')"></div>
+              <div class="brown" @click="setBgColor('#e6c9a8')"></div>
+              <div class="dark-blue" @click="setBgColor('#f4f4f2')"></div>
+              <div class="turquaz" @click="setBgColor('#a7ffeb')"></div>
               </div>
           </div>
           <button @click="sendToMail"><i class="fas fa-envelope" aria-hidden="true"></i></button>

@@ -8,7 +8,7 @@ export default {
       <section class="note-todo note-card" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
         <p class="todos-list-title" v-show="!isEditable">{{info.title}}</p>
         <form @submit.prevent="updateTitle(info.id)">
-        <input type="text" v-model="val" v-show="isEditable"  ref="todoTitleInput" class="note-todos-input">
+        <input type="text" v-model="val" v-show="isEditable"  ref="todoTitleInput" class="note-todos-input" :style="{ backgroundColor : bgColor }">
         </form>
         <ul class="todos-list" v-if="info.todos.length">
             <li  v-for="todo in info.todos" :key="todo.id">
@@ -17,7 +17,7 @@ export default {
             </li>
             <form @submit.prevent="addTodo(info.id,todoTxt)">
             <li @show="focus()">
-                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?">
+                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What more?" :style="{ backgroundColor : bgColor }">
             </li>
             </form>
         </ul>
@@ -25,7 +25,7 @@ export default {
         <ul v-else>
         <form @submit.prevent="addTodo(info.id,todoTxt)">
             <li @show="focus()">
-                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?">
+                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?" :style="{ backgroundColor : bgColor }">
             </li>
             </form>
         </ul>
@@ -59,7 +59,6 @@ export default {
 
         },
         addTodo(noteId, todoTxt) {
-            console.log(todoTxt);
             keepService.addTodo(noteId, todoTxt);
             this.todoTxt = null
 

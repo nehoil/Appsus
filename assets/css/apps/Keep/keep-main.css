@@ -4,20 +4,18 @@
 @import './note-video.css';
 @import './note-opts.css';
 @import './search-note.css';
+@import './add-note.css';
 * {
     font-family: 'roboto', sans-serif;
     color: #202131;
 }
 
 .notes-container {
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     column-count: 6;
     padding: 10px;
 }
 
 .note-card {
-    background-color: lightpink;
     break-inside: avoid;
     border-radius: 10px;
     border: 1px solid lightgray;
@@ -26,43 +24,6 @@
     margin-bottom: 10px;
     vertical-align: baseline;
     max-width: 100%;
-}
-
-.add-note-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.add-note-container button {
-    width: 50px;
-    height: 50px;
-    outline: none;
-    border: none;
-    background-color: transparent;
-    font-size: 1.5em;
-    cursor: pointer;
-    margin: 0 10px;
-}
-
-.active {
-    background-color: chartreuse;
-}
-
-.add-note-container button:hover {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(240, 240, 240);
-    border-radius: 50%;
-}
-
-.add-note-container input {
-    outline: none;
-    border: none;
-    min-width: 270px;
-    border-bottom: 1px solid lightgray;
 }
 
 @media (max-width:1200px) {

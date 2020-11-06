@@ -10,7 +10,7 @@ export default {
                <input type="text" v-model="val" :placeholder="callForAction">
             </form>
             <div class="btns-container">
-            <button @click="setType('noteText')"  :class="{ 'active' : true}"><i class="far fa-sticky-note"></i></button>
+            <button @click="setType('noteText')"  :class="{ active : true}"><i class="far fa-sticky-note"></i></button>
             <button @click="setType('noteImg')" :class="{ active : isImgActive}"><i class="far fa-image"></i></button>
             <button @click="setType('noteTodos')" :class="{ active : isTodoActive}"><i class="fas fa-list-ul"></i></button>
             <button @click="setType('noteVideo')" :class="{ active : isVidActive}"><i class="fab fa-youtube"></i></button>

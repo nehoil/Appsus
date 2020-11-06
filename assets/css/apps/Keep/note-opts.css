@@ -29,7 +29,7 @@
 }
 
 .colors {
-    width: 100px;
+    width: 290px;
     height: 100px;
     display: flex;
     flex-wrap: wrap;
@@ -116,7 +116,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: #51adcf;
+    background-color: #cbf0f8;
 }
 
 .colors .purple {
@@ -128,7 +128,7 @@
     margin: .1em;
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
-    background-color: #bc6ff1;
+    background-color: #d7aefb;
 }
 
 .colors .pink {
@@ -153,4 +153,40 @@
     cursor: pointer;
     /* border: solid 1px rgb(255, 255, 255); */
     background-color: #f4f4f2;
+}
+
+.colors .brown {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #e6c9a8;
+}
+
+.colors .dark-blue {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #f4f4f2;
+}
+
+.colors .turquaz {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #a7ffeb;
 }

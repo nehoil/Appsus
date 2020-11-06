@@ -16,111 +16,125 @@ export const keepService = {
     saveTitle,
     pinNote,
     addMailToNotes,
-    getNoteByIdToMail
+    getNoteByIdToMail,
+    saveBgColor
 }
 
 
 var gDefaultNotes = [{
-    type: "noteText",
-    isPinned: false,
-    info: {
-        id: 101,
-        title: "It's Valentine's Day, do not forget to buy flowers"
-    }
-},
-{
-    type: "noteImg",
-    isPinned: false,
-    info: {
-        id: 102,
-        url: "./apps/Keep/assets/img/car.png",
-        title: "11.11.20 - We are going to travel!"
+        type: "noteText",
+        isPinned: false,
+        info: {
+            id: 101,
+            title: "It's Valentine's Day, do not forget to buy flowers",
+            bgColor: '#fff',
+        },
+
     },
-    style: {
-        backgroundColor: "#00d"
-    }
-},
-{
-    type: "noteTodos",
-    isPinned: false,
-    info: {
-        id: 103,
-        title: "My Todo list:",
-        todos: [
-            { id: 201, txt: "Buy bananas", doneAt: null },
-            { id: 202, txt: "Go for a walk", doneAt: 187111111 }
-        ]
-    }
-},
-{
-    type: "noteVideo",
-    isPinned: false,
-    info: {
-        id: 104,
-        url: "https://www.youtube.com/embed/tgbNymZ7vqY",
-        title: "Nice video"
+    {
+        type: "noteImg",
+        isPinned: false,
+        info: {
+            id: 102,
+            url: "./apps/Keep/assets/img/car.png",
+            title: "11.11.20 - We are going to travel!",
+            bgColor: '#fff',
+            bgColor: '#fff'
+        },
+
     },
-},
-{
-    type: "noteImg",
-    isPinned: false,
-    info: {
-        id: 105,
-        url: "https://images.news18.com/ibnlive/uploads/2016/04/boxing-gloves-generic.jpg",
-        title: "Murderous training with Mark!!"
+    {
+        type: "noteTodos",
+        isPinned: false,
+        info: {
+            id: 103,
+            title: "My Todo list:",
+            todos: [
+                { id: 201, txt: "Buy bananas", doneAt: null },
+                { id: 202, txt: "Go for a walk", doneAt: 187111111 },
+            ],
+            bgColor: '#fff',
+        },
+
     },
-    style: {
-        backgroundColor: "#00d"
-    }
-},
-{
-    type: "noteTodos",
-    isPinned: false,
-    info: {
-        id: 106,
-        title: "Remind Nimrod:",
-        todos: [
-            { id: 203, txt: "Feed the fish once a day", doneAt: null },
-            { id: 204, txt: "Water the plants", doneAt: null },
-            { id: 205, txt: "Take out Lulu three times a day", doneAt: null }
-        ]
-    }
-},
-{
-    type: "noteVideo",
-    isPinned: false,
-    info: {
-        id: 107,
-        url: "https://www.youtube.com/embed/-RkQDlUV4Fc",
-        title: "music for running"
+    {
+        type: "noteVideo",
+        isPinned: false,
+        info: {
+            id: 104,
+            url: "https://www.youtube.com/embed/tgbNymZ7vqY",
+            title: "Nice video",
+            bgColor: '#fff',
+        },
+
     },
-},
-{
-    type: "noteText",
-    isPinned: false,
-    info: {
-        id: 108,
-        title: "The plates will still shift, and the clouds will still spew, the sun will slowly rise and the moon will follow too. - 'Amy O Connor'"
+    {
+        type: "noteImg",
+        isPinned: false,
+        info: {
+            id: 105,
+            url: "https://images.news18.com/ibnlive/uploads/2016/04/boxing-gloves-generic.jpg",
+            title: "Murderous training with Mark!!",
+            bgColor: '#fff',
+        },
+
+    },
+    {
+        type: "noteTodos",
+        isPinned: false,
+        info: {
+            id: 106,
+            title: "Remind Nimrod:",
+            todos: [
+                { id: 203, txt: "Feed the fish once a day", doneAt: null },
+                { id: 204, txt: "Water the plants", doneAt: null },
+                { id: 205, txt: "Take out Lulu three times a day", doneAt: null }
+            ],
+            bgColor: '#fff',
+        },
+
+    },
+    {
+        type: "noteVideo",
+        isPinned: false,
+        info: {
+            id: 107,
+            url: "https://www.youtube.com/embed/-RkQDlUV4Fc",
+            title: "music for running",
+            bgColor: '#fff',
+        },
+
+    },
+    {
+        type: "noteText",
+        isPinned: false,
+        info: {
+            id: 108,
+            title: "The plates will still shift, and the clouds will still spew, the sun will slowly rise and the moon will follow too. - 'Amy O Connor'",
+            bgColor: '#fff',
+        },
+
+    },
+    {
+        type: "noteTodos",
+        isPinned: false,
+        info: {
+            id: 109,
+            title: "Friends meeting on Saturday",
+            todos: [
+                { id: 206, txt: "Tahini and crackers", doneAt: null },
+                { id: 207, txt: "Chopped vegetables, olives", doneAt: null },
+                { id: 208, txt: "Pasta salad", doneAt: null },
+                { id: 209, txt: "snacks", doneAt: null },
+                { id: 210, txt: "Beers", doneAt: null }
+            ],
+            bgColor: '#fff',
+        },
     }
-},
-{
-    type: "noteTodos",
-    isPinned: false,
-    info: {
-        id: 109,
-        title: "Friends meeting on Saturday",
-        todos: [
-            { id: 206, txt: "Tahini and crackers", doneAt: null },
-            { id: 207, txt: "Chopped vegetables, olives", doneAt: null },
-            { id: 208, txt: "Pasta salad", doneAt: null },
-            { id: 209, txt: "snacks", doneAt: null },
-            { id: 210, txt: "Beers", doneAt: null }
-        ]
-    }
-}
 ];
 
 var notes = utilService.loadFromStorage(NOTES_STORAGE_KEY) || gDefaultNotes;
+
 
 
 function addMailToNotes(mail) {
@@ -265,8 +279,8 @@ function saveTodo(noteId, todoId, val) {
 function editNote(noteId) {
     var noteIdx = getNoteById(noteId);
     if (!noteIdx.length) return 'sdf ';
-    return notes[noteIdx].info.title
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
+    return notes[noteIdx].info.title
 }
 
 function updateTitle(noteId, val) {
@@ -283,5 +297,13 @@ function saveTitle(noteId, val) {
 
 function pinNote(noteIdx) {
     notes[noteIdx].isPinned = !notes[noteIdx].isPinned
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
+}
+
+function saveBgColor(noteId, color) {
+    var noteIdx = getNoteById(noteId)
+    notes[noteIdx].bgColor = `${color}`
+    console.log(notes[noteIdx].bgColor);
+
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }

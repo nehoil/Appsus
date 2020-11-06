@@ -28,7 +28,6 @@ export default {
     created() {
         keepService.getNotes()
             .then(notes => this.notes = notes)
-            .then(notes => console.log(notes))
     },
     methods: {
         setFilter(filter) {
