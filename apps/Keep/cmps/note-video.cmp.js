@@ -8,7 +8,9 @@ export default {
     template: `
       <section class="note-video" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
       <p class="note-vid-title" contentEditable="true" @keydown.enter="saveTitle(info.id,$event)"  @blur="saveTitle(info.id,$event)" ref="vidTitleInput" placeholder="text">{{info.title}}</p>
-      <iframe width="320" height="215" :src="info.url"></iframe>
+     <div class="iframe-container">
+      <iframe :src="info.url" class="responsive-iframe"></iframe>
+      </div>
       <note-options v-if="isShowOpts" :id="info.id" @editNote="edit($event)" @changeBgColor="changeBgColor"></note-options >
     </section>
     `,

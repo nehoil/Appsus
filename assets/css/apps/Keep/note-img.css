@@ -6,7 +6,7 @@
     align-items: center;
     max-width: 320px;
     padding: 10px 10px 40px 10px;
-    margin: 10px;
+    /* margin: 10px; */
     border: 1px solid lightgray;
     border-radius: 10px;
 }
@@ -17,7 +17,7 @@
 
 .note-img-input {
     position: relative;
-    width: 230px;
+    max-width: 230px;
     margin: 0 0 10px;
     /* border: none; */
     outline: none;
@@ -26,7 +26,7 @@
 }
 
 .note-img img {
-    max-width: 320px;
+    max-width: 100%;
 }
 
 .note-img h1 {

@@ -1,4 +1,6 @@
 import { keepService } from '../services/keep-service.js'
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 
 export default {
@@ -60,6 +62,8 @@ export default {
         pinNote() {
             const noteIdx = keepService.getNoteById(this.id);
             keepService.pinNote(noteIdx);
+            eventBus.$emit('show-msg', `Note pinned sucessfuly!`)
+
         }
     },
     created() {
