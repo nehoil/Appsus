@@ -49,5 +49,5 @@ export default {
             this.$emit('menuClicked')
             eventBus.$emit('mail-saved-to-notes', 'true')
         },
-    },
+    }
 }

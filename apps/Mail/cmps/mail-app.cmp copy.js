@@ -1,6 +1,8 @@
 import { mailService } from '../services/mail-service.js';
 import mailList from './mail-list.cmp.js';
 import mailSideMenu from './mail-side-menu.cmp.js';
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 
 export default {
@@ -43,7 +45,7 @@ export default {
                 </form>
             </div>
                     <mail-side-menu :mails="mails" @doFilter="setFilter" @doCompose="showCompose"/>
-                    <mail-list v-if="mails" @doSearch="setSearchTerm" :mails="mailsToShow" />
+                    <mail-list v-if="mails" @doSearch="setSearchTerm" @doReadFilter="setReadFilter":mails="mailsToShow" />
             </div>
         </section>
     `,
@@ -53,7 +55,8 @@ export default {
             isShowCompose: false,
             filterBy: {
                 type: 'all',
-                term: null
+                term: null,
+                read: null
             },
             newMail: mailService.getEmptyMail()
         }
@@ -61,12 +64,12 @@ export default {
     computed: {
         mailsToShow() {
             var filteredMails = [];
-            if (this.filterBy.type === 'all' && !this.filterBy.term)  return this.mails.filter(mail => !mail.isSent);
-            if (this.filterBy.type === 'all' && this.filterBy.term)  filteredMails = this.mails.filter(mail => !mail.isSent);
+            if (this.filterBy.type === 'all' && !this.filterBy.term) return this.mails.filter(mail => !mail.isSent);
+            if (this.filterBy.type === 'all' && this.filterBy.term) filteredMails = this.mails.filter(mail => !mail.isSent);
             if (this.filterBy.type !== 'all') filteredMails = this.mails.filter(mail => mail[this.filterBy.type])
             if (!this.filterBy.term) return filteredMails;
             var txt = this.filterBy.term.toUpperCase()
-           return filteredMails.filter(mail => mail.subject.toUpperCase().includes(txt))
+            return filteredMails.filter(mail => mail.subject.toUpperCase().includes(txt))
         }
     },
     methods: {
@@ -75,6 +78,9 @@ export default {
         },
         setSearchTerm(searchTerm) {
             this.filterBy.term = searchTerm;
+        },
+        setReadFilter(isRead) {
+            // this.filterBy.term = isRead;
         },
         addMail() {
             this.isShowCompose = false;
@@ -87,13 +93,30 @@ export default {
             this.isShowCompose = true;
             setTimeout(() => this.$refs.toInput.focus(), 100)
         },
-        closeCompose(){
+        closeCompose() {
             this.isShowCompose = false;
+        },
+        composeReply(mail){
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = new Date(mail.sentAt).toLocaleDateString(undefined, options)
+            this.newMail.sentEmail = mail.senderEmail;
+            this.newMail.subject = 'RE: ' + mail.subject;
+            this.newMail.body = `
+            <--------------------------------------------------->
+           on ${date} ${mail.senderName} <${mail.senderEmail}> wrote:
+            ${mail.body}
+            <--------------------------------------------------->
+            `;
         }
     },
     created() {
         mailService.getMails()
             .then(mails => this.mails = mails)
+
+        eventBus.$on('doReply', mail => {
+            this.composeReply(mail)
+            this.showCompose()
+        })
     },
     components: {
         mailList,
