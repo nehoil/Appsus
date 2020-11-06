@@ -1,6 +1,7 @@
 import { mailService } from '../services/mail-service.js';
 import mailSideMenu from '../cmps/mail-side-menu.cmp.js';
 import mailActionMenu from '../cmps/mail-action-menu.cmp.js';
+import mailAvatar from '../cmps/mail-avatar.cmp.js';
 
 
 export default {
@@ -18,6 +19,7 @@ export default {
                         <mail-action-menu v-show="isShowMenu" :mail="mail" @menuClicked="isShowMenu = !isShowMenu" />
                     </div>
                     <div class="exp-mail-sub-header">
+                        <mail-avatar :mail="mail" v-if="mail" />
                         <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
                         <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
                     </div>
@@ -52,6 +54,7 @@ export default {
     },
     components: {
         mailSideMenu,
-        mailActionMenu
+        mailActionMenu,
+        mailAvatar
     }
 }

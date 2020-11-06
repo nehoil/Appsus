@@ -8,11 +8,11 @@ export default {
     template: `
         <section class="mail-action-menu box-shadow" v-if="isShowMenu">
                 <ul>
-                    <li @click="reply"><i class="menu-icon fas fa-reply"></i> Reply</li>
-                    <li @click="unMarkMail"><i class="menu-icon fas fa-envelope"></i> Mark as unread</li>
-                    <li @click="sendToNotes"><i class="menu-icon far fa-pen"></i> Send to notes</li>
-                    <li @click="removeMail"><i class="menu-icon fas fa-trash"></i> Removed</li>
-                    <li @click="starMail"><i class="menu-icon fas fa-star"></i> Starred</li>
+                    <li @click="reply"><div class="action-icon"><i class="menu-icon fas fa-reply"></i></div><div class="action-txt"> Reply</div></li>
+                    <li @click="unMarkMail"><div class="action-icon"><i class="menu-icon fas fa-envelope"></i></div><div class="action-txt"> Mark as unread</div></li>
+                    <li @click="sendToNotes"><div class="action-icon"><i class="menu-icon far fa-pen"></i></div><div class="action-txt"> Send to notes</div></li>
+                    <li @click="removeMail"><div class="action-icon"><i class="menu-icon fas fa-trash"></i></div><div class="action-txt"> Removed</div></li>
+                    <li @click="starMail"><div class="action-icon"><i class="menu-icon fas fa-star"></i></div><div class="action-txt"> Starred</div></li>
                 </ul>
             </section>
         </section>
@@ -26,7 +26,6 @@ export default {
         removeMail(){
             mailService.removeMail(this.mail)
             this.$router.push('/mail');
-            console.log('removed');
             eventBus.$emit('show-msg', `Mail removed successfully`)
         },
         unMarkMail(){

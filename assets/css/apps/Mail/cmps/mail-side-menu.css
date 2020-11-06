@@ -1,0 +1,142 @@
+/* mail side menu cmp   */
+
+
+.mail-side-content {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 99%;
+  position: fixed;
+  z-index: 1000;
+  top: 80px;
+  background-color: #fff;
+  height: 80%;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.show-side-bar {
+    visibility: visible;
+}
+
+.hamburger-side {
+    display: block;
+    padding-top: 20px;
+    margin-left: 22px;
+    font-size: 1.4rem;
+}
+
+.mail-side-content ul {
+  margin: 0;
+}
+
+.side-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.mail-side-content i {
+  margin-right: 5px;
+  font-weight: 100;
+}
+
+.mail-side-content button {
+  font-size: 0.875rem;
+  display: inline-flex;
+  letter-spacing: 0.25px;
+  font-weight: 500;
+  display: flex;
+  border: 1px solid rgba(128, 128, 128, 0.438);
+  border-radius: 24px;
+  color: #3c4043;
+  padding: 19px 37px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149);
+  align-items: center;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.mail-side-content button i {
+  color: #db4437;
+}
+
+.mail-side-content button:hover {
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.445),
+    0 1px 3px 1px rgba(60, 64, 67, 0.486);
+}
+
+.mail-side-content ul {
+  width: 100%;
+}
+
+.side-close {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.mail-side-content li {
+  font-size: 1rem;
+  padding: 13px 30px;
+  cursor: pointer;
+}
+
+.mail-side-content li:hover {
+  background-color: rgba(128, 128, 128, 0.151);
+  border-radius: 20px;
+}
+
+/* Media Queries */
+
+/* Super Narrow */
+
+@media (min-width: 450px) {
+  .mail-side-content {
+    visibility: unset;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    width: unset;
+    position: unset;
+    top: unset;
+    background-color: #fff;
+    height: unset;
+    box-shadow: unset;
+  }
+  .mail-side-content li {
+    padding: 10px;
+    width: 90%;
+  }
+  .side-close {
+    display: none;
+  }
+  .hamburger-side {
+    display: none;
+}
+.mail-side-content-container {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+}
+
+/* Extra Narrow */
+@media (min-width: 900px) {
+}
+
+/* Narrow */
+
+@media (min-width: 980px) {
+}
+
+/* Normal */
+
+@media (min-width: 1100px) {
+}
