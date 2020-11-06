@@ -41,6 +41,7 @@ export default {
             eventBus.$emit('show-msg', `Mail starred successfully`)
         },
         reply(){
+            eventBus.$emit('doReply', this.mail)
             this.$emit('menuClicked')
         },
         sendToNotes(){
