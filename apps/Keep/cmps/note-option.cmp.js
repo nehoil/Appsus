@@ -8,10 +8,8 @@ export default {
     name: 'note-options',
     props: ['id'],
     template: `
-      <!-- <transition name="slide-fade"> -->
       <div class="note-options-container">
           <button @click="deleteNote"><i class="far fa-trash-alt"></i></button>
-          <!-- <button @click="editNote"><i class="far fa-edit"></i></button> -->
           <button  @click="toggleColorPalette" ><i class="fas fa-palette"></i></button>
           <button  @click="pinNote" ><i class="fas fa-thumbtack"></i></i></button>
           <div class="color-palette-container" v-if="isShowColorPalette">
@@ -32,7 +30,6 @@ export default {
           </div>
           <button @click="sendToMail"><i class="fas fa-envelope" aria-hidden="true"></i></button>
 </div>
-<!-- </transition> -->
     `,
     data() {
         return {
@@ -44,26 +41,25 @@ export default {
         sendToMail() {
             var note = keepService.getNoteByIdToMail(this.id);
             mailService.addNoteToMails(note)
-            .then(mail => {
-                eventBus.$emit('note-saved-to-mail', mail)
-            }
-                )
+                .then(mail => {
+                    eventBus.$emit('note-saved-to-mail', mail)
+                })
         },
         showOpts() {
-            this.isShowOpts = true
+            this.isShowOpts = true;
 
         },
         hideOpts() {
-            this.isShowOpts = false
+            this.isShowOpts = false;
         },
         deleteNote() {
             const noteIdx = keepService.getNoteById(this.id);
             keepService.deleteNote(noteIdx);
-            eventBus.$emit('show-msg', `Note Deleted successfully!`)
+            eventBus.$emit('show-msg', `Note Deleted successfully!`);
         },
         editNote() {
-            var val = keepService.editNote(this.id)
-            this.$emit('editNote', val)
+            var val = keepService.editNote(this.id);
+            this.$emit('editNote', val);
         },
         toggleColorPalette() {
             this.isShowColorPalette = !this.isShowColorPalette;
@@ -72,15 +68,15 @@ export default {
             this.isShowColorPalette = false;
         },
         setBgColor(color) {
-            this.$emit('changeBgColor', color)
+            this.$emit('changeBgColor', color);
         },
         pinNote() {
             const noteIdx = keepService.getNoteById(this.id);
             keepService.pinNote(noteIdx);
-            this.$emit('setPinState', 'ok')
+            this.$emit('setPinState', 'ok');
         }
     },
     created() {
-        this.isShowColorPalette = false
+        this.isShowColorPalette = false;
     },
 }

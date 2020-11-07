@@ -13,7 +13,9 @@ export default {
           </div>
         <p contentEditable="true" class="note-img-title" @keydown.enter="saveTitle(info.id,$event)" @blur="saveTitle(info.id,$event)" ref="imgTitleInput">{{info.title}}</p>
         <img :src=info.url alt="">
+        <transition name="slide-fade">
         <note-options v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>
+        </transition>
              </section>
     `,
     data() {
@@ -43,15 +45,13 @@ export default {
         },
         saveTitle(noteId, ev) {
             this.$refs.imgTitleInput.blur();
-            var val = ev.target.innerText
+            var val = ev.target.innerText;
             keepService.saveTitle(noteId, val);
-            eventBus.$emit('show-msg', `Title changed successfully!`)
-
-
+            eventBus.$emit('show-msg', `Title changed successfully!`);
         },
         changeBgColor(color) {
             this.bgColor = color;
-            keepService.saveBgColor(this.info.id, color)
+            keepService.saveBgColor(this.info.id, color);
         }
     },
     created() {

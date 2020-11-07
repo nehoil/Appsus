@@ -3,7 +3,6 @@ import noteOptions from '../cmps/note-option.cmp.js'
 import { eventBus } from '../../../services/event-bus-service.js';
 
 
-
 export default {
     name: 'note-video',
     props: ['info', 'note'],
@@ -16,7 +15,9 @@ export default {
      <div class="iframe-container">
       <iframe :src="info.url" class="responsive-iframe" frameBorder="0"></iframe>
       </div>
-      <note-options v-if="isShowOpts" :id="info.id" @editNote="edit($event)" @changeBgColor="changeBgColor"></note-options >
+      <transition name="slide-fade">
+      <note-options v-if="isShowOpts" :id="info.id" @editNote="edit($event)" @changeBgColor="changeBgColor"></note-options>
+        </transition>
     </section>
     `,
     data() {
@@ -39,24 +40,24 @@ export default {
         },
         saveTitle(noteId, ev) {
             this.$refs.vidTitleInput.blur();
-            var val = ev.target.innerText
+            var val = ev.target.innerText;
             console.log(noteId, val);
-            keepService.saveTitle(noteId, val)
-            eventBus.$emit('show-msg', `Title saved succssefully!`)
+            keepService.saveTitle(noteId, val);
+            eventBus.$emit('show-msg', `Title saved succssefully!`);
         },
         edit(val) {
             console.log(val);
-            this.isEditable = true
+            this.isEditable = true;
             this.val = val;
             this.$nextTick(() => this.$refs.vidTitleInput.focus());
         },
         updateTitle(noteID) {
             keepService.updateTitle(noteID, this.val);
-            this.isEditable = false
+            this.isEditable = false;
         },
         changeBgColor(color) {
             this.bgColor = color;
-            keepService.saveBgColor(this.info.id, color)
+            keepService.saveBgColor(this.info.id, color);
 
         }
     },

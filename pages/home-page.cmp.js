@@ -1,9 +1,9 @@
 export default {
     template: `
-        <section class="main-app">
-                   
-                    <!-- Home Page! -->
-                    <div class="main-section-container">
+       <transition name="slide-fade">
+        <section class="main-app" v-if="isShowHomePage">
+             
+                    <div class="main-section-container" >
                     <div class="app-info-container">
                         <h1>Easy and secure access to all of your content</h1>
                         <p>Store, share, and collaborate on files and folders from any mobile device, tablet, or computer</p>
@@ -14,7 +14,17 @@ export default {
                         </div>
                     </div>
                         <img src="./assets/img/main-img.jpg" alt="">
-                 </div>
-        </section>
-    `
+                    </div>
+                    
+                </section>
+            </transition>
+    `,
+    data() {
+        return {
+            isShowHomePage: false
+        }
+    },
+    mounted() {
+        this.isShowHomePage = true
+    }
 }

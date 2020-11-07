@@ -1,9 +1,7 @@
 import { utilService } from '../../../services/util-service.js'
 import { eventBus } from '../../../services/event-bus-service.js';
 
-
 const NOTES_STORAGE_KEY = 'notes_db';
-
 
 export const keepService = {
     getNotes,
@@ -47,7 +45,7 @@ var gDefaultNotes = [{
     },
     {
         type: "noteTodos",
-        isPinned: false,
+        isPinned: true,
         info: {
             id: 103,
             title: "My Todo list:",
@@ -73,7 +71,7 @@ var gDefaultNotes = [{
     },
     {
         type: "noteImg",
-        isPinned: false,
+        isPinned: true,
         info: {
             id: 105,
             url: "https://images.news18.com/ibnlive/uploads/2016/04/boxing-gloves-generic.jpg",
@@ -150,7 +148,7 @@ var gDefaultNotes = [{
                 { id: 217, txt: "2 tablespoons dry yeast", doneAt: null, isChecked: false },
 
             ],
-            bgColor: '#f4f4f2',
+            bgColor: '#d7aefb',
         }
     },
     {
@@ -295,9 +293,9 @@ function addVidNote(val) {
     var embbedVal = val.replace('watch?v=', 'embed/');
     var idx = embbedVal.indexOf('&')
     if (idx === -1) {
-        var newVal = embbedVal.substring(0, embbedVal.length)
+        var newVal = embbedVal.substring(0, embbedVal.length);
     } else {
-        var newVal = embbedVal.substring(0, idx)
+        var newVal = embbedVal.substring(0, idx);
     }
     var note = {
         type: "noteVideo",
@@ -313,9 +311,9 @@ function addVidNote(val) {
 
 
 function deleteTodo(noteId, todoId) {
-    var noteIdx = getNoteById(noteId)
+    var noteIdx = getNoteById(noteId);
     var todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId)
-    notes[noteIdx].info.todos.splice(todoIdx, 1)
+    notes[noteIdx].info.todos.splice(todoIdx, 1);
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
@@ -326,8 +324,8 @@ function addTodo(noteId, todoTxt) {
         doneAt: null,
         isChecked: false
     }
-    var noteIdx = getNoteById(noteId)
-    notes[noteIdx].info.todos.push(todo)
+    var noteIdx = getNoteById(noteId);
+    notes[noteIdx].info.todos.push(todo);
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 
@@ -342,7 +340,7 @@ function editNote(noteId) {
     var noteIdx = getNoteById(noteId);
     if (!noteIdx.length) return 'sdf ';
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
-    return notes[noteIdx].info.title
+    return notes[noteIdx].info.title;
 }
 
 function updateTitle(noteId, val) {
@@ -360,11 +358,11 @@ function saveTitle(noteId, val) {
 function pinNote(noteIdx) {
     if (notes[noteIdx].isPinned) {
         notes[noteIdx].isPinned = !notes[noteIdx].isPinned;
-        eventBus.$emit('show-msg', `Note Unpinned successfully!`)
+        eventBus.$emit('show-msg', `Note Unpinned successfully!`);
 
     } else {
-        notes[noteIdx].isPinned = !notes[noteIdx].isPinned
-        eventBus.$emit('show-msg', `Note pinned successfully!`)
+        notes[noteIdx].isPinned = !notes[noteIdx].isPinned;
+        eventBus.$emit('show-msg', `Note pinned successfully!`);
     }
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
@@ -376,9 +374,8 @@ function saveBgColor(noteId, color) {
 }
 
 function updateTodoCheckState(todoId, noteId) {
-    var noteIdx = getNoteById(noteId)
+    var noteIdx = getNoteById(noteId);
     var todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId);
     notes[noteIdx].info.todos[todoIdx].isChecked = !notes[noteIdx].info.todos[todoIdx].isChecked;
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
-
 }

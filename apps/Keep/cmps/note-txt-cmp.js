@@ -1,6 +1,5 @@
 import { keepService } from '../services/keep-service.js'
 import { eventBus } from '../../../services/event-bus-service.js';
-
 import noteOptions from '../cmps/note-option.cmp.js'
 
 export default {
@@ -18,7 +17,6 @@ export default {
             $event)">{{info.title}}</textarea>
         </form>
               <transition name="slide-fade">
-
         <note-options  v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>
             </transition>
 
@@ -51,16 +49,13 @@ export default {
         updateTitle(noteID, ev) {
             keepService.updateTitle(noteID, ev.target.value);
             this.$nextTick(() => this.$refs.noteTxtInput.blur());
-            eventBus.$emit('show-msg', `Note saved succssefully!`)
+            eventBus.$emit('show-msg', `Note saved succssefully!`);
 
         },
         changeBgColor(color) {
             this.bgColor = color;
             keepService.saveBgColor(this.info.id, color);
         },
-
-    },
-    computed: {
 
     },
     created() {

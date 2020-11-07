@@ -1,220 +1,235 @@
 .note-options-container {
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 5px;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+    transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+{
     opacity: 0;
     transition: 0.3s;
 }
+
+
 /* Enter and leave animations can use different */
+
+
 /* durations and timing functions.              */
+
 .slide-fade-enter-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);;
-  }
-  .slide-fade-leave-active {
     transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-  .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active below version 2.1.8 */ {
+    ;
+}
+
+.slide-fade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */
+
+{
     transform: translateY(10px);
     opacity: 0;
-  }
-  
-  
+}
+
 .note-options-container button {
-  outline: none;
-  border: none;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  background-color: transparent;
-  font-size: 1em;
+    outline: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 1em;
 }
 
 .note-options-container button i {
-  color: rgb(78, 78, 85);
-  font-weight: 100;
+    color: rgb(78, 78, 85);
+    font-weight: 100;
 }
 
 .note-options-container button:hover {
-  background-color: rgb(243, 242, 242);
-  cursor: pointer;
+    background-color: rgb(243, 242, 242);
+    cursor: pointer;
 }
 
 .color-palette-container {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 40px;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
 }
 
 .colors {
-  width: 210px;
-  height: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  box-shadow: 1px 2px 3px #dfdfdf;
+    width: 210px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px #dfdfdf;
 }
 
 .colors div {
-  border: solid 1px rgb(202, 202, 202);
+    border: solid 1px rgb(202, 202, 202);
 }
 
 .colors div:hover {
-  border: 1px solid rgb(25, 25, 27);
+    border: 1px solid rgb(25, 25, 27);
 }
 
 .colors .white {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  border: solid 1px rgb(202, 202, 202);
-  background-color: white;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    border: solid 1px rgb(202, 202, 202);
+    background-color: white;
 }
 
 .colors .red {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #ea2c62;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #ea2c62;
 }
 
 .colors .yellow {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #ffdd93;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #ffdd93;
 }
 
 .colors .orange {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #ff9a8c;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #ff9a8c;
 }
 
 .colors .green {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #9ad3bc;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #9ad3bc;
 }
 
 .colors .blue {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #cbf0f8;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #cbf0f8;
 }
 
 .colors .purple {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #d7aefb;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #d7aefb;
 }
 
 .colors .pink {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #f4abc4;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #f4abc4;
 }
 
 .colors .gray {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #8080804b;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #8080804b;
 }
 
 .colors .brown {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #e6c9a8;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #e6c9a8;
 }
 
 .colors .dark-blue {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #f4f4f2;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #f4f4f2;
 }
 
 .colors .turquaz {
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  transform: scale(1);
-  transition: all 0.3s;
-  margin: 0.1em;
-  cursor: pointer;
-  /* border: solid 1px rgb(255, 255, 255); */
-  background-color: #a7ffeb;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all 0.3s;
+    margin: 0.1em;
+    cursor: pointer;
+    /* border: solid 1px rgb(255, 255, 255); */
+    background-color: #a7ffeb;
 }

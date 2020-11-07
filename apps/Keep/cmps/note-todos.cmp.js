@@ -27,21 +27,21 @@ export default {
                 <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What more?" :style="{ backgroundColor : bgColor }" >
             </li>
             </form>
-
             </ul>
 
             <ul v-else>
         <form @keydown.enter="addTodo(info.id,todoTxt)">
-
             <li @show="focus()">       
               <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?" :style="{ backgroundColor : bgColor }">
-
             </li>
             </form>
 
         </ul>
         <div class="opts-container">
+        <transition name="slide-fade">
         <note-options  v-if="isShowOpts" :id="info.id"  @editNote="editTitle($event)" @changeBgColor="changeBgColor"></note-options>
+        </transition>
+
         </div> 
     </section>
 
@@ -69,7 +69,7 @@ export default {
         },
         addTodo(noteId, todoTxt) {
             keepService.addTodo(noteId, todoTxt);
-            this.todoTxt = null
+            this.todoTxt = null;
         },
         editTitle(val) {
             this.isEditable = true;
@@ -77,9 +77,9 @@ export default {
             this.$nextTick(() => this.$refs.todoTitleInput.focus());
         },
         updateTitle(noteID, ev) {
-            var val = ev.target.innerText
+            var val = ev.target.innerText;
             keepService.updateTitle(noteID, val);
-            this.isEditable = false
+            this.isEditable = false;
             eventBus.$emit('show-msg', `Title changed successfully!`)
 
         },
@@ -89,18 +89,17 @@ export default {
             return { noteId, todoId, val: ev.target.innerText }
         },
         saveTodo(noteId, todoId, ev) {
-            var val = ev.target.innerText
+            var val = ev.target.innerText;
             keepService.saveTodo(noteId, todoId, val);
-
 
         },
         changeBgColor(color) {
             this.bgColor = color;
-            keepService.saveBgColor(this.info.id, color)
+            keepService.saveBgColor(this.info.id, color);
 
         },
         updateTodoCheckState(todoId) {
-            keepService.updateTodoCheckState(todoId, this.info.id)
+            keepService.updateTodoCheckState(todoId, this.info.id);
         }
     },
     created() {
@@ -111,5 +110,3 @@ export default {
         noteOptions,
     }
 }
-
-// @focus="getTodo(info.id,todo.id,$event)" @input="editTodo"

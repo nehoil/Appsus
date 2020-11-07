@@ -1,5 +1,4 @@
 import { keepService } from '../services/keep-service.js';
-// import searchNote from '../cmps/search-note.cmp.js'
 
 export default {
     name: 'add-note',
@@ -15,7 +14,6 @@ export default {
             <button @click="setType('noteTodos')" :class="{ active : isTodoActive}"><i class="fas fa-list-ul" ></i></button>
             <button @click="setType('noteVideo')" :class="{ active : isVidActive}"><i class="fab fa-youtube" ></i></button>
             </div>
-            <!-- <search-note @filtered="setFilter"></search-note> -->
     </section>
     `,
     data() {
@@ -63,12 +61,4 @@ export default {
         }
 
     },
-    computed: {
-
-    },
-    components: {
-        // searchNote,
-
-    }
-
 }
