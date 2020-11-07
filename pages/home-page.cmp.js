@@ -13,7 +13,7 @@ export default {
                             <button class="books-btn" @click="$router.push('/book')">Open Books </button>
                         </div>
                     </div>
-                        <img src="assets/img/main-img.jpg" alt="">
+                        <img src="./assets/img/main-img.jpg" alt="">
                  </div>
         </section>
     `

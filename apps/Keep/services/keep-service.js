@@ -19,7 +19,8 @@ export const keepService = {
     pinNote,
     addMailToNotes,
     getNoteByIdToMail,
-    saveBgColor
+    saveBgColor,
+    updateTodoCheckState
 }
 
 
@@ -51,8 +52,8 @@ var gDefaultNotes = [{
             id: 103,
             title: "My Todo list:",
             todos: [
-                { id: 201, txt: "Buy bananas", doneAt: null },
-                { id: 202, txt: "Go for a walk", doneAt: 187111111 },
+                { id: 201, txt: "Buy bananas", doneAt: null, isChecked: false },
+                { id: 202, txt: "Go for a walk", doneAt: 187111111, isChecked: false },
             ],
             bgColor: '#f4abc4',
         },
@@ -87,9 +88,9 @@ var gDefaultNotes = [{
             id: 106,
             title: "Remind Nimrod:",
             todos: [
-                { id: 203, txt: "Feed the fish once a day", doneAt: null },
-                { id: 204, txt: "Water the plants", doneAt: null },
-                { id: 205, txt: "Take out Lulu three times a day", doneAt: null }
+                { id: 203, txt: "Feed the fish once a day", doneAt: null, isChecked: false },
+                { id: 204, txt: "Water the plants", doneAt: null, isChecked: false },
+                { id: 205, txt: "Take out Lulu three times a day", doneAt: null, isChecked: false }
             ],
             bgColor: '#f4f4f2',
         },
@@ -123,11 +124,11 @@ var gDefaultNotes = [{
             id: 109,
             title: "Friends meeting on Saturday",
             todos: [
-                { id: 206, txt: "Tahini and crackers", doneAt: null },
-                { id: 207, txt: "Chopped vegetables, olives", doneAt: null },
-                { id: 208, txt: "Pasta salad", doneAt: null },
-                { id: 209, txt: "snacks", doneAt: null },
-                { id: 210, txt: "Beers", doneAt: null }
+                { id: 206, txt: "Tahini and crackers", doneAt: null, isChecked: false },
+                { id: 207, txt: "Chopped vegetables, olives", doneAt: null, isChecked: false },
+                { id: 208, txt: "Pasta salad", doneAt: null, isChecked: false },
+                { id: 209, txt: "snacks", doneAt: null, isChecked: false },
+                { id: 210, txt: "Beers", doneAt: null, isChecked: false }
             ],
             bgColor: '#cbf0f8',
         },
@@ -136,16 +137,16 @@ var gDefaultNotes = [{
         type: "noteTodos",
         isPinned: false,
         info: {
-            id: 106,
+            id: 111,
             title: "A recipe for pizza dough 🍕",
             todos: [
-                { id: 211, txt: "1 pound of flour", doneAt: null },
-                { id: 212, txt: "1/2 cup oil", doneAt: null },
-                { id: 213, txt: "Two eggs", doneAt: null },
-                { id: 214, txt: "2 teaspoons salt", doneAt: null },
-                { id: 215, txt: "2 tablespoons of sugar", doneAt: null },
-                { id: 216, txt: "2 glasses of water", doneAt: null },
-                { id: 217, txt: "2 tablespoons dry yeast", doneAt: null },
+                { id: 211, txt: "1 pound of flour", doneAt: null, isChecked: false },
+                { id: 212, txt: "1/2 cup oil", doneAt: null, isChecked: false },
+                { id: 213, txt: "Two eggs", doneAt: null, isChecked: false },
+                { id: 214, txt: "2 teaspoons salt", doneAt: null, isChecked: true },
+                { id: 215, txt: "2 tablespoons of sugar", doneAt: null, isChecked: false },
+                { id: 216, txt: "2 glasses of water", doneAt: null, isChecked: false },
+                { id: 217, txt: "2 tablespoons dry yeast", doneAt: null, isChecked: false },
 
             ],
             bgColor: '#d7aefb',
@@ -341,7 +342,15 @@ function pinNote(noteIdx) {
 function saveBgColor(noteId, color) {
     var noteIdx = getNoteById(noteId)
     notes[noteIdx].info.bgColor = `${color}`
-    console.log(notes[noteIdx].info.bgColor);
-
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
+}
+
+function updateTodoCheckState(todoId, noteId) {
+    console.log(todoId, noteId);
+
+    var noteIdx = getNoteById(noteId)
+    var todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId);
+    notes[noteIdx].info.todos[todoIdx].isChecked = !notes[noteIdx].info.todos[todoIdx].isChecked;
+    utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
+
 }

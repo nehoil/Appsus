@@ -47,7 +47,7 @@ export default {
                     break;
                 case 'noteImg':
                     this.isImgActive = true
-                    this.callForAction = 'Enter a link to the image'
+                    this.callForAction = 'Enter image link'
                     break;
                 case 'noteTodos':
                     this.isTodoActive = true

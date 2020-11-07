@@ -15,12 +15,16 @@ export default {
 
          <ul class="todos-list" v-if="info.todos.length">
             <li  v-for="todo in info.todos" :key="todo.id">
-                <p contentEditable="true"  @blur="saveTodo(info.id,todo.id,$event)">{{todo.txt}}</p>
+                <div class="todo-checkbox-container">
+                 <input type="checkbox" v-if = "todo.isChecked" @change="updateTodoCheckState(todo.id)" checked>
+                 <input type="checkbox" v-else @change="updateTodoCheckState(todo.id)">
+                <p contentEditable="true"  @blur="saveTodo(info.id,todo.id,$event)" :class="{ checked: todo.isChecked }">{{todo.txt}}</p>
+                </div>
                 <button @click="deleteTodo(info.id, todo.id)">X</button>
             </li>
             <form  @keydown.enter="addTodo(info.id,todoTxt)">
             <li @show="focus()">
-                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What more?" :style="{ backgroundColor : bgColor }" @blur="addTodo(info.id,todoTxt)">
+                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What more?" :style="{ backgroundColor : bgColor }" >
             </li>
             </form>
 
@@ -29,7 +33,7 @@ export default {
             <ul v-else>
         <form @keydown.enter="addTodo(info.id,todoTxt)">
             <li @show="focus()">
-                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?" :style="{ backgroundColor : bgColor }" @blur="addTodo(info.id,todoTxt)">
+              <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?" :style="{ backgroundColor : bgColor }">
             </li>
             </form>
         </ul>
@@ -48,7 +52,6 @@ export default {
             isEditable: false,
             currTodoTxt: '',
             bgColor: 'white',
-
         }
     },
     methods: {
@@ -59,13 +62,12 @@ export default {
             this.isShowOpts = false;
         },
         deleteTodo(noteID, todoId) {
-            keepService.deleteTodo(noteID, todoId)
+            keepService.deleteTodo(noteID, todoId);
 
         },
         addTodo(noteId, todoTxt) {
             keepService.addTodo(noteId, todoTxt);
             this.todoTxt = null
-
         },
         editTitle(val) {
             this.isEditable = true;
@@ -94,6 +96,9 @@ export default {
             this.bgColor = color;
             keepService.saveBgColor(this.info.id, color)
 
+        },
+        updateTodoCheckState(todoId) {
+            keepService.updateTodoCheckState(todoId, this.info.id)
         }
     },
     created() {

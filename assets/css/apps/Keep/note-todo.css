@@ -54,9 +54,23 @@ ul {
     border-bottom: 1px solid lightgrey;
 }
 
+input[type="checkbox"] {
+    background-color: lime;
+}
+
 .note-todo .opts-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.todo-checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checked {
+    text-decoration: line-through;
+    opacity: 0.6;
 }

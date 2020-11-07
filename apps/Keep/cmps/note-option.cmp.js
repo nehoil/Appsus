@@ -10,7 +10,7 @@ export default {
     template: `
       <div class="note-options-container">
           <button @click="deleteNote"><i class="far fa-trash-alt"></i></button>
-          <button @click="editNote"><i class="far fa-edit"></i></button>
+          <!-- <button @click="editNote"><i class="far fa-edit"></i></button> -->
           <button  @click="toggleColorPalette" ><i class="fas fa-palette"></i></button>
           <button  @click="pinNote" ><i class="fas fa-thumbtack"></i></i></button>
           <div class="color-palette-container" v-if="isShowColorPalette">
