@@ -13,10 +13,12 @@ export default {
     <div>
     <add-note></add-note>
     <search-note @doFilter="setFilter" ></search-note>
+    <transition name="slide-fade">
 
      <section v-if="notes" class="notes-container">
         <component v-for="note in notesToShow" :is="note.type"  :key="note.id" :info="note.info, note"></component>
      </section>
+     </transition>
      </div>
     `,
     data() {

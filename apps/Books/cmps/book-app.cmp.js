@@ -1,6 +1,6 @@
 import { bookService } from '../services/book-service.js'
-import bookList from '../cmps/book/book-list.cmp.js';
-import bookActions from '../cmps/book/book-actions.cmp.js';
+import bookList from '../cmps/book-list.cmp.js';
+import bookActions from '../cmps/book-actions.cmp.js';
 
 
 export default {

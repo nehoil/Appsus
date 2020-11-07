@@ -7,6 +7,7 @@ export default {
     name: 'mailCompose',
     props: ['mail'],
     template: `
+                  <transition name="fade">
         <section class="compose-container compose-container-w" v-if="isShowCompose">
                 <form @submit.prevent="addMail">
                 <div class="compose-title">
@@ -42,6 +43,7 @@ export default {
                 </div>
                 </form>
         </section>
+</transition>
     `,
     data() {
         return {

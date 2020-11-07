@@ -1,5 +1,5 @@
-import bookAdd from '../book/book-add.cmp.js';
-import bookFilter from '../book/book-filter.cmp.js';
+import bookAdd from '../cmps/book-add.cmp.js';
+import bookFilter from '../cmps/book-filter.cmp.js';
 
 
 export default {

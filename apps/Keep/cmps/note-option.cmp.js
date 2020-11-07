@@ -8,6 +8,7 @@ export default {
     name: 'note-options',
     props: ['id'],
     template: `
+      <!-- <transition name="slide-fade"> -->
       <div class="note-options-container">
           <button @click="deleteNote"><i class="far fa-trash-alt"></i></button>
           <!-- <button @click="editNote"><i class="far fa-edit"></i></button> -->
@@ -31,6 +32,7 @@ export default {
           </div>
           <button @click="sendToMail"><i class="fas fa-envelope" aria-hidden="true"></i></button>
 </div>
+<!-- </transition> -->
     `,
     data() {
         return {

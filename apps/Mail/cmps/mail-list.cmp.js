@@ -17,10 +17,11 @@ export default {
                 <span class="read-icon" v-html="readIcon"></span>
                 </div>
             </div>
-            <section class="no-mails-msg" v-if="mails.length < 1">No Emails, yet...</section>
+            
+            <section :key=""class="no-mails-msg" v-if="mails.length < 1">No Emails, yet...</section>
             <section v-for="mail in mails">
                 <ul>
-                <mail-preview :mail="mail" :key="mail.id" />
+                    <mail-preview v-if="mail" :mail="mail" :key="mail.id" />
                 </ul>
             </section>
         </section>

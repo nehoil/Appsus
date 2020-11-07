@@ -17,7 +17,11 @@ export default {
             $event)" :style="{ backgroundColor : bgColor }" @blur="updateTitle(info.id,
             $event)">{{info.title}}</textarea>
         </form>
+              <transition name="slide-fade">
+
         <note-options  v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>
+            </transition>
+
     </section>
     `,
     data() {

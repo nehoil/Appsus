@@ -16,33 +16,36 @@ export default {
             </div>
             <div class="mail-prv-date prv-padding">{{ getDate }}</div>
         </li>
-        <div v-if="isShowExpndMail">
-            <div class="exp-mail-prv">
-                <div class="exp-mail-header">
-                    <div class="mail-expd-subject prv-padding">{{ mail.subject }}</div>
-                    <div class="open-actions-mail-exp" @click="isShowMenu = !isShowMenu"><i class="fas fa-ellipsis-h"></i>
+        <transition name="fade">
+            
+            <div v-if="isShowExpndMail">
+                <div class="exp-mail-prv">
+                    <div class="exp-mail-header">
+                        <div class="mail-expd-subject prv-padding">{{ mail.subject }}</div>
+                        <div class="open-actions-mail-exp" @click="isShowMenu = !isShowMenu"><i class="fas fa-ellipsis-h"></i>
                         <mail-action-menu v-if="isShowMenu" :mail="mail" @menuClicked="this.isShowMenu = !this.isShowMenu" @unMarked="isShowExpndMail = false" />
-                    <router-link :to="'/mail/' + mail.id" exact>
-                    <i class="fas fa-expand-alt"></i>
+                        <router-link :to="'/mail/' + mail.id" exact>
+                        <i class="fas fa-expand-alt"></i>
                     </router-link>
-                    </div>
-                    </div>
-                        <div class="exp-mail-sub-header prv-padding">
-                            <mail-avatar :mail="mail" />
-                        <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
-                        <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
-                    </div>
-                    <div class="mail-expd-body prv-padding">
-                        <pre>
-                        {{ mail.body }}
-                        </pre>
-                    </div>
                 </div>
             </div>
+            <div class="exp-mail-sub-header prv-padding">
+                <mail-avatar :mail="mail" />
+                <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
+                <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
+            </div>
+            <div class="mail-expd-body prv-padding">
+                <pre>
+                    {{ mail.body }}
+                </pre>
+            </div>
         </div>
-        </section>
-    `,
-    data() {
+    </div>
+</transition>
+</div>
+</section>
+`,
+data() {
         return {
             isShowExpndMail: false,
             isShowMenu: false

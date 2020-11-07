@@ -12,8 +12,7 @@ export default {
               <i class="fas fa-thumbtack" ></i>
           </div>
          <p class="todos-list-title" contentEditable="true"  @blur="updateTitle(info.id, $event)">{{info.title}}</p>
-
-         <ul class="todos-list" v-if="info.todos.length">
+                <ul class="todos-list" v-if="info.todos.length">
             <li  v-for="todo in info.todos" :key="todo.id">
                 <div class="todo-checkbox-container">
                     <label for="checkbox"></label>
@@ -33,12 +32,14 @@ export default {
 
             <ul v-else>
         <form @keydown.enter="addTodo(info.id,todoTxt)">
-            <li @show="focus()">
+
+            <li @show="focus()">       
               <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?" :style="{ backgroundColor : bgColor }">
+
             </li>
             </form>
-        </ul>
 
+        </ul>
         <div class="opts-container">
         <note-options  v-if="isShowOpts" :id="info.id"  @editNote="editTitle($event)" @changeBgColor="changeBgColor"></note-options>
         </div> 
