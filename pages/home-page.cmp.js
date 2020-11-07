@@ -10,15 +10,11 @@ export default {
                         <div class="action-btns-container">
                             <button class="mail-btn" @click="$router.push('/mail')">Go to Mails</button>
                             <button class="keep-btn"  @click="$router.push('/keep')">Go to Notes </button>
-                            <!-- <button class="books-btn">Go to Books </button> -->
+                            <button class="books-btn" @click="$router.push('/book')">Go to Books </button>
                         </div>
                     </div>
                         <img src="../assets/img/main-img.jpg" alt="">
                  </div>
         </section>
-
-        <!-- <i class="far fa-envelope"></i>
-        <i class="far fa-sticky-note"></i>
-        <i class="fas fa-book"></i> -->
     `
 }
