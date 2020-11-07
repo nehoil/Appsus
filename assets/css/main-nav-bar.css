@@ -6,36 +6,73 @@ header {
     align-items: center;
     justify-content: center;
     align-content: center;
-  }
-  
-  .nav-logo {
+}
+
+.nav-logo {
     display: flex;
     align-items: center;
     margin: 0;
     padding: 10px;
-  }
-  .nav-logo img {
+}
+
+.nav-logo img {
     width: 150px;
     padding-left: 15px;
-  }
-  nav {
+}
+
+nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-  }
-  
-  .nav-links ul {
-    padding: 20px;
+    align-items: center;
+}
+
+.nav-links {
+    position: relative;
+}
+
+.nav-links ul {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 190px;
+    height: 200px;
+    top: 45px;
+    right: 10px;
     margin: 0;
     list-style: none;
-    display: flex;
-  }
-  
-  .nav-links ul li {
+    z-index: 2;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 0px #d4d4d4;
+}
+
+.nav-links ul li {
     padding: 10px;
-    margin: 0;
+    margin: 20px;
     list-style: none;
     display: flex;
-  }
-  
-  
+    font-size: 2em;
+}
+
+.nav-links ul li i {
+    color: #5d5f74;
+    font-weight: 100;
+}
+
+.grid-btn {
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    font-size: 2em;
+}
+
+.grid-btn i {
+    color: #5d5f74;
+    /* font-weight: 100; */
+}

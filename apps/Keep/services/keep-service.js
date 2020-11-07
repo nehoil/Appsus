@@ -1,4 +1,6 @@
 import { utilService } from '../../../services/util-service.js'
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 const NOTES_STORAGE_KEY = 'notes_db';
 
@@ -296,7 +298,15 @@ function saveTitle(noteId, val) {
 }
 
 function pinNote(noteIdx) {
-    notes[noteIdx].isPinned = !notes[noteIdx].isPinned
+    if (notes[noteIdx].isPinned) {
+        notes[noteIdx].isPinned = !notes[noteIdx].isPinned;
+        eventBus.$emit('show-msg', `Note Unpinned successfully!`)
+
+    } else {
+        notes[noteIdx].isPinned = !notes[noteIdx].isPinned
+        eventBus.$emit('show-msg', `Note pinned successfully!`)
+
+    }
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
 

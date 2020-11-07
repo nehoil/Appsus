@@ -1,14 +1,16 @@
 import { keepService } from '../services/keep-service.js'
-
+import { eventBus } from '../../../services/event-bus-service.js';
 import noteOptions from '../cmps/note-option.cmp.js'
 
 
 export default {
     name: 'note-img',
-    props: ['info'],
+    props: ['info', 'note'],
     template: `
       <section class="note-img note-card" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
-    
+      <div class="pinIcon" v-show="note.isPinned" >
+              <i class="fas fa-thumbtack" ></i>
+          </div>
         <p contentEditable="true" class="note-img-title" @keydown.enter="saveTitle(info.id,$event)" @blur="saveTitle(info.id,$event)" ref="imgTitleInput">{{info.title}}</p>
         <img :src=info.url alt="">
         <note-options v-if="isShowOpts" :id="info.id" @editNote="edit" @changeBgColor="changeBgColor"></note-options>
@@ -20,8 +22,6 @@ export default {
             isShowOpts: false,
             isEditable: false,
             bgColor: 'white',
-
-
         }
     },
     methods: {
@@ -44,7 +44,10 @@ export default {
         saveTitle(noteId, ev) {
             this.$refs.imgTitleInput.blur();
             var val = ev.target.innerText
-            keepService.saveTitle(noteId, val)
+            keepService.saveTitle(noteId, val);
+            eventBus.$emit('show-msg', `Title changed successfully!`)
+
+
         },
         changeBgColor(color) {
             this.bgColor = color;

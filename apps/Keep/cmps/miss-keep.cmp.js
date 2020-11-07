@@ -15,7 +15,7 @@ export default {
     <search-note @doFilter="setFilter" ></search-note>
 
      <section v-if="notes" class="notes-container">
-        <component v-for="note in notesToShow" :is="note.type"  :key="note.id" :info="note.info"></component>
+        <component v-for="note in notesToShow" :is="note.type"  :key="note.id" :info="note.info, note"></component>
      </section>
      </div>
     `,

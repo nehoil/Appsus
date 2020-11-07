@@ -26,6 +26,13 @@
     max-width: 100%;
 }
 
+.pinIcon i {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: rgb(141, 141, 141);
+}
+
 @media (max-width:1200px) {
     .notes-container {
         column-count: 5;

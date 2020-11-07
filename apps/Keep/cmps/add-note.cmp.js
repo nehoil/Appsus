@@ -23,7 +23,7 @@ export default {
             val: '',
             type: 'noteText',
             callForAction: 'Write a note...',
-            isTxtActive: false,
+            isTxtActive: true,
             isImgActive: false,
             isTodoActive: false,
             isVidActive: false

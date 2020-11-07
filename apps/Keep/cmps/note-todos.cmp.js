@@ -1,11 +1,16 @@
 import { keepService } from '../services/keep-service.js'
 import noteOptions from '../cmps/note-option.cmp.js'
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 export default {
     name: 'note-todos',
-    props: ['info'],
+    props: ['info', 'note'],
     template: `
       <section class="note-todo note-card" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor }">
+      <div class="pinIcon" v-show="note.isPinned" >
+              <i class="fas fa-thumbtack" ></i>
+          </div>
          <p class="todos-list-title" contentEditable="true"  @blur="updateTitle(info.id, $event)">{{info.title}}</p>
 
          <ul class="todos-list" v-if="info.todos.length">
@@ -29,34 +34,6 @@ export default {
             </form>
         </ul>
 
-
-
-
-
-        <!-- <p class="todos-list-title" v-show="!isEditable">{{info.title}}</p>
-        <form @submit.prevent="updateTitle(info.id)">
-        <input type="text" v-model="val" v-show="isEditable"  ref="todoTitleInput" class="note-todos-input" :style="{ backgroundColor : bgColor }">
-        </form>
-        <ul class="todos-list" v-if="info.todos.length">
-            <li  v-for="todo in info.todos" :key="todo.id">
-                <p contentEditable="true"  @blur="saveTodo(info.id,todo.id,$event)">{{todo.txt}}</p>
-                <button @click="deleteTodo(info.id, todo.id)">X</button>
-            </li>
-            <form @submit.prevent="addTodo(info.id,todoTxt)">
-            <li @show="focus()">
-                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What more?" :style="{ backgroundColor : bgColor }">
-            </li>
-            </form>
-        </ul>
-
-        <ul v-else>
-        <form @submit.prevent="addTodo(info.id,todoTxt)">
-            <li @show="focus()">
-                <input type="text" class="todos-input" ref="todoInput" v-model="todoTxt" placeholder="What to do?" :style="{ backgroundColor : bgColor }">
-            </li>
-            </form>
-        </ul>
--->   
         <div class="opts-container">
         <note-options  v-if="isShowOpts" :id="info.id"  @editNote="editTitle($event)" @changeBgColor="changeBgColor"></note-options>
         </div> 
@@ -97,10 +74,10 @@ export default {
         },
         updateTitle(noteID, ev) {
             var val = ev.target.innerText
-            console.log(val);
-
             keepService.updateTitle(noteID, val);
             this.isEditable = false
+            eventBus.$emit('show-msg', `Title changed successfully!`)
+
         },
         getTodo(noteId, todoId, ev) {
             console.log(ev.target.innerText);
@@ -109,7 +86,8 @@ export default {
         },
         saveTodo(noteId, todoId, ev) {
             var val = ev.target.innerText
-            keepService.saveTodo(noteId, todoId, val)
+            keepService.saveTodo(noteId, todoId, val);
+
 
         },
         changeBgColor(color) {

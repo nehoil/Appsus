@@ -54,6 +54,7 @@ export default {
         deleteNote() {
             const noteIdx = keepService.getNoteById(this.id);
             keepService.deleteNote(noteIdx);
+            eventBus.$emit('show-msg', `Note Deleted successfully!`)
         },
         editNote() {
             var val = keepService.editNote(this.id)
@@ -71,7 +72,7 @@ export default {
         pinNote() {
             const noteIdx = keepService.getNoteById(this.id);
             keepService.pinNote(noteIdx);
-            eventBus.$emit('show-msg', `Note pinned sucessfuly!`)
+            this.$emit('setPinState', 'ok')
         }
     },
     created() {

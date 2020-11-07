@@ -1,12 +1,16 @@
 import { keepService } from '../services/keep-service.js'
+import { eventBus } from '../../../services/event-bus-service.js';
 
 import noteOptions from '../cmps/note-option.cmp.js'
 
 export default {
     name: 'note-text',
-    props: ['info'],
+    props: ['info', 'note'],
     template: `
       <section  class="note-txt note-card" :style="{ backgroundColor : bgColor }" @mouseover="showOpts" @mouseleave="hideOpts" >
+          <div class="pinIcon" v-show="note.isPinned" >
+              <i class="fas fa-thumbtack" ></i>
+          </div>
           <h1 v-if="!info.title">Empty Note!</h1>
         <form>
         <textarea rows="5" cols="30"   ref="noteTxtInput" class="note-txt-input" @keydown.enter="updateTitle(info.id,
@@ -22,6 +26,8 @@ export default {
             isShowOpts: false,
             isEditable: false,
             bgColor: 'white',
+            isPinned: null,
+
         }
     },
     methods: {
@@ -41,11 +47,17 @@ export default {
         updateTitle(noteID, ev) {
             keepService.updateTitle(noteID, ev.target.value);
             this.$nextTick(() => this.$refs.noteTxtInput.blur());
+            eventBus.$emit('show-msg', `Note saved succssefully!`)
+
         },
         changeBgColor(color) {
             this.bgColor = color;
             keepService.saveBgColor(this.info.id, color);
-        }
+        },
+
+    },
+    computed: {
+
     },
     created() {
         this.bgColor = this.info.bgColor;

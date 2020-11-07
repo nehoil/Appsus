@@ -1,12 +1,17 @@
 import { keepService } from '../services/keep-service.js'
 import noteOptions from '../cmps/note-option.cmp.js'
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 
 export default {
     name: 'note-video',
-    props: ['info'],
+    props: ['info', 'note'],
     template: `
       <section class="note-video note-card" @mouseover="showOpts" @mouseleave="hideOpts" :style="{ backgroundColor : bgColor}">
+      <div class="pinIcon" v-show="note.isPinned" >
+              <i class="fas fa-thumbtack" ></i>
+          </div>
       <p class="note-vid-title" contentEditable="true" @keydown.enter="saveTitle(info.id,$event)"  @blur="saveTitle(info.id,$event)" ref="vidTitleInput" placeholder="text">{{info.title}}</p>
      <div class="iframe-container">
       <iframe :src="info.url" class="responsive-iframe"></iframe>
@@ -37,6 +42,7 @@ export default {
             var val = ev.target.innerText
             console.log(noteId, val);
             keepService.saveTitle(noteId, val)
+            eventBus.$emit('show-msg', `Title saved succssefully!`)
         },
         edit(val) {
             console.log(val);
@@ -51,6 +57,7 @@ export default {
         changeBgColor(color) {
             this.bgColor = color;
             keepService.saveBgColor(this.info.id, color)
+
         }
     },
     created() {
