@@ -11,7 +11,7 @@ export default {
                     <input type="text" v-model="filterBy" @input="emitFilter">
                 </div>
                 <div class="read-toggle" @click="readToggle">
-                <i :class="readToggleClass"></i>
+                <span class="read-icon" v-html="readIcon"></span>
                 </div>
             </div>
             <section class="no-mails-msg" v-if="mails.length < 1">No Emails, yet...</section>
@@ -25,13 +25,15 @@ export default {
     data() {
         return {
             filterBy: null,
-            isRead: true
+            isRead: null,
+            states: [false,true,null]
         }
     },
     computed: {
-        readToggleClass(){
-            if (this.isRead) return 'far fa-envelope';
-            return 'far fa-envelope-open'
+        readIcon(){
+            if (this.isRead === null) return `<i class="far fa-envelope"></i>`;
+            if (!this.isRead) return `<i class="far fa-envelope-open"></i>`;
+            if (this.isRead) return `<p>All</p>`;
         }
     },
     methods: {
@@ -39,8 +41,9 @@ export default {
             this.$emit('doSearch', JSON.parse(JSON.stringify(this.filterBy)));
         },
         readToggle(){
-            this.isRead = !this.isRead
-            this.$emit('doReadFilter', JSON.parse(JSON.stringify(this.isRead)));
+            this.isRead = this.states.shift();
+            this.states.push(this.isRead);
+            this.$emit('doReadFilter', this.isRead);
         }
     },
     created() {

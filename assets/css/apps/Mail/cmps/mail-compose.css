@@ -154,22 +154,22 @@
   position: fixed;
   bottom: 20px;
   right: 30px;
-  padding: 15px;
+  padding: 13px;
   background-color: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 1px 12px 0 rgba(60, 64, 67, 0.74);
+  box-shadow: 0 1px 8px 0 rgba(60, 64, 67, 0.74);
   cursor: pointer;
 }
 
 .compose-btn:hover {
-  box-shadow: 0 1px 12px 0 rgb(60, 64, 67);
+  box-shadow: 0 1px 10px 0 rgb(60, 64, 67);
 
 }
 .compose-btn img {
-  width: 50px;
+  width: 40px;
 }
 
 
