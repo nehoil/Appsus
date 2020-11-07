@@ -41,7 +41,7 @@ nav {
     right: 10px;
     margin: 0;
     list-style: none;
-    z-index: 2;
+    z-index: 50;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 2px 2px 5px 0px #d4d4d4;

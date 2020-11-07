@@ -59,7 +59,7 @@ input[type="checkbox"]:checked {
 }
 
 input[type="checkbox"] {
-    filter: invert(0%) hue-rotate(-68deg) brightness(2.5);
+    filter: invert(-1%) hue-rotate(-68deg) brightness(2.5);
 }
 
 .note-todo .opts-container {

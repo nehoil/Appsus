@@ -1,6 +1,6 @@
 .main-section-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: start;
 }
 
@@ -9,17 +9,19 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    max-width: 40%;
+    max-width: 30%;
     padding: 50px;
+    margin-top: 100px;
 }
 
 .app-info-container h1 {
     font-size: 3em;
     font-weight: 100;
+    margin: 10px;
 }
 
 .app-info-container p {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     font-size: 1.2em;
     font-weight: 100;
 }
@@ -34,7 +36,7 @@
 .action-btns-container button {
     margin-right: 20px;
     border: 1px solid lightgrey;
-    width: 140px;
+    width: 126px;
     height: 50px;
     border-radius: 5px;
     font-size: 1.2em;
@@ -56,6 +58,7 @@
 
 .main-section-container img {
     max-width: 60%;
+    margin-left: 30px;
 }
 
 @media (max-width:1450px) {
@@ -67,6 +70,7 @@
     }
     .main-section-container img {
         max-width: 100%;
+        margin-left: 0;
     }
     .app-info-container {
         display: flex;
@@ -75,6 +79,7 @@
         align-items: flex-start;
         max-width: 65%;
         padding: 0 50px 50px 50px;
+        margin-top: 0;
     }
 }
 

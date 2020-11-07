@@ -54,7 +54,7 @@ var gDefaultNotes = [{
             todos: [
                 { id: 201, txt: "Buy bananas", doneAt: null, isChecked: true },
                 { id: 202, txt: "Go for a walk", doneAt: 187111111, isChecked: true },
-                { id: 220, txt: "Go for a walk", doneAt: 187111111, isChecked: false },
+                { id: 220, txt: "Convert money for a trip", doneAt: 187111111, isChecked: false },
             ],
             bgColor: '#f4f4f2',
         },
@@ -114,7 +114,7 @@ var gDefaultNotes = [{
         info: {
             id: 108,
             title: "The plates will still shift, and the clouds will still spew, the sun will slowly rise and the moon will follow too. - 'Amy O Connor'",
-            bgColor: '#fff',
+            bgColor: '#f4f4f2',
         },
 
     },
@@ -125,7 +125,7 @@ var gDefaultNotes = [{
             id: 109,
             title: "Friends meeting on Saturday",
             todos: [
-                { id: 206, txt: "Tahini and crackers", doneAt: null, isChecked: false },
+                { id: 206, txt: "Tahini and crackers", doneAt: null, isChecked: true },
                 { id: 207, txt: "Chopped vegetables, olives", doneAt: null, isChecked: false },
                 { id: 208, txt: "Pasta salad", doneAt: null, isChecked: false },
                 { id: 209, txt: "snacks", doneAt: null, isChecked: false },
@@ -144,27 +144,56 @@ var gDefaultNotes = [{
                 { id: 211, txt: "1 pound of flour", doneAt: null, isChecked: false },
                 { id: 212, txt: "1/2 cup oil", doneAt: null, isChecked: false },
                 { id: 213, txt: "Two eggs", doneAt: null, isChecked: false },
-                { id: 214, txt: "2 teaspoons salt", doneAt: null, isChecked: true },
+                { id: 214, txt: "2 teaspoons salt", doneAt: null, isChecked: false },
                 { id: 215, txt: "2 tablespoons of sugar", doneAt: null, isChecked: false },
                 { id: 216, txt: "2 glasses of water", doneAt: null, isChecked: false },
                 { id: 217, txt: "2 tablespoons dry yeast", doneAt: null, isChecked: false },
 
             ],
-            bgColor: '#d7aefb',
+            bgColor: '#f4f4f2',
         }
     },
     {
         type: "noteText",
         isPinned: false,
         info: {
-            id: 111,
+            id: 112,
             title: "I wish myself that 2021 will be a year of dreams come true and significant personal and professional growth.",
             bgColor: '#fff',
         },
 
     },
-];
+    {
+        type: "noteTodos",
+        isPinned: false,
+        info: {
+            id: 113,
+            title: "Equipment for the trip",
+            todos: [
+                { id: 211, txt: "head lamp", doneAt: null, isChecked: true },
+                { id: 212, txt: "sandals", doneAt: null, isChecked: true },
+                { id: 213, txt: "Gas for the stove", doneAt: null, isChecked: false },
+                { id: 214, txt: "2 teaspoons salt", doneAt: null, isChecked: true },
+                { id: 215, txt: "Toilet Paper", doneAt: null, isChecked: false },
+                { id: 216, txt: "Sleeping Bag", doneAt: null, isChecked: false },
+                { id: 217, txt: "picnic box", doneAt: null, isChecked: false },
 
+            ],
+            bgColor: '#f4f4f2',
+        }
+    },
+    {
+        type: "noteImg",
+        isPinned: false,
+        info: {
+            id: 105,
+            url: "https://norway.co.il/wp-content/uploads/2018/03/%D7%90%D7%92%D7%9D-Stynevatnet.jpg",
+            title: "052-568478 Jonathan (sells a kayak)",
+            bgColor: '#9ad3bc',
+        },
+
+    },
+];
 var notes = utilService.loadFromStorage(NOTES_STORAGE_KEY) || gDefaultNotes;
 
 
