@@ -21,8 +21,7 @@ export default {
             filterBy: {
                 type: 'all',
                 term: null,
-                read: null
-            },
+                read: null            },
             newMail: mailService.getEmptyMail()
         }
     },
@@ -59,5 +58,5 @@ export default {
         mailList,
         mailSideMenu,
         mailCompose
-    }
+    },
 }

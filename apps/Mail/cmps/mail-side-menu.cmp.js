@@ -10,20 +10,20 @@ export default {
                     <button @click="emitCompose"> <i class="fas fa-plus"></i> Compose</button>
                 </div>
                 <ul>
-                    <li @click="emitFilter('all')" class="flex jcsb">
+                    <li @click="onFilterBtnClick('all')" class="flex jcsb">
                         <div class="side-txt"><i class="filter-icon fas fa-inbox" aria-hidden="true"></i> Inbox </div> 
                         <div class="side-num">{{ unReadMail }}</div>
                     </li>
-                    <li @click="emitFilter('isStar')" class="flex jcsb">
+                    <li @click="onFilterBtnClick('isStar')" class="flex jcsb">
                         <div class="side-txt"><i class="filter-icon fas fa-star" aria-hidden="true"></i> Starred </div> 
                         <div class="side-num">{{ starredMail }}</div>
                     </li>
-                    <li @click="emitFilter('isSent')"><i class="filter-icon fas fa-share-square" aria-hidden="true"></i> Sent </li>
-                    <li @click="emitFilter('isDraft')" class="flex jcsb">
+                    <li @click="onFilterBtnClick('isSent')"><i class="filter-icon fas fa-share-square" aria-hidden="true"></i> Sent </li>
+                    <li @click="onFilterBtnClick('isDraft')" class="flex jcsb">
                         <div class="side-txt"><i class="far fa-envelope"></i> Drafts </div> 
                         <div class="side-num">{{ draftMail }}</div>
                     </li>
-                    <li @click="emitFilter('isNote')" class="flex jcsb">
+                    <li @click="onFilterBtnClick('isNote')" class="flex jcsb">
                         <div class="side-txt"><i class="filter-icon far fa-pen" aria-hidden="true"></i> Notes </div> 
                         <div class="side-num">{{ notesMail }}</div>
                     </li>
@@ -42,7 +42,8 @@ export default {
             starredMails: 0,
             notesMails: 0,
             isShowMenu: false,
-            FilterBy: 'all'
+            FilterBy: 'all',
+            windowWidth: null
         }
     },
     computed: {
@@ -79,11 +80,15 @@ export default {
         }
     },
     methods: {
-        emitFilter(filter) {
-            this.$emit('doFilter', filter)
+        onFilterBtnClick(filter) {
+            this.$emit('doFilter', filter);
+            if (this.windowWidth<450) this.isShowMenu = false;
         },
         emitCompose() {
-            this.$emit('doCompose')
+            this.$emit('doCompose');
         }
+    },
+    created() {
+        this.windowWidth = window.innerWidth;
     },
 }

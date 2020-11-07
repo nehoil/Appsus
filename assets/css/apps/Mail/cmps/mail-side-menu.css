@@ -2,7 +2,9 @@
 
 
 .mail-side-content {
-  display: none;
+  /* display: none; */
+  transition: 0.6s;
+  transform: translateX(-100%);
   flex-direction: column;
   width: 99%;
   position: fixed;
@@ -14,7 +16,7 @@
 }
 
 .show-side-bar {
-    display: block;
+  transform: translateX(0);
 }
 
 .hamburger-side {

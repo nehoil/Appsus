@@ -42,6 +42,7 @@
 .compose-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 20px;
 }
 
@@ -97,10 +98,11 @@
 
 /* Super Narrow */
 
-@media (min-width: 450px) {
+@media (min-width: 600px) {
   .compose-container {
     z-index: 999;
     width: 440px;
+    height: unset;
     position: fixed;
     bottom: 0;
     right: 30px;
