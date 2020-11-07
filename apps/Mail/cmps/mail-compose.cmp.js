@@ -1,6 +1,4 @@
 import { mailService } from '../services/mail-service.js';
-import mailList from './mail-list.cmp.js';
-import mailSideMenu from './mail-side-menu.cmp.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 
 

@@ -1,7 +1,8 @@
 import longText from '../cmps/book/long-text.cmp.js';
 import reviewAdd from '../cmps/book/review-add.cmp.js';
 import bookReviews from '../cmps/book/book-reviews.cmp.js';
-import { bookService } from '../services/book-service.js'
+import { bookService } from '../services/book-service.js';
+
 
 export default {
     name: 'book-details',
