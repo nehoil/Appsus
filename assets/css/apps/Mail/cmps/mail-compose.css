@@ -1,20 +1,11 @@
 /* compos cpm  */
 
 .compose-container {
-  z-index: 999;
-  width: 440px;
-  position: fixed;
-  bottom: 0;
-  right: 30px;
+  z-index: 9919;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   background-color: #fff;
-  border: 1px solid grey;
-  border-radius: 8px 8px 0 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
-    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
 
 .title-txt {
@@ -41,12 +32,11 @@
 .compose-title {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 30px 10px;
   color: white;
   font-weight: 700;
   background-color: #202124;
-  width: 420px;
-  border-radius: 8px 8px 0 0;
+  width: 95;
 }
 
 .compose-footer {
@@ -87,8 +77,8 @@
   border: none;
   border-bottom: 1px solid rgba(128, 128, 128, 0.411);
   padding: 0;
-  padding-left: 10px;
-  width: 430px;
+  padding-left: 15px;
+  width: 95%;
   height: 40px;
 }
 .compose-container textarea {
@@ -98,7 +88,7 @@
   padding: 0;
   padding-top: 20px;
   padding-left: 10px;
-  width: 420px;
+  width: 95%;
   resize: none;
 }
 
@@ -108,7 +98,51 @@
 /* Super Narrow */
 
 @media (min-width: 450px) {
-
+  .compose-container {
+    z-index: 999;
+    width: 440px;
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    background-color: #fff;
+    border: 1px solid grey;
+    border-radius: 8px 8px 0 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  }
+  .compose-container input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.411);
+    padding: 0;
+    padding-left: 10px;
+    width: 430px;
+    height: 40px;
+  }
+  .compose-container textarea {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.411);
+    border: none;
+    outline: none;
+    padding: 0;
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 420px;
+    resize: none;
+  }
+  .compose-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: white;
+    font-weight: 700;
+    background-color: #202124;
+    width: 420px;
+    border-radius: 8px 8px 0 0;
+  }
 }
 
 /* Extra Narrow */
