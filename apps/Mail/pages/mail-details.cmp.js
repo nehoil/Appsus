@@ -3,6 +3,8 @@ import mailSideMenu from '../cmps/mail-side-menu.cmp.js';
 import mailActionMenu from '../cmps/mail-action-menu.cmp.js';
 import mailAvatar from '../cmps/mail-avatar.cmp.js';
 import mailCompose from '../cmps/mail-compose.cmp.js';
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 
 export default {
@@ -11,7 +13,7 @@ export default {
         <section class="mail-details">
             <div class="mail-app-main-content-container">
                 <div class="mail-side-menu">
-                    <mail-side-menu :mails="mail" />
+                    <mail-side-menu :mails="mail" @doFilter="setFilter"/>
                 </div>
                 <div class="mail-details-content">
                 <div class="mail-details-header">
@@ -57,6 +59,9 @@ export default {
     computed: {
     },
     methods: {
+        setFilter(filter){
+            this.$router.push('/mail')
+        }
     },
     created() {
         const id = this.$route.params.mailId;

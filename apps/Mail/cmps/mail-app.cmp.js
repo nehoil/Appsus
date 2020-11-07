@@ -57,7 +57,7 @@ export default {
         showCompose() {
             eventBus.$emit('showCompose')
         },
-        composeBtnClick(){
+        composeBtnClick() {
             this.showCompose();
         }
     },

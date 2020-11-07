@@ -1,4 +1,5 @@
 import mailPreview from './mail-preview.cmp.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 
 
 
@@ -7,6 +8,8 @@ export default {
     template: `
         <section class="mail-list">
             <div class="search-bar">
+            <div class="hamburger-side" @click="hamburgerToggle"><i class="fas fa-bars" aria-hidden="true"></i></div>
+
                 <div class="search-input-contianer">
                     <input type="text" v-model="filterBy" @input="emitFilter">
                 </div>
@@ -44,6 +47,9 @@ export default {
             this.isRead = this.states.shift();
             this.states.push(this.isRead);
             this.$emit('doReadFilter', this.isRead);
+        },
+        hamburgerToggle(){
+            eventBus.$emit('hamburger-clicked')
         }
     },
     created() {

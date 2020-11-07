@@ -1,13 +1,15 @@
 import { mailService } from '../services/mail-service.js';
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 export default {
     props: ['mails'],
     template: `
         <section class="mail-side-content-container">
-            <div class="hamburger-side" @click="isShowMenu = true"><i class="fas fa-bars" aria-hidden="true"></i></div>
+            <!-- <div class="hamburger-side" @click="isShowMenu = true"><i class="fas fa-bars" aria-hidden="true"></i></div> -->
             <div class="mail-side-content" :class="menuClass">
                 <div class="side-btn">
-                    <button @click="emitCompose"> <i class="fas fa-plus"></i> Compose</button>
+                    <button @click="emitCompose"> <i class="fas fa-paper-plane"></i> Compose</button>
                 </div>
                 <ul>
                     <li @click="onFilterBtnClick('all')" class="flex jcsb">
@@ -82,7 +84,7 @@ export default {
     methods: {
         onFilterBtnClick(filter) {
             this.$emit('doFilter', filter);
-            if (this.windowWidth<450) this.isShowMenu = false;
+            if (this.windowWidth<722) this.isShowMenu = false;
         },
         emitCompose() {
             this.$emit('doCompose');
@@ -90,5 +92,7 @@ export default {
     },
     created() {
         this.windowWidth = window.innerWidth;
+        console.log(this.windowWidth);
+        eventBus.$on('hamburger-clicked', (() => this.isShowMenu = !this.isShowMenu))
     },
 }
