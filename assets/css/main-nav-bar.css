@@ -35,7 +35,7 @@ nav {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    width: 190px;
+    width: 196px;
     height: 200px;
     top: 45px;
     right: 10px;
@@ -62,8 +62,10 @@ nav {
 
 .grid-btn {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     right: 10px;
-    padding: 10px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -72,7 +74,8 @@ nav {
     font-size: 2em;
 }
 
-.grid-btn i {
+.grid-btn svg {
+    line-height: 0;
     color: #5d5f74;
     /* font-weight: 100; */
 }

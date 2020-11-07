@@ -1,18 +1,17 @@
 @import "./apps/Books/books-main.css";
 @import "./apps/Mail/mail-main.css";
 @import "./apps/Keep/keep-main.css";
-@import "home-page.css";
+@import "./home-page.css";
 @import "main-nav-bar.css";
 @import "user-msg.css";
 
 /* general  */
 
 body {
-  box-sizing: border-box;
-  margin: 0;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 i {
-  font-weight: 100;
+    font-weight: 100;
 }
-

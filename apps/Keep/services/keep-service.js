@@ -40,8 +40,7 @@ var gDefaultNotes = [{
             id: 102,
             url: "./apps/Keep/assets/img/car.png",
             title: "11.11.20 - We are going to travel!",
-            bgColor: '#fff',
-            bgColor: '#fff'
+            bgColor: '#cbf0f8'
         },
 
     },
@@ -55,7 +54,7 @@ var gDefaultNotes = [{
                 { id: 201, txt: "Buy bananas", doneAt: null },
                 { id: 202, txt: "Go for a walk", doneAt: 187111111 },
             ],
-            bgColor: '#fff',
+            bgColor: '#f4abc4',
         },
 
     },
@@ -76,7 +75,7 @@ var gDefaultNotes = [{
         info: {
             id: 105,
             url: "https://images.news18.com/ibnlive/uploads/2016/04/boxing-gloves-generic.jpg",
-            title: "Murderous training with Mark!!",
+            title: "8/11/20 - Boxing training",
             bgColor: '#fff',
         },
 
@@ -92,7 +91,7 @@ var gDefaultNotes = [{
                 { id: 204, txt: "Water the plants", doneAt: null },
                 { id: 205, txt: "Take out Lulu three times a day", doneAt: null }
             ],
-            bgColor: '#fff',
+            bgColor: '#f4f4f2',
         },
 
     },
@@ -113,7 +112,7 @@ var gDefaultNotes = [{
         info: {
             id: 108,
             title: "The plates will still shift, and the clouds will still spew, the sun will slowly rise and the moon will follow too. - 'Amy O Connor'",
-            bgColor: '#fff',
+            bgColor: '#ffdd93',
         },
 
     },
@@ -130,9 +129,38 @@ var gDefaultNotes = [{
                 { id: 209, txt: "snacks", doneAt: null },
                 { id: 210, txt: "Beers", doneAt: null }
             ],
-            bgColor: '#fff',
+            bgColor: '#cbf0f8',
         },
-    }
+    },
+    {
+        type: "noteTodos",
+        isPinned: false,
+        info: {
+            id: 106,
+            title: "A recipe for pizza dough 🍕",
+            todos: [
+                { id: 211, txt: "1 pound of flour", doneAt: null },
+                { id: 212, txt: "1/2 cup oil", doneAt: null },
+                { id: 213, txt: "Two eggs", doneAt: null },
+                { id: 214, txt: "2 teaspoons salt", doneAt: null },
+                { id: 215, txt: "2 tablespoons of sugar", doneAt: null },
+                { id: 216, txt: "2 glasses of water", doneAt: null },
+                { id: 217, txt: "2 tablespoons dry yeast", doneAt: null },
+
+            ],
+            bgColor: '#d7aefb',
+        }
+    },
+    {
+        type: "noteText",
+        isPinned: false,
+        info: {
+            id: 111,
+            title: "I wish myself that 2021 will be a year of dreams come true, of measurable actions and significant personal and professional growth.",
+            bgColor: '#ffdd93',
+        },
+
+    },
 ];
 
 var notes = utilService.loadFromStorage(NOTES_STORAGE_KEY) || gDefaultNotes;
