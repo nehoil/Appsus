@@ -21,40 +21,25 @@ export default {
             filterBy: {
                 type: 'all',
                 term: null,
-                read: null            },
+                read: null
+            },
             newMail: mailService.getEmptyMail()
         }
     },
     computed: {
         mailsToShow() {
             var filteredMails = [];
-            if (this.filterBy.type === 'all' && !this.filterBy.term) return this.mails.filter(mail => !mail.isSent);
-            if (this.filterBy.type === 'all' && this.filterBy.term) filteredMails = this.mails.filter(mail => !mail.isSent);
-            if (this.filterBy.type !== 'all') filteredMails = this.mails.filter(mail => mail[this.filterBy.type])
-            if (!this.filterBy.term) return filteredMails;
-            var txt = this.filterBy.term.toUpperCase()
-            return filteredMails.filter(mail => mail.subject.toUpperCase().includes(txt))
+            if (this.filterBy.type === 'all' && !this.filterBy.term && this.filterBy.read === null) return this.mails.filter(mail => !mail.isSent);
+            if (this.filterBy.term) {
+                var txt = this.filterBy.term.toUpperCase()
+                filteredMails = this.mails.filter(mail => mail.subject.toUpperCase().includes(txt))
+            } else {
+                filteredMails = this.mails
+            }
+            if (this.filterBy.type !== 'all') filteredMails = filteredMails.filter(mail => mail[this.filterBy.type])
+            if (this.filterBy.read !== null) filteredMails = filteredMails.filter(mail => mail.isRead === this.filterBy.read)
+            return filteredMails;
         }
-        // carsToShow() {
-        //     if (!this.filterBy) return this.cars;
-        //     const txt = this.filterBy.byVendor.toLowerCase();
-        //     return this.cars.filter(car => car.vendor.toLowerCase().includes(txt) &&
-        //         (
-        //             car.isActive && this.filterBy.isActive ||
-        //             !car.isActive && !this.filterBy.isActive
-        //         )
-        //     )
-        // }
-        // carsToShow() {
-        //     if (!this.filterBy) return this.cars;
-        //     const txt = this.filterBy.byVendor.toLowerCase();
-        //     return this.cars.filter(car => car.vendor.toLowerCase().includes(txt) &&
-        //         (
-        //             car.isActive && this.filterBy.isActive ||
-        //             !car.isActive && !this.filterBy.isActive
-        //         )
-        //     )
-        // }
     },
     methods: {
         setFilter(filter) {
@@ -64,7 +49,7 @@ export default {
             this.filterBy.term = searchTerm;
         },
         setReadFilter(isRead) {
-            // this.filterBy.term = isRead;
+            this.filterBy.read = isRead;
         },
         showCompose() {
             eventBus.$emit('showCompose')

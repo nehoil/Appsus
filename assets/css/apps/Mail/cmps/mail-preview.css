@@ -21,6 +21,9 @@
 
  .mail-prv-body {
     color: #a1a3a8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
@@ -54,15 +57,10 @@
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 }
-/* 
-.mail-preview div {
-    padding: 10px;
-    transition: .5s;
-} */
+
 
 .prv-padding {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     padding: 10px;
 }
@@ -70,7 +68,6 @@
 /* exp mail prv  */
 
 .mail-expd-sender-icon {
-    /* padding-inline-end: 0; */
     border-radius: 50%;
     color: white;
     background: black;
