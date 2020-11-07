@@ -74,6 +74,9 @@
   .search-bar input {
     width: 300px;
   }
+  .mail-list {
+    max-width: 72%;
+  }
 }
 
 /* Narrow */
