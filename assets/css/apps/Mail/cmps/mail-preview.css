@@ -123,5 +123,7 @@
 .mail-preview pre {
     white-space: pre-line;
     width: 100%;
-    overflow: hidden
+    overflow: hidden;
+    word-wrap: break-word;
 }
+

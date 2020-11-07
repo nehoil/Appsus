@@ -3,6 +3,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* global */
 
 button {
@@ -89,7 +93,7 @@ header {
   font-size: 1rem;
   color: #ffffff;
   position: sticky;
-  z-index: 99;
+  z-index: 50;
   top: 0;
   /* transform: translateY(-40%); */
   background-color: #fff;

@@ -2,14 +2,14 @@
 
 /* mail action menu cmp */
 .mail-action-menu {
-    z-index: 999;
+    z-index: 46;
     top: 60px;
     right: 0;
     position: absolute;
   }
   
   .mail-action-menu ul {
-    z-index: 999;
+    z-index: 46;
     background-color: #fff;
     padding: 5px 0;
     display: flex;
