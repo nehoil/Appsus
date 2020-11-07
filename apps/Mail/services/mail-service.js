@@ -126,7 +126,7 @@ function addNoteToMails(note) {
   addMail(newEmail);
 
   utilService.storeToStorage(MAILS_STORAGE_KEY, gMails);
-  return Promise.resolve(newEmail.id)
+  return Promise.resolve(`/mail/${newEmail.id}`)
 }
 
 function getMails() {

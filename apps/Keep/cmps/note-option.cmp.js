@@ -41,8 +41,11 @@ export default {
     methods: {
         sendToMail() {
             var note = keepService.getNoteByIdToMail(this.id);
-            mailService.addNoteToMails(note);
-            eventBus.$emit('show-msg', `Note saved as email sucessfuly! Link is here`)
+            mailService.addNoteToMails(note)
+            .then(mail => {
+                eventBus.$emit('note-saved-to-mail', mail)
+            }
+                )
         },
         showOpts() {
             this.isShowOpts = true
