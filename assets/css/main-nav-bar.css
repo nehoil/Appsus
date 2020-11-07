@@ -35,8 +35,8 @@ nav {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    width: 196px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     top: 45px;
     right: 10px;
     margin: 0;
@@ -48,8 +48,8 @@ nav {
 }
 
 .nav-links ul li {
-    padding: 10px;
-    margin: 20px;
+    padding: 5px;
+    margin: 18px;
     list-style: none;
     display: flex;
     font-size: 2em;

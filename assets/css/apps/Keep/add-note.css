@@ -3,10 +3,11 @@
     justify-content: center;
     align-items: center;
     margin: 15px auto 0;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #e7e7e7;
-    box-shadow: 2px 2px 3px gray;
+    box-shadow: 0px 2px 3px #a8a8a870;
     width: fit-content;
+    border-radius: 10px;
 }
 
 .btns-container {
@@ -22,6 +23,10 @@
     font-size: 1.5em;
     cursor: pointer;
     margin: 0 10px;
+}
+
+.add-note-container button i {
+    color: rgb(78, 78, 85);
 }
 
 .active {
@@ -43,9 +48,10 @@
     border-bottom: 1px solid lightgray;
 }
 
-@media (max-width:1200px) {}
 
-@media (max-width:1000px) {}
+/* @media (max-width:1200px) {}
+
+@media (max-width:1000px) {} */
 
 @media (max-width:800px) {
     .add-note-container {
@@ -54,7 +60,7 @@
         justify-content: center;
         align-items: center;
         margin: 15px auto 0;
-        padding: 20px;
+        padding: 10px;
     }
 }
 
