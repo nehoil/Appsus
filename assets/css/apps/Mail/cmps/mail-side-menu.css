@@ -96,7 +96,7 @@
 
 /* Super Narrow */
 
-@media (min-width: 450px) {
+@media (min-width: 600px) {
   .mail-side-content {
     transform: translateX(0%);
     display: flex;

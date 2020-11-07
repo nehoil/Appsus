@@ -66,17 +66,17 @@
 
 @media (min-width: 450px) {
 
-
 }
 
 /* Extra Narrow */
 @media (min-width: 900px) {
   .search-bar input {
-    width: 300px;
+    width: 521px;
   }
   .mail-list {
-    max-width: 72%;
+    max-width: 100%;
   }
+
 }
 
 /* Narrow */
