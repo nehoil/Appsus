@@ -21,13 +21,21 @@ export default {
                     </div>
                     <div class="exp-mail-sub-header">
                         <mail-avatar :mail="mail" v-if="mail" />
-                        <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
-                        <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
+                        <div class="side-ava">
+                         <div class="sender-name-email">
+                             <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
+                             <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
+                            </div>
+                            <div class="mail-sub-to">
+                                to me
+                            </div>
+                        </div>
                     </div>
-                    <div class="mail-sub-to">
-                       to me
+                    <div class="mail-expd-body">                        
+                        <pre>
+                        {{ mail.body }}
+                        </pre>
                     </div>
-                    <div class="mail-expd-body">{{ mail.body }}</div>
                     <div class="back-btn">
                 <router-link to="/mail">
                 <i class="fas fa-arrow-left"></i>

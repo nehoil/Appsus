@@ -35,7 +35,7 @@ export default {
                     <div class="mail-expd-body prv-padding">
                         <pre>
                         {{ mail.body }}
-</pre>
+                        </pre>
                     </div>
                 </div>
             </div>

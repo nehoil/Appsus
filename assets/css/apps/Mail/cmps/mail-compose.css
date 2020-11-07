@@ -1,7 +1,7 @@
 /* compos cpm  */
 
 .compose-container {
-  z-index: 9919;
+  z-index: 47;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -100,7 +100,7 @@
 
 @media (min-width: 600px) {
   .compose-container {
-    z-index: 999;
+    z-index: 47;
     width: 440px;
     height: unset;
     position: fixed;
@@ -142,10 +142,36 @@
     color: white;
     font-weight: 700;
     background-color: #202124;
-    width: 420px;
     border-radius: 8px 8px 0 0;
   }
 }
+
+/* compose btn  */
+
+.compose-btn {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 12px 0 rgba(60, 64, 67, 0.74);
+  cursor: pointer;
+}
+
+.compose-btn:hover {
+  box-shadow: 0 1px 12px 0 rgb(60, 64, 67);
+
+}
+.compose-btn img {
+  width: 50px;
+}
+
 
 /* Extra Narrow */
 @media (min-width: 900px) {
