@@ -2,8 +2,9 @@
 
 
 .mail-side-content {
-  visibility: hidden;
-  display: flex;
+  /* display: none; */
+  transition: 0.6s;
+  transform: translateX(-100%);
   flex-direction: column;
   width: 99%;
   position: fixed;
@@ -15,7 +16,7 @@
 }
 
 .show-side-bar {
-    visibility: visible;
+  transform: translateX(0);
 }
 
 .hamburger-side {
@@ -74,7 +75,7 @@
 .side-close {
   display: block;
   position: absolute;
-  bottom: 20px;
+  top: 40px;
   right: 20px;
   font-size: 1.3rem;
   cursor: pointer;
@@ -97,7 +98,7 @@
 
 @media (min-width: 450px) {
   .mail-side-content {
-    visibility: unset;
+    transform: translateX(0%);
     display: flex;
     flex-direction: column;
     flex-grow: 2;

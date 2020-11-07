@@ -1,73 +1,60 @@
 import { mailService } from '../services/mail-service.js';
 import mailList from './mail-list.cmp.js';
 import mailSideMenu from './mail-side-menu.cmp.js';
+import mailCompose from './mail-compose.cmp.js';
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 
 export default {
     name: 'mailApp',
     template: `
         <section class="mail-app">
-            <div class="compose-container compose-container-w" v-if="isShowCompose">
-                <form @submit.prevent="addMail">
-                <div class="compose-title">
-                <div class="title-txt">
-                        New Message
-                    </div>
-                <div class="compose-remove-header">
-                <i @click="closeCompose" class="fas fa-times"></i>
-                    </div>
-                </div>
-                <div class="compose-recipients">
-                    <input v-model="newMail.sentEmail" type="text" placeholder="To"  ref="toInput" required>
-                </div>
-                <div class="compose-subject">
-                    <input v-model="newMail.subject" type="text" placeholder="Subject" required>
-                </div>
-                <div class="compose-cc">
-                    <input type="text" placeholder="Cc">
-                </div>
-                <div class="compose-bcc">
-                    <input type="text" placeholder="Bcc">
-                </div>
-                <div class="compose-body">
-                    <textarea v-model="newMail.body" cols="30" rows="10" placeholder="Your Message" required></textarea>
-                </div>
-                <div class="compose-footer">
-                    <div class="compose-send">
-                        <button>Send</button>
-                    </div>
-                    <div class="compose-remove-footer">
-                        <i @click="closeCompose" class="fas fa-trash" aria-hidden="true"></i>
-                    </div>
-                </div>
-                </form>
-            </div>
                     <mail-side-menu :mails="mails" @doFilter="setFilter" @doCompose="showCompose"/>
-                    <mail-list v-if="mails" @doSearch="setSearchTerm" :mails="mailsToShow" />
-            </div>
+                    <mail-list v-if="mails" @doSearch="setSearchTerm" @doReadFilter="setReadFilter":mails="mailsToShow" />
+                    <mail-compose />
         </section>
     `,
     data() {
         return {
             mails: null,
-            isShowCompose: false,
             filterBy: {
                 type: 'all',
-                term: null
-            },
+                term: null,
+                read: null            },
             newMail: mailService.getEmptyMail()
         }
     },
     computed: {
         mailsToShow() {
             var filteredMails = [];
-            if (this.filterBy.type === 'all' && !this.filterBy.term)  return this.mails.filter(mail => !mail.isSent);
-            if (this.filterBy.type === 'all' && this.filterBy.term)  filteredMails = this.mails.filter(mail => !mail.isSent);
+            if (this.filterBy.type === 'all' && !this.filterBy.term) return this.mails.filter(mail => !mail.isSent);
+            if (this.filterBy.type === 'all' && this.filterBy.term) filteredMails = this.mails.filter(mail => !mail.isSent);
             if (this.filterBy.type !== 'all') filteredMails = this.mails.filter(mail => mail[this.filterBy.type])
             if (!this.filterBy.term) return filteredMails;
             var txt = this.filterBy.term.toUpperCase()
-           return filteredMails.filter(mail => mail.subject.toUpperCase().includes(txt))
+            return filteredMails.filter(mail => mail.subject.toUpperCase().includes(txt))
         }
+        // carsToShow() {
+        //     if (!this.filterBy) return this.cars;
+        //     const txt = this.filterBy.byVendor.toLowerCase();
+        //     return this.cars.filter(car => car.vendor.toLowerCase().includes(txt) &&
+        //         (
+        //             car.isActive && this.filterBy.isActive ||
+        //             !car.isActive && !this.filterBy.isActive
+        //         )
+        //     )
+        // }
+        // carsToShow() {
+        //     if (!this.filterBy) return this.cars;
+        //     const txt = this.filterBy.byVendor.toLowerCase();
+        //     return this.cars.filter(car => car.vendor.toLowerCase().includes(txt) &&
+        //         (
+        //             car.isActive && this.filterBy.isActive ||
+        //             !car.isActive && !this.filterBy.isActive
+        //         )
+        //     )
+        // }
     },
     methods: {
         setFilter(filter) {
@@ -76,20 +63,12 @@ export default {
         setSearchTerm(searchTerm) {
             this.filterBy.term = searchTerm;
         },
-        addMail() {
-            this.isShowCompose = false;
-            this.newMail.sentAt = new Date().getTime();
-            const mailDeepCopy = JSON.parse(JSON.stringify(this.newMail));
-            mailService.addMail(mailDeepCopy);
-            this.newMail = mailService.getEmptyMail()
+        setReadFilter(isRead) {
+            // this.filterBy.term = isRead;
         },
         showCompose() {
-            this.isShowCompose = true;
-            setTimeout(() => this.$refs.toInput.focus(), 100)
+            eventBus.$emit('showCompose')
         },
-        closeCompose(){
-            this.isShowCompose = false;
-        }
     },
     created() {
         mailService.getMails()
@@ -97,6 +76,7 @@ export default {
     },
     components: {
         mailList,
-        mailSideMenu
-    }
+        mailSideMenu,
+        mailCompose
+    },
 }
