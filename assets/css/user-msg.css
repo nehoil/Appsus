@@ -26,6 +26,10 @@
   color: #fff;
 }
 
+.user-msg-txt a {
+  color: rgb(30, 174, 241);
+}
+
 .user-msg-close i {
   cursor: pointer;
   color: #fff;
