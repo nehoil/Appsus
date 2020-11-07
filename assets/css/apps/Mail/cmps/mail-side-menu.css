@@ -19,6 +19,7 @@
 }
 
 .hamburger-side {
+    cursor: pointer;
     display: block;
     padding-top: 20px;
     margin-left: 22px;
