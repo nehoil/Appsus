@@ -35,6 +35,26 @@ export default {
             var txt = this.filterBy.term.toUpperCase()
             return filteredMails.filter(mail => mail.subject.toUpperCase().includes(txt))
         }
+        // carsToShow() {
+        //     if (!this.filterBy) return this.cars;
+        //     const txt = this.filterBy.byVendor.toLowerCase();
+        //     return this.cars.filter(car => car.vendor.toLowerCase().includes(txt) &&
+        //         (
+        //             car.isActive && this.filterBy.isActive ||
+        //             !car.isActive && !this.filterBy.isActive
+        //         )
+        //     )
+        // }
+        // carsToShow() {
+        //     if (!this.filterBy) return this.cars;
+        //     const txt = this.filterBy.byVendor.toLowerCase();
+        //     return this.cars.filter(car => car.vendor.toLowerCase().includes(txt) &&
+        //         (
+        //             car.isActive && this.filterBy.isActive ||
+        //             !car.isActive && !this.filterBy.isActive
+        //         )
+        //     )
+        // }
     },
     methods: {
         setFilter(filter) {

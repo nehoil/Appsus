@@ -65,6 +65,7 @@ export default {
         },
         closeCompose() {
             this.isShowCompose = false;
+            this.newMail = mailService.getEmptyMail()
         },
         composeReply(mail){
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };

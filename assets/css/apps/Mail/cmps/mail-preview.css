@@ -40,7 +40,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-} 
+}
+/* 
+.mail-prv-subject {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+} */
 
 
 .mail-preview>li:hover {
@@ -111,5 +117,14 @@
     font-weight: 800;
 }
 .mail-expd-sender-email {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: grey;
+}
+
+.mail-preview pre {
+    white-space: pre-line;
+    width: 100%;
+    overflow: hidden
 }

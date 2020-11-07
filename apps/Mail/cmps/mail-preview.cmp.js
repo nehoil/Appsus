@@ -32,7 +32,11 @@ export default {
                         <div class="mail-expd-sender-name">{{ mail.senderName }}</div>
                         <div class="mail-expd-sender-email"><{{ mail.senderEmail }}></div>
                     </div>
-                    <div class="mail-expd-body prv-padding">{{ mail.body }}</div>
+                    <div class="mail-expd-body prv-padding">
+                        <pre>
+                        {{ mail.body }}
+</pre>
+                    </div>
                 </div>
             </div>
         </div>
