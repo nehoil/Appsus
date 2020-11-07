@@ -156,7 +156,7 @@ var gDefaultNotes = [{
         isPinned: false,
         info: {
             id: 111,
-            title: "I wish myself that 2021 will be a year of dreams come true, of measurable actions and significant personal and professional growth.",
+            title: "I wish myself that 2021 will be a year of dreams come true and significant personal and professional growth.",
             bgColor: '#ffdd93',
         },
 
