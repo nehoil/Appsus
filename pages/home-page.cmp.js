@@ -9,11 +9,11 @@ export default {
                         <p>Store, share, and collaborate on files and folders from any mobile device, tablet, or computer</p>
                         <div class="action-btns-container">
                             <button class="mail-btn" @click="$router.push('/mail')">Go to Mails</button>
-                            <button class="keep-btn"  @click="$router.push('/keep')">Go to Notes </button>
-                            <button class="books-btn" @click="$router.push('/book')">Go to Books </button>
+                            <button class="keep-btn"  @click="$router.push('/keep')">Try Notes </button>
+                            <button class="books-btn" @click="$router.push('/book')">Open Books </button>
                         </div>
                     </div>
-                        <img src="../assets/img/main-img.jpg" alt="">
+                        <img src="assets/img/main-img.jpg" alt="">
                  </div>
         </section>
     `
