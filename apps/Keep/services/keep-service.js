@@ -293,7 +293,8 @@ function addTodo(noteId, todoTxt) {
     var todo = {
         id: utilService.makeId(10),
         txt: todoTxt,
-        doneAt: null
+        doneAt: null,
+        isChecked: false
     }
     var noteIdx = getNoteById(noteId)
     notes[noteIdx].info.todos.push(todo)
@@ -334,7 +335,6 @@ function pinNote(noteIdx) {
     } else {
         notes[noteIdx].isPinned = !notes[noteIdx].isPinned
         eventBus.$emit('show-msg', `Note pinned successfully!`)
-
     }
     utilService.storeToStorage(NOTES_STORAGE_KEY, notes);
 }
@@ -346,8 +346,6 @@ function saveBgColor(noteId, color) {
 }
 
 function updateTodoCheckState(todoId, noteId) {
-    console.log(todoId, noteId);
-
     var noteIdx = getNoteById(noteId)
     var todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId);
     notes[noteIdx].info.todos[todoIdx].isChecked = !notes[noteIdx].info.todos[todoIdx].isChecked;

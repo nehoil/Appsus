@@ -54,8 +54,12 @@ ul {
     border-bottom: 1px solid lightgrey;
 }
 
+input[type="checkbox"]:checked {
+    filter: invert(80%) hue-rotate(-68deg) brightness(2.5);
+}
+
 input[type="checkbox"] {
-    background-color: lime;
+    filter: invert(0%) hue-rotate(-68deg) brightness(2.5);
 }
 
 .note-todo .opts-container {

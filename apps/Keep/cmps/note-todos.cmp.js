@@ -16,7 +16,8 @@ export default {
          <ul class="todos-list" v-if="info.todos.length">
             <li  v-for="todo in info.todos" :key="todo.id">
                 <div class="todo-checkbox-container">
-                 <input type="checkbox" v-if = "todo.isChecked" @change="updateTodoCheckState(todo.id)" checked>
+                    <label for="checkbox"></label>
+                 <input type="checkbox" v-if = "todo.isChecked" @change="updateTodoCheckState(todo.id)"  name="checkbox" class="check-box" checked>
                  <input type="checkbox" v-else @change="updateTodoCheckState(todo.id)">
                 <p contentEditable="true"  @blur="saveTodo(info.id,todo.id,$event)" :class="{ checked: todo.isChecked }">{{todo.txt}}</p>
                 </div>
