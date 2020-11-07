@@ -52,10 +52,11 @@ var gDefaultNotes = [{
             id: 103,
             title: "My Todo list:",
             todos: [
-                { id: 201, txt: "Buy bananas", doneAt: null, isChecked: false },
-                { id: 202, txt: "Go for a walk", doneAt: 187111111, isChecked: false },
+                { id: 201, txt: "Buy bananas", doneAt: null, isChecked: true },
+                { id: 202, txt: "Go for a walk", doneAt: 187111111, isChecked: true },
+                { id: 220, txt: "Go for a walk", doneAt: 187111111, isChecked: false },
             ],
-            bgColor: '#f4abc4',
+            bgColor: '#f4f4f2',
         },
 
     },
@@ -89,8 +90,8 @@ var gDefaultNotes = [{
             title: "Remind Nimrod:",
             todos: [
                 { id: 203, txt: "Feed the fish once a day", doneAt: null, isChecked: false },
-                { id: 204, txt: "Water the plants", doneAt: null, isChecked: false },
-                { id: 205, txt: "Take out Lulu three times a day", doneAt: null, isChecked: false }
+                { id: 204, txt: "Water the plants", doneAt: null, isChecked: true },
+                { id: 205, txt: "Take out Lulu three times a day", doneAt: null, isChecked: true }
             ],
             bgColor: '#f4f4f2',
         },
@@ -113,7 +114,7 @@ var gDefaultNotes = [{
         info: {
             id: 108,
             title: "The plates will still shift, and the clouds will still spew, the sun will slowly rise and the moon will follow too. - 'Amy O Connor'",
-            bgColor: '#ffdd93',
+            bgColor: '#fff',
         },
 
     },
@@ -158,7 +159,7 @@ var gDefaultNotes = [{
         info: {
             id: 111,
             title: "I wish myself that 2021 will be a year of dreams come true and significant personal and professional growth.",
-            bgColor: '#ffdd93',
+            bgColor: '#fff',
         },
 
     },
